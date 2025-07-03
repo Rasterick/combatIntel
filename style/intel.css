@@ -1,0 +1,144 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.jpg'); /* Placeholder for a space background */
+    background-size: cover;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items with space between */
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.header-title {
+    font-size: 24px;
+    color: #00aaff;
+    margin-right: 20px;
+}
+
+.intel-form {
+    display: flex;
+    align-items: center;
+}
+
+.intel-input {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #333;
+    background-color: #2a2a2a;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.intel-button {
+    padding: 8px 15px;
+    border: 1px solid #00aaff;
+    background-color: #0077cc;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.intel-button:hover {
+    background-color: #0055aa;
+}
+
+.top-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.top-nav .menu-item {
+    position: relative;
+    margin-left: 20px;
+}
+
+.top-nav .menu-item a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.top-nav .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-nav .menu-item:hover .dropdown {
+    display: block;
+}
+
+.top-nav .dropdown li a {
+    padding: 10px 20px;
+    color: #ccc;
+}
+
+.top-nav .dropdown li a:hover {
+    color: #00aaff;
+}
+
+.main-content {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    align-items: flex-start; /* Align columns to the top */
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.info-box {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    height: 40vh; /* Fixed height based on viewport */
+}
+
+.info-box-header {
+    background-color: #2a2a2a;
+    padding: 10px;
+    font-size: 18px;
+    color: #00aaff;
+    border-bottom: 1px solid #333;
+}
+
+.info-box-content {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto; /* Add vertical scroll for overflow */
+}
+
+.info-box-content p {
+    margin: 5px 0; /* Reduced line spacing */
+}
+
+.info-label {
+    color: #00aaff; /* Blue color for labels */
+    font-weight: bold;
+}
+
+.full-height {
+    height: calc(80vh + 20px); /* 2x box height + gap */
+}

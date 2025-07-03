@@ -1,0 +1,4140 @@
+[
+  {
+    "killmail_id": 127263188,
+    "zkb": {
+      "locationID": 40487203,
+      "hash": "4e38601d635df2d944e5b8aa27152832ba566768",
+      "fittedValue": 4524391.44,
+      "droppedValue": 2602494.64,
+      "destroyedValue": 1921896.8,
+      "totalValue": 4524391.44,
+      "points": 1,
+      "npc": true,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:1",
+        "npc",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126680493,
+    "zkb": {
+      "locationID": 40464668,
+      "hash": "67e3f3c2f32cedfb0ab26933d23e7fbeea97f024",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126680472,
+    "zkb": {
+      "locationID": 40464668,
+      "hash": "bb4feabd49357279a16c20b75161f1326c1f9ec9",
+      "fittedValue": 699408304,
+      "droppedValue": 149362511.03,
+      "destroyedValue": 569402191.83,
+      "totalValue": 718764702.86,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126549638,
+    "zkb": {
+      "locationID": 40433644,
+      "hash": "55568c49c14b75ffc0ebe6b10e59b6ccf90b5c3d",
+      "fittedValue": 69766904.5,
+      "droppedValue": 9783751.71,
+      "destroyedValue": 63211892.32,
+      "totalValue": 72995644.03,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126549609,
+    "zkb": {
+      "locationID": 40433644,
+      "hash": "d84b0291278260969248b099e7130862ce34c1b0",
+      "fittedValue": 30878559.97,
+      "droppedValue": 12781347.65,
+      "destroyedValue": 24236536.67,
+      "totalValue": 37017884.32,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126549345,
+    "zkb": {
+      "locationID": 40433644,
+      "hash": "be7a157bde1cfb38b6070c7901ea57911a4de982",
+      "fittedValue": 11463696.9,
+      "droppedValue": 51973,
+      "destroyedValue": 11411723.9,
+      "totalValue": 11463696.9,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126549272,
+    "zkb": {
+      "locationID": 40433644,
+      "hash": "d50848f933b10f9b8b7acf66787c2b6a50a40bff",
+      "fittedValue": 30878559.97,
+      "droppedValue": 13418024.68,
+      "destroyedValue": 27581357.14,
+      "totalValue": 40999381.82,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126549269,
+    "zkb": {
+      "locationID": 40433644,
+      "hash": "0f1932c173b61a8d7b835fe3cc385cd5e85c0973",
+      "fittedValue": 32355969.45,
+      "droppedValue": 6849987.31,
+      "destroyedValue": 25505982.14,
+      "totalValue": 32355969.45,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126396296,
+    "zkb": {
+      "locationID": 40483921,
+      "hash": "418ff6b71c284c35131914d74d76703b2f3c8128",
+      "fittedValue": 370112157.17,
+      "droppedValue": 45549387.71,
+      "destroyedValue": 375915449.71,
+      "totalValue": 421464837.42,
+      "points": 18,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 126274676,
+    "zkb": {
+      "locationID": 40449418,
+      "hash": "a0e8061e1703e9175f3b69af97f17867e7ca5ba4",
+      "fittedValue": 259945107.06,
+      "droppedValue": 37402243.76,
+      "destroyedValue": 234037177.49,
+      "totalValue": 271439421.25,
+      "points": 3,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125864736,
+    "zkb": {
+      "locationID": 40469782,
+      "hash": "14ce0cf8525f7ac932280e11c6c0171e5c5e95a5",
+      "fittedValue": 81112449.45,
+      "droppedValue": 13156882.54,
+      "destroyedValue": 76759624.61,
+      "totalValue": 89916507.15,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125864659,
+    "zkb": {
+      "locationID": 40469787,
+      "hash": "15beda0e9a602f51d0cb311b8f3a0319b09ba951",
+      "fittedValue": 109432415.36,
+      "droppedValue": 13110719.59,
+      "destroyedValue": 109093420.91,
+      "totalValue": 122204140.5,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125862395,
+    "zkb": {
+      "locationID": 40433642,
+      "hash": "44825c0fc111c9e53eb04deea3572e4e0e0b901f",
+      "fittedValue": 242721129.32,
+      "droppedValue": 15330615.15,
+      "destroyedValue": 235124977.22,
+      "totalValue": 250455592.37,
+      "points": 5,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125862386,
+    "zkb": {
+      "locationID": 40433642,
+      "hash": "396d7f026856ee098c3611bcc5057d6fe937caf5",
+      "fittedValue": 242721129.32,
+      "droppedValue": 20146933.43,
+      "destroyedValue": 230308658.94,
+      "totalValue": 250455592.37,
+      "points": 6,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125773916,
+    "zkb": {
+      "locationID": 40396376,
+      "hash": "5a1d035b3e944476519cc6ab0865ef2ab3d9874c",
+      "fittedValue": 491310260.32,
+      "droppedValue": 23653764.41,
+      "destroyedValue": 478914392.03,
+      "totalValue": 502568156.44,
+      "points": 3,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125697525,
+    "zkb": {
+      "locationID": 40433648,
+      "hash": "7d76acf27e434745806939a2e741a950abbae462",
+      "fittedValue": 93566046.52,
+      "droppedValue": 12405465.71,
+      "destroyedValue": 86413152.16,
+      "totalValue": 98818617.87,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125631155,
+    "zkb": {
+      "locationID": 40468859,
+      "hash": "42f5e03c6d25f5abb6e714fb5306f709eb678910",
+      "fittedValue": 83226627.7,
+      "droppedValue": 13749266.6,
+      "destroyedValue": 76124224.79,
+      "totalValue": 89873491.39,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125630974,
+    "zkb": {
+      "locationID": 40433646,
+      "hash": "7e32e814ce1d374e8a4ca7b4b210e242c5f88ac9",
+      "fittedValue": 318196470.91,
+      "droppedValue": 31453606.99,
+      "destroyedValue": 303537697.76,
+      "totalValue": 334991304.75,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125630947,
+    "zkb": {
+      "locationID": 40433646,
+      "hash": "50898c2344c647a9d144615b7503853703dfc094",
+      "fittedValue": 84721022.48,
+      "droppedValue": 11271478.74,
+      "destroyedValue": 79354621.5,
+      "totalValue": 90626100.24,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125479795,
+    "zkb": {
+      "locationID": 40433643,
+      "hash": "1d5c443f748824c8fb6e9b3c69ce6c400c3126ce",
+      "fittedValue": 976510441.25,
+      "droppedValue": 59229901.22,
+      "destroyedValue": 955393269.7,
+      "totalValue": 1014623170.92,
+      "points": 21,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space",
+        "isk:1b+"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125479674,
+    "zkb": {
+      "locationID": 40433643,
+      "hash": "2c90b135fa1197d0ad829051c67c4c1fcfa74189",
+      "fittedValue": 433389743.89,
+      "droppedValue": 63642390.76,
+      "destroyedValue": 386414207.15,
+      "totalValue": 450056597.91,
+      "points": 2,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125404776,
+    "zkb": {
+      "locationID": 40376056,
+      "hash": "2c47ce2c1c4f6f5290ebe18d8a11b995830ccda5",
+      "fittedValue": 1964623.31,
+      "droppedValue": 706797.68,
+      "destroyedValue": 1370432.77,
+      "totalValue": 2077230.45,
+      "points": 1,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "solo",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125249840,
+    "zkb": {
+      "locationID": 40429491,
+      "hash": "7053800613b7402c1a42a94d2e2b495f6afb678c",
+      "fittedValue": 257817802.57,
+      "droppedValue": 167953160.92,
+      "destroyedValue": 178921249.77,
+      "totalValue": 346874410.69,
+      "points": 6,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125102909,
+    "zkb": {
+      "locationID": 40433642,
+      "hash": "62a07e2371f587830d4cfdb2d9a61a8c39df183e",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 97648989.73,
+      "totalValue": 97648989.73,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 125102906,
+    "zkb": {
+      "locationID": 40433642,
+      "hash": "b5fd08f93d316bc24d632e78c7efb4a790050f37",
+      "fittedValue": 292774256.07,
+      "droppedValue": 26182538.07,
+      "destroyedValue": 298147996.63,
+      "totalValue": 324330534.7,
+      "points": 12,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124917562,
+    "zkb": {
+      "locationID": 40433651,
+      "hash": "8ac0a93c3d12ed56337b5362e813eba22d03ab61",
+      "fittedValue": 3722213.5,
+      "droppedValue": 0,
+      "destroyedValue": 3722213.5,
+      "totalValue": 3722213.5,
+      "points": 1,
+      "npc": false,
+      "solo": true,
+      "awox": true,
+      "labels": [
+        "cat:6",
+        "solo",
+        "pvp",
+        "awox",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124917536,
+    "zkb": {
+      "locationID": 40433651,
+      "hash": "8e237622a148a95c1cfd77e4f36fe59dcc59ec33",
+      "fittedValue": 158982.93,
+      "droppedValue": 0,
+      "destroyedValue": 158982.93,
+      "totalValue": 158982.93,
+      "points": 1,
+      "npc": false,
+      "solo": true,
+      "awox": true,
+      "labels": [
+        "cat:6",
+        "solo",
+        "pvp",
+        "awox",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124862009,
+    "zkb": {
+      "locationID": 40438217,
+      "hash": "73a82f67649269b25c424a287cff4e79ae7413a9",
+      "fittedValue": 18606412.82,
+      "droppedValue": 2282172.03,
+      "destroyedValue": 19381949.79,
+      "totalValue": 21664121.82,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124861987,
+    "zkb": {
+      "locationID": 40438217,
+      "hash": "13b8138111cbf9c15f6250e46daf80dd71417d7e",
+      "fittedValue": 684971202.75,
+      "droppedValue": 103912686.28,
+      "destroyedValue": 588285121.5,
+      "totalValue": 692197807.78,
+      "points": 9,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124778229,
+    "zkb": {
+      "locationID": 40407302,
+      "hash": "05d2d5b60cc9d48a4eb2a086448ab5968c64b52d",
+      "fittedValue": 395324471.26,
+      "droppedValue": 23376032.06,
+      "destroyedValue": 381052880.94,
+      "totalValue": 404428913,
+      "points": 5,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124778214,
+    "zkb": {
+      "locationID": 40407302,
+      "hash": "3199f8dad71f2e2912fe8cf30e6186edaa247919",
+      "fittedValue": 466430358.36,
+      "droppedValue": 84447130.04,
+      "destroyedValue": 415429529.23,
+      "totalValue": 499876659.27,
+      "points": 7,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124778198,
+    "zkb": {
+      "locationID": 40407302,
+      "hash": "d66d6d78b1065f20cb1e8ca992e44500447def35",
+      "fittedValue": 49157749.91,
+      "droppedValue": 34208801.58,
+      "destroyedValue": 30040260.39,
+      "totalValue": 64249061.97,
+      "points": 4,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124076141,
+    "zkb": {
+      "locationID": 40424223,
+      "hash": "3da419c652a78db7bc06aec0db98eeb567761929",
+      "fittedValue": 46655502.28,
+      "droppedValue": 8432264.96,
+      "destroyedValue": 40714073.85,
+      "totalValue": 49146338.81,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124023613,
+    "zkb": {
+      "locationID": 40433643,
+      "hash": "aed63915888d569ed8876db7c3e0f9a83dc7c17d",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 3243345.95,
+      "totalValue": 3243345.95,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124023604,
+    "zkb": {
+      "locationID": 40433643,
+      "hash": "4570fe64aca138ae431e749a864a24704c81915f",
+      "fittedValue": 883049606.19,
+      "droppedValue": 90588234.21,
+      "destroyedValue": 815604635.44,
+      "totalValue": 906192869.65,
+      "points": 2,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 124023561,
+    "zkb": {
+      "locationID": 40473855,
+      "hash": "66ba58f141f76e1273cc5d4b6f03ea6c29114678",
+      "fittedValue": 84842766.52,
+      "droppedValue": 11782976.47,
+      "destroyedValue": 74513844.66,
+      "totalValue": 86296821.13,
+      "points": 3,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 123809973,
+    "zkb": {
+      "locationID": 40433642,
+      "hash": "55be7c8380f47638947f063e123cec6d5d951eab",
+      "fittedValue": 77075526.42,
+      "droppedValue": 39411782.13,
+      "destroyedValue": 52541800.33,
+      "totalValue": 91953582.46,
+      "points": 2,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 123800778,
+    "zkb": {
+      "locationID": 40345210,
+      "hash": "e11cee8e143a4ac4f6c06e21290ddbe25ebbe200",
+      "fittedValue": 470497.39,
+      "droppedValue": 0,
+      "destroyedValue": 470497.39,
+      "totalValue": 470497.39,
+      "points": 1,
+      "npc": true,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:1",
+        "npc",
+        "loc:highsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 122826018,
+    "zkb": {
+      "locationID": 40433652,
+      "hash": "48ded2c2d7da13e11b95ad24b1bb0a42a696a864",
+      "fittedValue": 33954759.81,
+      "droppedValue": 8291160.58,
+      "destroyedValue": 30247365.75,
+      "totalValue": 38538526.33,
+      "points": 6,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "solo",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 122529268,
+    "zkb": {
+      "locationID": 40404102,
+      "hash": "3e561e0aa96b80d1e27cfe2460e5fe50d9b41dce",
+      "fittedValue": 5554597.08,
+      "droppedValue": 935150.52,
+      "destroyedValue": 4924333.94,
+      "totalValue": 5859484.46,
+      "points": 4,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "solo",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 122045610,
+    "zkb": {
+      "locationID": 40433652,
+      "hash": "10660ac59014f8c0df89257db81802505eee81ce",
+      "fittedValue": 368782188.25,
+      "droppedValue": 160268906.29,
+      "destroyedValue": 249620834,
+      "totalValue": 409889740.29,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121848560,
+    "zkb": {
+      "locationID": 40446914,
+      "hash": "2c937bbed97be3df3aa99ffa5b91d6c7c6adc739",
+      "fittedValue": 427117235.42,
+      "droppedValue": 205149520.78,
+      "destroyedValue": 241635553.79,
+      "totalValue": 446785074.57,
+      "points": 34,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121742121,
+    "zkb": {
+      "locationID": 40374298,
+      "hash": "cf3f1bd9da55ed190eeeca4d9e3cba0132ce58eb",
+      "fittedValue": 229621975.08,
+      "droppedValue": 24670460.88,
+      "destroyedValue": 216920250.87,
+      "totalValue": 241590711.75,
+      "points": 20,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121713178,
+    "zkb": {
+      "locationID": 40433649,
+      "hash": "44ac68ba112909c6099eed1088ff5413ec031a31",
+      "fittedValue": 99744958.29,
+      "droppedValue": 15216158.99,
+      "destroyedValue": 86926531.7,
+      "totalValue": 102142690.69,
+      "points": 29,
+      "npc": false,
+      "solo": true,
+      "awox": true,
+      "labels": [
+        "cat:6",
+        "solo",
+        "pvp",
+        "awox",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121697450,
+    "zkb": {
+      "locationID": 40433642,
+      "hash": "d1eff92539b27f75ffacea2100f23a27cd967105",
+      "fittedValue": 37918529.75,
+      "droppedValue": 0,
+      "destroyedValue": 37918529.75,
+      "totalValue": 37918529.75,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:22",
+        "#:1",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121529863,
+    "zkb": {
+      "locationID": 40385857,
+      "hash": "1646e31b8ed0628078e4f2faf93b6b6be3be61c5",
+      "fittedValue": 30083656.69,
+      "droppedValue": 14442933.48,
+      "destroyedValue": 15717880.01,
+      "totalValue": 30160813.49,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121529678,
+    "zkb": {
+      "locationID": 40385857,
+      "hash": "75aecb068bd73c137c01bfcfbcc0539884ca8179",
+      "fittedValue": 73234054.53,
+      "droppedValue": 42647776.03,
+      "destroyedValue": 36339463.33,
+      "totalValue": 78987239.36,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121407227,
+    "zkb": {
+      "locationID": 40433643,
+      "hash": "1d7373ae6bc1c00ec998891dbb748120383680d5",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121279223,
+    "zkb": {
+      "locationID": 40439577,
+      "hash": "08616d483ca9a2857d2af0d43bc4888004bc1807",
+      "fittedValue": 59846378.84,
+      "droppedValue": 10070707.79,
+      "destroyedValue": 53009933.03,
+      "totalValue": 63080640.82,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 121034183,
+    "zkb": {
+      "locationID": 40433651,
+      "hash": "c39953d485af7be8d3a7bd615d77e22cb9c28b46",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 120996417,
+    "zkb": {
+      "locationID": 40433646,
+      "hash": "e9b1eaf47c543c82bd1b03298089b2b95cf118dc",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 120996394,
+    "zkb": {
+      "locationID": 40433646,
+      "hash": "e4db455b0d2a03d7856a79489e2d04172999a86d",
+      "fittedValue": 101516803.78,
+      "droppedValue": 18110511.95,
+      "destroyedValue": 96803615.44,
+      "totalValue": 114914127.39,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:10+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 120532444,
+    "zkb": {
+      "locationID": 40409596,
+      "hash": "0e9ca1a9bb8d77e5284f591d4ed3ecabcba0f069",
+      "fittedValue": 70088112.74,
+      "droppedValue": 5411529.03,
+      "destroyedValue": 70886362.3,
+      "totalValue": 76297891.33,
+      "points": 6,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 120451426,
+    "zkb": {
+      "locationID": 40439844,
+      "hash": "dfed439cf6fbc8d4301f3dd413da5cc5f98ea7eb",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 120451409,
+    "zkb": {
+      "locationID": 40439844,
+      "hash": "1757c51c8eede3b07341bb7d12bbc0740026b7cf",
+      "fittedValue": 346923357.53,
+      "droppedValue": 43945781.04,
+      "destroyedValue": 312082315.06,
+      "totalValue": 356028096.1,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 120186302,
+    "zkb": {
+      "locationID": 40358043,
+      "hash": "b48f395bd32528f8bc9dab996c2395e348e49ebc",
+      "fittedValue": 1124100.25,
+      "droppedValue": 171535.3,
+      "destroyedValue": 1057900.95,
+      "totalValue": 1229436.25,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 120079823,
+    "zkb": {
+      "locationID": 40487865,
+      "hash": "15570bdad450d40bfdab535e115e1f033496e7f4",
+      "fittedValue": 22228.67,
+      "droppedValue": 0,
+      "destroyedValue": 22228.67,
+      "totalValue": 22228.67,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119989059,
+    "zkb": {
+      "locationID": 40439848,
+      "hash": "b50c76551981364a12bbbd4bc6b20363ba5e6f6e",
+      "fittedValue": 68997835.55,
+      "droppedValue": 4349434.26,
+      "destroyedValue": 68377907.69,
+      "totalValue": 72727341.95,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119988777,
+    "zkb": {
+      "locationID": 40439848,
+      "hash": "b21d9623fd69b568a5083d45f0185806c0b91677",
+      "fittedValue": 102218883.35,
+      "droppedValue": 19947335,
+      "destroyedValue": 84532003.65,
+      "totalValue": 104479338.65,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119988674,
+    "zkb": {
+      "locationID": 40406131,
+      "hash": "117f37216da9a5e2199f4b8b337cbb662a4c774a",
+      "fittedValue": 68827125.26,
+      "droppedValue": 7732021.13,
+      "destroyedValue": 67882389.09,
+      "totalValue": 75614410.22,
+      "points": 5,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119704420,
+    "zkb": {
+      "locationID": 40439848,
+      "hash": "547337c6f972b28e7d8aca027dcc4e5670507f36",
+      "fittedValue": 85016855.76,
+      "droppedValue": 7959375.95,
+      "destroyedValue": 82371092.04,
+      "totalValue": 90330467.99,
+      "points": 17,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119640959,
+    "zkb": {
+      "locationID": 40439846,
+      "hash": "cae3a54a224229924d870444d5204af74411f9a6",
+      "fittedValue": 469414755.61,
+      "droppedValue": 11757252.9,
+      "destroyedValue": 461926678.77,
+      "totalValue": 473683931.67,
+      "points": 3,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119640957,
+    "zkb": {
+      "locationID": 40439846,
+      "hash": "d073c3c92a0bb5c739436c3d50bb3b65a538987d",
+      "fittedValue": 36209607.78,
+      "droppedValue": 11723251.88,
+      "destroyedValue": 28419265.18,
+      "totalValue": 40142517.06,
+      "points": 3,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119337618,
+    "zkb": {
+      "locationID": 40418548,
+      "hash": "f068578f19e174860cdceb89dae9bcd9a4466e71",
+      "fittedValue": 385361614.4,
+      "droppedValue": 29826830.16,
+      "destroyedValue": 361183666.57,
+      "totalValue": 391010496.73,
+      "points": 5,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119239350,
+    "zkb": {
+      "locationID": 40410449,
+      "hash": "99623f9d7b053e70d0c65f5ef180c09be23b2108",
+      "fittedValue": 207582057.56,
+      "droppedValue": 13841050.56,
+      "destroyedValue": 204234898.06,
+      "totalValue": 218075948.62,
+      "points": 18,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 119233920,
+    "zkb": {
+      "locationID": 40415882,
+      "hash": "77b552195b73621a0e4f8f10c3baf80b351fa2ed",
+      "fittedValue": 477740711.69,
+      "droppedValue": 274550354.04,
+      "destroyedValue": 262481362.01,
+      "totalValue": 537031716.05,
+      "points": 7,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118873297,
+    "zkb": {
+      "locationID": 40362270,
+      "hash": "540ccbad99ed320f258e6eac743ec91e391bbd33",
+      "fittedValue": 651569307.02,
+      "droppedValue": 169499795.93,
+      "destroyedValue": 503635134.73,
+      "totalValue": 673134930.66,
+      "points": 24,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118638339,
+    "zkb": {
+      "locationID": 40402052,
+      "hash": "9df5a72f36a7b0bedb3ba24b672c8bf1aa9f5ab4",
+      "fittedValue": 1749522.33,
+      "droppedValue": 440071.83,
+      "destroyedValue": 1331314.1,
+      "totalValue": 1771385.93,
+      "points": 1,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "solo",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118341598,
+    "zkb": {
+      "locationID": 40439752,
+      "hash": "965d27b39c2e1538c0bb8af42fd152c5477a28b2",
+      "fittedValue": 10000,
+      "droppedValue": 0,
+      "destroyedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:1",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118067246,
+    "zkb": {
+      "locationID": 40405731,
+      "hash": "44f5d28871842ed02836ebc42585194e6fb78ac9",
+      "fittedValue": 6477307.69,
+      "droppedValue": 0,
+      "destroyedValue": 6477307.69,
+      "totalValue": 6477307.69,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:23",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118067225,
+    "zkb": {
+      "locationID": 40405731,
+      "hash": "5ba87b2b5ee872b46326682bf2e7346e5f9b1d1e",
+      "fittedValue": 8360322.68,
+      "droppedValue": 0,
+      "destroyedValue": 8360322.68,
+      "totalValue": 8360322.68,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:23",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118067193,
+    "zkb": {
+      "locationID": 40405731,
+      "hash": "92791fe7f8075f8554fa1ac24e0c4018ce49053c",
+      "fittedValue": 8360322.68,
+      "droppedValue": 0,
+      "destroyedValue": 8360322.68,
+      "totalValue": 8360322.68,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:23",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118067153,
+    "zkb": {
+      "locationID": 40405731,
+      "hash": "fc9711da60849814402c2d65854d1a5fc81f2d79",
+      "fittedValue": 9063842.59,
+      "droppedValue": 0,
+      "destroyedValue": 9063842.59,
+      "totalValue": 9063842.59,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:23",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118067116,
+    "zkb": {
+      "locationID": 40405731,
+      "hash": "0f84b4cea469e50ee660ba5322306fdd0c98c788",
+      "fittedValue": 7516946.66,
+      "droppedValue": 0,
+      "destroyedValue": 7516946.66,
+      "totalValue": 7516946.66,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:23",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 118019425,
+    "zkb": {
+      "locationID": 40439761,
+      "hash": "35aa3430c11c24213a435149f03d2ff956b9c9ed",
+      "fittedValue": 69426502.98,
+      "droppedValue": 4924970.78,
+      "destroyedValue": 70813220.35,
+      "totalValue": 75738191.13,
+      "points": 2,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 117721969,
+    "zkb": {
+      "locationID": 40437258,
+      "hash": "d63645990a7c174b683d88e59d92b8947818af73",
+      "fittedValue": 75267527.22,
+      "droppedValue": 31341366.53,
+      "destroyedValue": 77189838.42,
+      "totalValue": 108531204.95,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:5+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 117685128,
+    "zkb": {
+      "locationID": 40439817,
+      "hash": "c66750e07c3171b9077e3d4779ac357eb51b7cc8",
+      "fittedValue": 76270846.43,
+      "droppedValue": 21386698.66,
+      "destroyedValue": 74393752.98,
+      "totalValue": 95780451.64,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 117685083,
+    "zkb": {
+      "locationID": 40439817,
+      "hash": "bba282c070c95a097af7265d3525036e9beb67dc",
+      "fittedValue": 108392106.31,
+      "droppedValue": 36160998.88,
+      "destroyedValue": 82715598.61,
+      "totalValue": 118876597.49,
+      "points": 1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "#:2+",
+        "pvp",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 83837240,
+    "zkb": {
+      "locationID": 40416501,
+      "hash": "845a2aaf60e29af7c5443fe20630db53c46d29e3",
+      "fittedValue": 228381571.45,
+      "totalValue": 232908158.87,
+      "points": 78,
+      "destroyedValue": 224047683.54,
+      "droppedValue": 8860475.33,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 83835078,
+    "zkb": {
+      "locationID": 40369872,
+      "hash": "9169adb20fc097a64a6b29829dda91590fa48661",
+      "fittedValue": 755035.16,
+      "totalValue": 14878429.27,
+      "points": 1,
+      "destroyedValue": 9046490.05,
+      "droppedValue": 5831939.22,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 70440602,
+    "zkb": {
+      "locationID": 40375189,
+      "hash": "c3d6a46b9464e471958c1880820e5205b0a49c51",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 70440587,
+    "zkb": {
+      "locationID": 40375189,
+      "hash": "c4954cbdacc3d2da02ae6e9abe269fcbaa90c82e",
+      "fittedValue": 825554.54,
+      "totalValue": 882429.26,
+      "points": 1,
+      "destroyedValue": 596702.17,
+      "droppedValue": 285727.09,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 68935380,
+    "zkb": {
+      "locationID": 40451866,
+      "hash": "e20f3c194ff07d0781e5e1d66627d8f7b6ffdfc3",
+      "fittedValue": 2292012.46,
+      "totalValue": 2292012.46,
+      "points": 6,
+      "destroyedValue": 656942.43,
+      "droppedValue": 1635070.03,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 68934948,
+    "zkb": {
+      "locationID": 40451866,
+      "hash": "6c1f216a33bc2a2f4db03806e7f7bbd783059a9a",
+      "fittedValue": 7515906.06,
+      "totalValue": 14094707.88,
+      "points": 1,
+      "destroyedValue": 11500871.94,
+      "droppedValue": 2593835.94,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:22",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 68934710,
+    "zkb": {
+      "locationID": 40451866,
+      "hash": "101dc3f1671929b55c55b50e5e1b813b467d6551",
+      "fittedValue": 1119729.35,
+      "totalValue": 1119729.35,
+      "points": 1,
+      "destroyedValue": 1119729.35,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 64353513,
+    "zkb": {
+      "locationID": 40404949,
+      "hash": "591a7d91f9ca9cf0cb2d69292410038925d3cda3",
+      "fittedValue": 1548211.42,
+      "totalValue": 1548211.42,
+      "points": 1,
+      "destroyedValue": 1548211.42,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:22",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 64319464,
+    "zkb": {
+      "locationID": 40374338,
+      "hash": "671315c80161f054bc19d6be2e12f1b39f18fb83",
+      "fittedValue": 437677668.43,
+      "totalValue": 486260930.43,
+      "points": 22,
+      "destroyedValue": 432412997.21,
+      "droppedValue": 53847933.22,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54507235,
+    "zkb": {
+      "locationID": 40404946,
+      "hash": "f12dc329af0c34979f60a6656837369817530700",
+      "fittedValue": 10000,
+      "totalValue": 37607899.61,
+      "points": 1,
+      "destroyedValue": 37607899.61,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54507233,
+    "zkb": {
+      "locationID": 40404946,
+      "hash": "d68c72d6083bfb7a07bc620b162dd1b41115caf4",
+      "fittedValue": 1924352.94,
+      "totalValue": 42046621.7,
+      "points": 12,
+      "destroyedValue": 20054721.12,
+      "droppedValue": 21991900.58,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54498713,
+    "zkb": {
+      "locationID": 40451102,
+      "hash": "ba492a064e5932af6df89e357c3128be78644a23",
+      "fittedValue": 10000,
+      "totalValue": 30796370.58,
+      "points": 1,
+      "destroyedValue": 30796370.58,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54498711,
+    "zkb": {
+      "locationID": 40451102,
+      "hash": "fb835aeaf0b3dec8c3aeceef6e696bc1c5e620ae",
+      "fittedValue": 10000,
+      "totalValue": 91236208.84,
+      "points": 1,
+      "destroyedValue": 91236208.84,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54498705,
+    "zkb": {
+      "locationID": 40451102,
+      "hash": "a24681d1ca9b75c548e503871f03cd972ba37072",
+      "fittedValue": 1956298.02,
+      "totalValue": 2046576.18,
+      "points": 1,
+      "destroyedValue": 1739067.09,
+      "droppedValue": 307509.09,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54367311,
+    "zkb": {
+      "locationID": 40373309,
+      "hash": "33192cb823161d11b150f3718a89a927e4ffb87e",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54367279,
+    "zkb": {
+      "locationID": 40373309,
+      "hash": "61f0ab4f81249d81f2bc1cc9d7c81c95f62c448d",
+      "fittedValue": 51347158.25,
+      "totalValue": 51952817.31,
+      "points": 32,
+      "destroyedValue": 47031478.08,
+      "droppedValue": 4921339.23,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54139739,
+    "zkb": {
+      "locationID": 40404948,
+      "hash": "71c7e5ae362f28056e1c0ddab000a7c4c7e681dd",
+      "fittedValue": 10000,
+      "totalValue": 40100,
+      "points": 1,
+      "destroyedValue": 40100,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54139735,
+    "zkb": {
+      "locationID": 40404948,
+      "hash": "dbe733ee433d62942dafcbf7e72e3bf97a87e425",
+      "fittedValue": 2763361.18,
+      "totalValue": 3321342.52,
+      "points": 1,
+      "destroyedValue": 2630876.8,
+      "droppedValue": 690465.72,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54135567,
+    "zkb": {
+      "locationID": 40404945,
+      "hash": "a157991b66930bd118c8bfabb9ea3a82f856432d",
+      "fittedValue": 10000,
+      "totalValue": 1084146.35,
+      "points": 1,
+      "destroyedValue": 1084146.35,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 54135556,
+    "zkb": {
+      "locationID": 40404945,
+      "hash": "c4ed701098e072542411439ecdbf37f256477c12",
+      "fittedValue": 3197012.03,
+      "totalValue": 5711858,
+      "points": 1,
+      "destroyedValue": 4852412.63,
+      "droppedValue": 859445.37,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 53799788,
+    "zkb": {
+      "locationID": 40374053,
+      "hash": "a814c4d771400687f7fad6b81a2e49c904559842",
+      "fittedValue": 567895395.03,
+      "totalValue": 617004665.91,
+      "points": 5,
+      "destroyedValue": 517796583.6,
+      "droppedValue": 99208082.31,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 53483400,
+    "zkb": {
+      "locationID": 50006126,
+      "hash": "569d98a23e77b063cd6aa714770d9cb5e4da9b1c",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 53483214,
+    "zkb": {
+      "locationID": 50016396,
+      "hash": "adb4962f69cf72a6fd5958a9c392fbe95705d849",
+      "fittedValue": 23735688.17,
+      "totalValue": 25663807.62,
+      "points": 1,
+      "destroyedValue": 18652750.48,
+      "droppedValue": 7011057.14,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 53483182,
+    "zkb": {
+      "locationID": 50016396,
+      "hash": "0b3c44bd10d95437bb549bdb975cce1fce85aac8",
+      "fittedValue": 110407890.79,
+      "totalValue": 114863550.29,
+      "points": 1,
+      "destroyedValue": 102885122.72,
+      "droppedValue": 11978427.57,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:25+",
+        "#:10+",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 53250872,
+    "zkb": {
+      "locationID": 40401261,
+      "hash": "925424a6bab31e6f497eebdad080a3c4dff1f964",
+      "fittedValue": 700393724.85,
+      "totalValue": 709051144.33,
+      "points": 6,
+      "destroyedValue": 481748472.62,
+      "droppedValue": 227302671.71,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52806841,
+    "zkb": {
+      "locationID": 40347963,
+      "hash": "10f7526a2a6320a648e013b9197481d8ff11b914",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52806730,
+    "zkb": {
+      "locationID": 40347963,
+      "hash": "25536a3ab8196cd7c461eed0bdb38e9b3c768495",
+      "fittedValue": 35002702.46,
+      "totalValue": 36275015.14,
+      "points": 5,
+      "destroyedValue": 32112955.64,
+      "droppedValue": 4162059.5,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52806716,
+    "zkb": {
+      "locationID": 40347963,
+      "hash": "58363bcafdbae5a145fb8fa4cb04bcce564d2785",
+      "fittedValue": 247139.45,
+      "totalValue": 247139.45,
+      "points": 1,
+      "destroyedValue": 247139.45,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52300954,
+    "zkb": {
+      "locationID": 50003785,
+      "hash": "ea8aa27172e48fb1264fde31c5f429a96d2a9b22",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52300920,
+    "zkb": {
+      "locationID": 50003785,
+      "hash": "780ce25f73066db284ed332ff201d0c886b4962e",
+      "fittedValue": 324990345.63,
+      "totalValue": 326876915.38,
+      "points": 1,
+      "destroyedValue": 313810498.18,
+      "droppedValue": 13066417.2,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52300458,
+    "zkb": {
+      "locationID": 50003784,
+      "hash": "1698324932732fcefb0e50d38a109a949e2eaec9",
+      "fittedValue": 84607965.35,
+      "totalValue": 94590318.54,
+      "points": 1,
+      "destroyedValue": 85586185.54,
+      "droppedValue": 9004133,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:25+",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52300414,
+    "zkb": {
+      "locationID": 50003784,
+      "hash": "9316b294271a5462c4450e3bc6a7fb8093b8a251",
+      "fittedValue": 496630603.4,
+      "totalValue": 507378610.51,
+      "points": 1,
+      "destroyedValue": 493819545.02,
+      "droppedValue": 13559065.49,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:25+",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52300358,
+    "zkb": {
+      "locationID": 50003784,
+      "hash": "9085f0aaed2b55ad61c8af52381945345e149021",
+      "fittedValue": 20030738.48,
+      "totalValue": 22838604.38,
+      "points": 1,
+      "destroyedValue": 17535821.62,
+      "droppedValue": 5302782.76,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52150501,
+    "zkb": {
+      "locationID": 40404926,
+      "hash": "bf01eba8dedf7978599d543e286e9b0c6d3eb957",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 52150361,
+    "zkb": {
+      "locationID": 40404926,
+      "hash": "2ce805c7cc462e5033fb1c57f881fa25c20ccf04",
+      "fittedValue": 1933616.27,
+      "totalValue": 3309554.45,
+      "points": 1,
+      "destroyedValue": 2589489.57,
+      "droppedValue": 720064.88,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 51062899,
+    "zkb": {
+      "locationID": 40404916,
+      "hash": "7da960d6428f82c197a9a8a53defcd0a7e6dde26",
+      "fittedValue": 7803872.62,
+      "totalValue": 10971157.78,
+      "points": 13,
+      "destroyedValue": 5511882.48,
+      "droppedValue": 5459275.3,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 51039764,
+    "zkb": {
+      "locationID": 40404919,
+      "hash": "557bf9dc1f5dca6f8356903ad0af7a5fc2f18ae4",
+      "fittedValue": 10000,
+      "totalValue": 394911440.79,
+      "points": 1,
+      "destroyedValue": 394911440.79,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 51039759,
+    "zkb": {
+      "locationID": 40404919,
+      "hash": "27f514957c3c9299fe231246af2a4eda3332c049",
+      "fittedValue": 99143428.67,
+      "totalValue": 148839640.97,
+      "points": 1,
+      "destroyedValue": 127574251.08,
+      "droppedValue": 21265389.89,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 51039757,
+    "zkb": {
+      "locationID": 40404919,
+      "hash": "e417a50a640ee05c9a3c23178864327f5d151a9f",
+      "fittedValue": 156977522.55,
+      "totalValue": 172610515.61,
+      "points": 29,
+      "destroyedValue": 100003065.91,
+      "droppedValue": 72607449.7,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 49958116,
+    "zkb": {
+      "hash": "853900d88f9144ffc588a6e7247947a3cff57b5f",
+      "fittedValue": 10000,
+      "totalValue": 95204208.93,
+      "points": 1,
+      "destroyedValue": 95204208.93,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 49958102,
+    "zkb": {
+      "hash": "be4ba32414bca2273f620afc7c476ee9e4769893",
+      "fittedValue": 33710511.23,
+      "totalValue": 35290511.23,
+      "points": 6,
+      "destroyedValue": 34838689.5,
+      "droppedValue": 451821.73,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 48796187,
+    "zkb": {
+      "hash": "945eff4fd6c9a1bc4d1440cc0141d9550d7a1ffe",
+      "fittedValue": 29595655.52,
+      "totalValue": 29642979.84,
+      "points": 1,
+      "destroyedValue": 25214044.77,
+      "droppedValue": 4428935.07,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 48795943,
+    "zkb": {
+      "hash": "1ce965b2958a544f1de5a7f529948b0f84784748",
+      "fittedValue": 13417907.31,
+      "totalValue": 13417907.31,
+      "points": 31,
+      "destroyedValue": 9447176.85,
+      "droppedValue": 3970730.46,
+      "npc": false,
+      "solo": true,
+      "awox": false,
+      "labels": [
+        "solo",
+        "pvp",
+        "cat:6",
+        "#:1",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 48603071,
+    "zkb": {
+      "hash": "abac49273c158b20397f9a34abd9005335d909ab",
+      "fittedValue": 373199047.86,
+      "totalValue": 470883958.87,
+      "points": 1,
+      "destroyedValue": 381515382.73,
+      "droppedValue": 89368576.14,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 48603058,
+    "zkb": {
+      "hash": "5c27d6ddbe3fee2ccaa21103cc04a495b697b3f1",
+      "fittedValue": 19500108.51,
+      "totalValue": 22177156.27,
+      "points": 1,
+      "destroyedValue": 19816907.93,
+      "droppedValue": 2360248.34,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 48599825,
+    "zkb": {
+      "hash": "c26ad107d04455c409e402fd05b5be66ffd390c1",
+      "fittedValue": 65671315.85,
+      "totalValue": 72596538.05,
+      "points": 1,
+      "destroyedValue": 60972460.36,
+      "droppedValue": 11624077.69,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 48599620,
+    "zkb": {
+      "hash": "a3f21be90751a2c74f464587c21853cf3ab4cf1b",
+      "fittedValue": 25831731.24,
+      "totalValue": 26886431.24,
+      "points": 25,
+      "destroyedValue": 22137537.51,
+      "droppedValue": 4748893.73,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 48353983,
+    "zkb": {
+      "hash": "284118459ea701b568f0385b99d1325eee5b41e0",
+      "fittedValue": 43842933.96,
+      "totalValue": 54413530.08,
+      "points": 1,
+      "destroyedValue": 38823559.33,
+      "droppedValue": 15589970.75,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47911707,
+    "zkb": {
+      "hash": "076b47476898f31e685924af9bbb9cc558ba40cf",
+      "fittedValue": 231649491.77,
+      "totalValue": 238211875.23,
+      "points": 8,
+      "destroyedValue": 211296632.99,
+      "droppedValue": 26915242.24,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47910546,
+    "zkb": {
+      "hash": "d02f0408c480cc56ddfd04dd4b1a64b687b2e296",
+      "fittedValue": 60658453.66,
+      "totalValue": 70814800.4,
+      "points": 2,
+      "destroyedValue": 57904433.77,
+      "droppedValue": 12910366.63,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:lowsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47756502,
+    "zkb": {
+      "hash": "09e1a96c7b4acc897c1851b18b8c0ce3a0a818c5",
+      "fittedValue": 26795978.86,
+      "totalValue": 30992264.16,
+      "points": 7,
+      "destroyedValue": 23369650.36,
+      "droppedValue": 7622613.8,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47756487,
+    "zkb": {
+      "hash": "d5a26ddd2520f8518ee9bfb61e06cf042af39e82",
+      "fittedValue": 225184765.36,
+      "totalValue": 240072761.19,
+      "points": 3,
+      "destroyedValue": 230220498.2,
+      "droppedValue": 9852262.99,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47724518,
+    "zkb": {
+      "hash": "3a255a7e7cdc6e9073f384af6d30095299289d0f",
+      "fittedValue": 10000,
+      "totalValue": 10238169.67,
+      "points": 1,
+      "destroyedValue": 10238169.67,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47724510,
+    "zkb": {
+      "hash": "27ab878af1f6e20ae966f7b9a4599ffddd26e880",
+      "fittedValue": 190364638.57,
+      "totalValue": 202910869.22,
+      "points": 4,
+      "destroyedValue": 194956654.1,
+      "droppedValue": 7954215.12,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47690837,
+    "zkb": {
+      "hash": "c7e8e38fcb2b5c6be9bab547392a98f01b824a1e",
+      "fittedValue": 5915395.75,
+      "totalValue": 6895185.96,
+      "points": 1,
+      "destroyedValue": 6428137.9,
+      "droppedValue": 467048.06,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:22",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47690623,
+    "zkb": {
+      "hash": "55058ffeebd58a3312e02fdaed0f6a48b506035e",
+      "fittedValue": 74844825.33,
+      "totalValue": 76747830.33,
+      "points": 1,
+      "destroyedValue": 70855948.01,
+      "droppedValue": 5891882.32,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47687718,
+    "zkb": {
+      "hash": "cdedede5ea11d4a1b74e6dd0c06f092e64210b7f",
+      "fittedValue": 14700.39,
+      "totalValue": 14700.39,
+      "points": 1,
+      "destroyedValue": 14700.39,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47687426,
+    "zkb": {
+      "hash": "63a68c5c1bf83c70bb65eb90fe9c48035f13a333",
+      "fittedValue": 28793890.31,
+      "totalValue": 35415588.37,
+      "points": 1,
+      "destroyedValue": 28630154.79,
+      "droppedValue": 6785433.58,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47687117,
+    "zkb": {
+      "hash": "9d25101f112b07bce3bf89780c1186ac75d04701",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47687066,
+    "zkb": {
+      "hash": "9d037446bfc6d84c0d681dac4ba198c7d17852c5",
+      "fittedValue": 9380.41,
+      "totalValue": 9385.63,
+      "points": 1,
+      "destroyedValue": 9385.62,
+      "droppedValue": 0.01,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47686916,
+    "zkb": {
+      "hash": "52294417be5e61aada2939b33d6ec356edd9dc3e",
+      "fittedValue": 29340636.8,
+      "totalValue": 32210374.2,
+      "points": 1,
+      "destroyedValue": 27449975.77,
+      "droppedValue": 4760398.43,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47686908,
+    "zkb": {
+      "hash": "e94e1fab4f915c497608520658405df318db4dd8",
+      "fittedValue": 5915395.75,
+      "totalValue": 94334644.31,
+      "points": 1,
+      "destroyedValue": 92230609.51,
+      "droppedValue": 2104034.8,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:22",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47686876,
+    "zkb": {
+      "hash": "06c02a87ebf0164086a25ce94fc93cc89f6ab2e7",
+      "fittedValue": 681164985.82,
+      "totalValue": 682650710.96,
+      "points": 1,
+      "destroyedValue": 428213536.51,
+      "droppedValue": 254437174.45,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47680767,
+    "zkb": {
+      "hash": "8f3d4eb503e8926e3eeda8ddbc312ea84eb6d042",
+      "fittedValue": 186983688.77,
+      "totalValue": 205063560.87,
+      "points": 5,
+      "destroyedValue": 187655846.97,
+      "droppedValue": 17407713.9,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47341855,
+    "zkb": {
+      "hash": "5e71f901edfe500e68821e572f3531849a48a956",
+      "fittedValue": 72590808.56,
+      "totalValue": 123366707.99,
+      "points": 1,
+      "destroyedValue": 68580937.79,
+      "droppedValue": 54785770.2,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47298189,
+    "zkb": {
+      "hash": "497999338e25666d0840ed2b1145de37ae0a33fb",
+      "fittedValue": 10000,
+      "totalValue": 371722.11,
+      "points": 1,
+      "destroyedValue": 371722.11,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47298181,
+    "zkb": {
+      "hash": "48d1a80962fdbf07f7e88630bbe3485dcc03114e",
+      "fittedValue": 30484078.36,
+      "totalValue": 31851460.51,
+      "points": 1,
+      "destroyedValue": 26414083.33,
+      "droppedValue": 5437377.18,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47292948,
+    "zkb": {
+      "hash": "8c5e89494d39fa74b2a3cd0508de85ac08d9b66f",
+      "fittedValue": 944272308.42,
+      "totalValue": 989263945.35,
+      "points": 6,
+      "destroyedValue": 659924375.41,
+      "droppedValue": 329339569.94,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47292614,
+    "zkb": {
+      "hash": "f3006e0738e190382635cb9f8b8a4eb9bbf0aec3",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47292601,
+    "zkb": {
+      "hash": "c4074065d94920425490204f204183c7aa271670",
+      "fittedValue": 29740162.79,
+      "totalValue": 32570446.88,
+      "points": 1,
+      "destroyedValue": 28648189.87,
+      "droppedValue": 3922257.01,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 47055290,
+    "zkb": {
+      "hash": "d98a6bf635fe1608095a169f5fa394c4dea24bc1",
+      "fittedValue": 188945088.38,
+      "totalValue": 199954523.68,
+      "points": 2,
+      "destroyedValue": 185267174.58,
+      "droppedValue": 14687349.1,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:2+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938319,
+    "zkb": {
+      "hash": "e8d9829b56b2b2bfc635519f57e77c674657519e",
+      "fittedValue": 4810697.55,
+      "totalValue": 4810697.55,
+      "points": 1,
+      "destroyedValue": 4810697.55,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938301,
+    "zkb": {
+      "hash": "0579a93b7bee60fe0cf1af3cab0c85c11f587646",
+      "fittedValue": 4869999.69,
+      "totalValue": 4869999.69,
+      "points": 1,
+      "destroyedValue": 4869999.69,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938291,
+    "zkb": {
+      "hash": "de0531219844e866accc62c54af303525ed2c08f",
+      "fittedValue": 5140959.84,
+      "totalValue": 5140959.84,
+      "points": 1,
+      "destroyedValue": 5140959.84,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938278,
+    "zkb": {
+      "hash": "5f61bd2133cd8fbb482926662fb1e7a49308c462",
+      "fittedValue": 4752232.05,
+      "totalValue": 4752232.05,
+      "points": 1,
+      "destroyedValue": 4752232.05,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938266,
+    "zkb": {
+      "hash": "aa57647dbf225480d45a310f28eb1be2f3a26152",
+      "fittedValue": 4752232.05,
+      "totalValue": 4752232.05,
+      "points": 1,
+      "destroyedValue": 4752232.05,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938254,
+    "zkb": {
+      "hash": "ba93f61e120241c430f4fc22be46a886a34c0d7f",
+      "fittedValue": 5140959.84,
+      "totalValue": 5140959.84,
+      "points": 1,
+      "destroyedValue": 5140959.84,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938250,
+    "zkb": {
+      "hash": "fc0aa7b939f7b687efae72cdb6b5282c58a583ef",
+      "fittedValue": 3949358.07,
+      "totalValue": 3949358.07,
+      "points": 1,
+      "destroyedValue": 3949358.07,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938238,
+    "zkb": {
+      "hash": "97628bc3e78e42ba4d5ab7ad0222e93160e25aaf",
+      "fittedValue": 17754478.31,
+      "totalValue": 17754478.31,
+      "points": 1,
+      "destroyedValue": 17754478.31,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938225,
+    "zkb": {
+      "hash": "c1b8682ab4226e131863a9c66efeb3e6a0de4666",
+      "fittedValue": 17754478.31,
+      "totalValue": 556708458.67,
+      "points": 1,
+      "destroyedValue": 76129424.34,
+      "droppedValue": 480579034.33,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46938214,
+    "zkb": {
+      "hash": "c1b8682ab4226e131863a9c66efeb3e6a0de4666",
+      "fittedValue": 17754478.31,
+      "totalValue": 17754478.31,
+      "points": 1,
+      "destroyedValue": 17754478.31,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46876058,
+    "zkb": {
+      "hash": "2afe6f18e824f86dcc7f4d1a3f89672d1b85effe",
+      "fittedValue": 10000,
+      "totalValue": 226172677.27,
+      "points": 1,
+      "destroyedValue": 226172677.27,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46876052,
+    "zkb": {
+      "hash": "701d3882d1639fffe3ad601522e2f86f7c9a9b0a",
+      "fittedValue": 217591798.97,
+      "totalValue": 220106917.55,
+      "points": 10,
+      "destroyedValue": 203728623.42,
+      "droppedValue": 16378294.13,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46732871,
+    "zkb": {
+      "hash": "fe304c39e1d00f5603f724ad355c881d5ac05d6a",
+      "fittedValue": 160090243.23,
+      "totalValue": 171548991.44,
+      "points": 2,
+      "destroyedValue": 154080788.74,
+      "droppedValue": 17468202.7,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:5+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46625971,
+    "zkb": {
+      "hash": "596deead2cf0d332fa9e852a512cb225a218af33",
+      "fittedValue": 10000,
+      "totalValue": 10000,
+      "points": 1,
+      "destroyedValue": 10000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46625954,
+    "zkb": {
+      "hash": "8f260c9d80160a8b74e4037dd317d1bdbdd2f063",
+      "fittedValue": 473724285.07,
+      "totalValue": 473765503.45,
+      "points": 1,
+      "destroyedValue": 393656384.97,
+      "droppedValue": 80109118.48,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:6",
+        "#:10+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46625724,
+    "zkb": {
+      "hash": "b60db100a89a3432ee741b7c78fab53ffa0cec08",
+      "fittedValue": 1511876101.7,
+      "droppedValue": 606183986.12,
+      "destroyedValue": 1278202806.83,
+      "totalValue": 1884386792.95,
+      "points": 4,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "cat:6",
+        "pvp",
+        "capital",
+        "#:10+",
+        "isk:1b+",
+        "loc:nullsec"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240585,
+    "zkb": {
+      "hash": "6840c05b09500248aadc49cd132995c80e83fbe5",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240582,
+    "zkb": {
+      "hash": "06d158687cf24cf7cc63c9a68cbcbc519e3b48f6",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240580,
+    "zkb": {
+      "hash": "e66c408680004e7a8ea36132b70d398e6abbc055",
+      "fittedValue": 3448000,
+      "totalValue": 3448000,
+      "points": 1,
+      "destroyedValue": 3448000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240579,
+    "zkb": {
+      "hash": "4e344b9f092bcdf5982f3fa61d36d77f1c6309b8",
+      "fittedValue": 3448000,
+      "totalValue": 3448000,
+      "points": 1,
+      "destroyedValue": 3448000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240574,
+    "zkb": {
+      "hash": "6840c05b09500248aadc49cd132995c80e83fbe5",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240571,
+    "zkb": {
+      "hash": "ddd21c41dcf4e04e5cfec8ae9417fcfd3441d5e8",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240568,
+    "zkb": {
+      "hash": "cc6f99399e282e4f2a9094fbf1dc57da00ac77bb",
+      "fittedValue": 3180510.01,
+      "totalValue": 3180510.01,
+      "points": 1,
+      "destroyedValue": 3180510.01,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240566,
+    "zkb": {
+      "hash": "86f83a5f203987972f353ddde45e4a55e278579d",
+      "fittedValue": 3233788.17,
+      "totalValue": 3233788.17,
+      "points": 1,
+      "destroyedValue": 3233788.17,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240564,
+    "zkb": {
+      "hash": "38ab7deb0294e41b2290d70a06257855a1fed724",
+      "fittedValue": 3233788.17,
+      "totalValue": 3233788.17,
+      "points": 1,
+      "destroyedValue": 3233788.17,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240559,
+    "zkb": {
+      "hash": "c86614d3444dedb325c9207697c5997c766fb422",
+      "fittedValue": 1518234.75,
+      "totalValue": 1518234.75,
+      "points": 1,
+      "destroyedValue": 1518234.75,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240557,
+    "zkb": {
+      "hash": "712b67662d2f01dd9842983ce589ac711798aaba",
+      "fittedValue": 3376790.02,
+      "totalValue": 3376790.02,
+      "points": 1,
+      "destroyedValue": 3376790.02,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240554,
+    "zkb": {
+      "hash": "0f0c13875adfd1c48fc97cb75793df34b551b676",
+      "fittedValue": 1518234.75,
+      "totalValue": 1518234.75,
+      "points": 1,
+      "destroyedValue": 1518234.75,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240552,
+    "zkb": {
+      "hash": "d4edec4e11fd6d85418124a84a94d1dd02208e49",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240549,
+    "zkb": {
+      "hash": "b3de82abd406a803fcec25062585b1d56f6a8fb0",
+      "fittedValue": 3108756.27,
+      "totalValue": 3108756.27,
+      "points": 1,
+      "destroyedValue": 3108756.27,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240545,
+    "zkb": {
+      "hash": "42ffd0ee16ec78802674e8e89a3cba726e4fcae2",
+      "fittedValue": 3448000,
+      "totalValue": 3448000,
+      "points": 1,
+      "destroyedValue": 3448000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240544,
+    "zkb": {
+      "hash": "28fe4dce3ba6ffc3d71458198153993ba662e778",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240541,
+    "zkb": {
+      "hash": "ff82be53014e709ea4a5aa848dafc5080a6bc22b",
+      "fittedValue": 3230111.02,
+      "totalValue": 3230111.02,
+      "points": 1,
+      "destroyedValue": 3230111.02,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240537,
+    "zkb": {
+      "hash": "38ab7deb0294e41b2290d70a06257855a1fed724",
+      "fittedValue": 3233788.17,
+      "totalValue": 3233788.17,
+      "points": 1,
+      "destroyedValue": 3233788.17,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240535,
+    "zkb": {
+      "hash": "705ea5e07c1ec2b1f0fdec547b644de173361fcf",
+      "fittedValue": 3233788.17,
+      "totalValue": 3233788.17,
+      "points": 1,
+      "destroyedValue": 3233788.17,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240530,
+    "zkb": {
+      "hash": "38ab7deb0294e41b2290d70a06257855a1fed724",
+      "fittedValue": 3233788.17,
+      "totalValue": 3233788.17,
+      "points": 1,
+      "destroyedValue": 3233788.17,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240527,
+    "zkb": {
+      "hash": "a9d018583ca074f44cd7c065d6faab00f008c4c0",
+      "fittedValue": 3499156.99,
+      "totalValue": 3499156.99,
+      "points": 1,
+      "destroyedValue": 3499156.99,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240525,
+    "zkb": {
+      "hash": "17a6abacfe08c0156fa2f03175c4042c737d1b8c",
+      "fittedValue": 3448000,
+      "totalValue": 3448000,
+      "points": 1,
+      "destroyedValue": 3448000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240520,
+    "zkb": {
+      "hash": "e3ae7809445f5b9507b277d6110a4d44feb53f46",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240518,
+    "zkb": {
+      "hash": "c76a7ac071baadc885c05e8ab8d676ce56c22f1d",
+      "fittedValue": 3448000,
+      "totalValue": 3448000,
+      "points": 1,
+      "destroyedValue": 3448000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240514,
+    "zkb": {
+      "hash": "7b9a3cd5eded74015dd3d6f84bae8597bee1c9f5",
+      "fittedValue": 3376790.02,
+      "totalValue": 3376790.02,
+      "points": 1,
+      "destroyedValue": 3376790.02,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240511,
+    "zkb": {
+      "hash": "ec7af3a19bf21d58792afac21c4aa8eaf4538918",
+      "fittedValue": 3233788.17,
+      "totalValue": 3233788.17,
+      "points": 1,
+      "destroyedValue": 3233788.17,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240509,
+    "zkb": {
+      "hash": "0d655c5f45934c410851874cc9377af004391e1a",
+      "fittedValue": 3499156.99,
+      "totalValue": 3499156.99,
+      "points": 1,
+      "destroyedValue": 3499156.99,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240507,
+    "zkb": {
+      "hash": "23600aafed0c11671f840542cbdba17503be7959",
+      "fittedValue": 1571555.64,
+      "totalValue": 1571555.64,
+      "points": 1,
+      "destroyedValue": 1571555.64,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240501,
+    "zkb": {
+      "hash": "c0d9957013887c7190982b74881c9cf29e7d7f3c",
+      "fittedValue": 3448000,
+      "totalValue": 3448000,
+      "points": 1,
+      "destroyedValue": 3448000,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240499,
+    "zkb": {
+      "hash": "da7e2a4f8d451f45ebad9736ff8a508361fbd28a",
+      "fittedValue": 1518234.75,
+      "totalValue": 1518234.75,
+      "points": 1,
+      "destroyedValue": 1518234.75,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240496,
+    "zkb": {
+      "hash": "077979b4800933b3ca6c905f8734a1e154e6710a",
+      "fittedValue": 3231973.68,
+      "totalValue": 3231973.68,
+      "points": 1,
+      "destroyedValue": 3231973.68,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240493,
+    "zkb": {
+      "hash": "1568133e5ce3093891f183cc33634c61ea3a0878",
+      "fittedValue": 1518234.75,
+      "totalValue": 1518234.75,
+      "points": 1,
+      "destroyedValue": 1518234.75,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240492,
+    "zkb": {
+      "hash": "da7e2a4f8d451f45ebad9736ff8a508361fbd28a",
+      "fittedValue": 1518234.75,
+      "totalValue": 1518234.75,
+      "points": 1,
+      "destroyedValue": 1518234.75,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240491,
+    "zkb": {
+      "hash": "89e6d6763e55d67219b0a6dbcc275c4740e74b72",
+      "fittedValue": 3231973.68,
+      "totalValue": 3231973.68,
+      "points": 1,
+      "destroyedValue": 3231973.68,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  },
+  {
+    "killmail_id": 46240487,
+    "zkb": {
+      "hash": "292c7d9c217741b3c62d347a70f21e6cd26590e8",
+      "fittedValue": 1518234.75,
+      "totalValue": 1518234.75,
+      "points": 1,
+      "destroyedValue": 1518234.75,
+      "droppedValue": 0,
+      "npc": false,
+      "solo": false,
+      "awox": false,
+      "labels": [
+        "pvp",
+        "cat:23",
+        "#:10+",
+        "loc:w-space"
+      ]
+    }
+  }
+]
