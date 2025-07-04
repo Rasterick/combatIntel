@@ -89,38 +89,37 @@ $latestKill = null;
 $latestKillHash = null; // Initialize $latestKillHash here
 $latestKillSummaries = json_decode($latestKillData, true);
 if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
-    $latestKillId = $latestKillSummaries[0]['killmail_id'] ?? null;
-    $latestKillHash = $latestKillSummaries[0]['zkb']['hash'] ?? null;
+        $latestKillId = $latestKillSummaries[0]['killmail_id'] ?? null;
+        $latestKillHash = $latestKillSummaries[0]['zkb']['hash'] ?? null;
 
-    if ($latestKillId && $latestKillHash) {
-        $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$latestKillId}/{$latestKillHash}/?datasource=tranquility";
+        if ($latestKillId && $latestKillHash) {
+            $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$latestKillId}/{$latestKillHash}/?datasource=tranquility";
 
-        $ch = curl_init($fullKillmailApiUrl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'accept: application/json',
-            'Cache-Control: no-cache'
-        ]);
-        $fullKillmailData = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
+            $ch = curl_init($fullKillmailApiUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'accept: application/json',
+                'Cache-Control: no-cache'
+            ]);
+            $fullKillmailData = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
 
-        if ($fullKillmailData !== FALSE && $httpCode === 200) {
-            $fullKillmailArray = json_decode($fullKillmailData, true);
-            if (is_array($fullKillmailArray) && !empty($fullKillmailArray)) {
-                $latestKill = $fullKillmailArray;
+            if ($fullKillmailData !== FALSE && $httpCode === 200) {
+                $fullKillmailArray = json_decode($fullKillmailData, true);
+                if (is_array($fullKillmailArray) && !empty($fullKillmailArray)) {
+                    $latestKill = $fullKillmailArray;
+                }
             }
         }
     }
-}
+// Closing brace for if (is_array($latestKillSummaries) && !empty($latestKillSummaries))
 
 // Prepare the response data
-$resolvedNames = []; // Initialize $resolvedNames here
 $responseData = [
     'zkbStats' => $zkbStats,
     'latestKill' => $latestKill,
-    'resolvedNames' => $resolvedNames,
-    'portraitUrl' => $portraitUrl
+    'resolvedNames' => [] // This will be populated in the next step
 ];
 
 // Collect all unique IDs for resolution
@@ -169,7 +168,7 @@ if ($latestKill) {
 
 $idsToResolve = array_unique(array_filter($idsToResolve)); // Remove duplicates and nulls
 
-$resolvedNames = []; // Initialize $resolvedNames here
+$resolvedNames = [];
 if (!empty($idsToResolve)) {
     $namesEsiUrl = "https://esi.evetech.net/latest/universe/names/?datasource=tranquility";
     $namesPostData = json_encode(array_values($idsToResolve)); // Ensure array is 0-indexed
