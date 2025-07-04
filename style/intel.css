@@ -128,7 +128,6 @@ body {
     padding: 10px;
     flex-grow: 1;
     overflow-y: auto; /* Add vertical scroll for overflow */
-    font-size:14px;
 }
 
 .info-box-content p {
