@@ -94,7 +94,7 @@ if ($latestKillData === FALSE || $httpCode !== 200) {
 
 $latestKill = null;
 $latestKillHash = null; // Initialize $latestKillHash here
-$latestKillSummaries = json_decode($latestData, true);
+$latestKillSummaries = json_decode($latestKillData, true);
 if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
         $latestKillId = $latestKillSummaries[0]['killmail_id'] ?? null;
         $latestKillHash = $latestKillSummaries[0]['zkb']['hash'] ?? null;
@@ -126,6 +126,11 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
         }
     }
 }
+
+            }
+        }
+    }
+} // Closing brace for if (is_array($latestKillSummaries) && !empty($latestKillSummaries))
 
 // Prepare the response data
 $responseData = [
