@@ -10,38 +10,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         try {
-            // Step 1: Fetch the ID from the mock ESI data
-            const esiResponse = await fetch('../data/esi-ids.json');
-            const esiData = await esiResponse.json();
+            // Step 1: Fetch stats from the PHP backend
+            const zkbResponse = await fetch(`../config/get_zkb_stats.php?name=${encodeURIComponent(entityName)}`);
+            const zkbData = await zkbResponse.json();
 
-            let entityId = null;
-            let entityType = null;
-
-            if (esiData.characters && esiData.characters.some(c => c.name.toLowerCase() === entityName.toLowerCase())) {
-                entityId = esiData.characters.find(c => c.name.toLowerCase() === entityName.toLowerCase()).id;
-                entityType = 'character';
-            } else if (esiData.corporations && esiData.corporations.some(c => c.name.toLowerCase() === entityName.toLowerCase())) {
-                entityId = esiData.corporations.find(c => c.name.toLowerCase() === entityName.toLowerCase()).id;
-                entityType = 'corporation';
-            } else if (esiData.alliances && esiData.alliances.some(a => a.name.toLowerCase() === entityName.toLowerCase())) {
-                entityId = esiData.alliances.find(a => a.name.toLowerCase() === entityName.toLowerCase()).id;
-                entityType = 'alliance';
-            }
-
-            if (!entityId) {
-                alert('Entity not found.');
+            if (zkbData.error) {
+                alert(`Error: ${zkbData.error}`);
                 return;
             }
 
-            // Step 2: Fetch stats from the mock zKillboard data
-            const zkbResponse = await fetch(`../data/zkillboard-stats.json`);
-            const zkbData = await zkbResponse.json();
+            // For now, we'll assume the entityType is 'character' and entityId is the name for zKillboard stats
+            // In a real scenario, the PHP script would return the resolved ID and type.
+            const entityId = zkbData.info.id; // Assuming zkbData contains the ID
+            const entityType = 'character'; // Placeholder, will be resolved by PHP later
 
-            // Step 3: Fetch latest kill data
+            // Step 2: Fetch latest kill data (still from mock for now)
             const latestKillResponse = await fetch('../data/latest-kill.json');
             const latestKillData = await latestKillResponse.json();
 
-            // Step 4: Populate the info boxes
+            // Step 3: Populate the info boxes
             populateInfoBoxes(zkbData, entityName, entityType, latestKillData);
 
         } catch (error) {
