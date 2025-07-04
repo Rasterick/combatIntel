@@ -64,6 +64,101 @@ if ($zkbData === FALSE) {
     exit();
 }
 
-echo $zkbData;
+$zkbStats = json_decode($zkbData, true);
+
+// Step 3: Fetch latest killmail for the entity
+$latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}ID/{$entityId}/limit/1/";
+$latestKillData = @file_get_contents($latestKillApiUrl);
+
+$latestKill = null;
+if ($latestKillData !== FALSE) {
+    $latestKillArray = json_decode($latestKillData, true);
+    if (!empty($latestKillArray)) {
+        $latestKill = $latestKillArray[0];
+    }
+}
+
+// Prepare the response data
+$responseData = [
+    'zkbStats' => $zkbStats,
+    'latestKill' => $latestKill,
+    'resolvedNames' => [] // This will be populated in the next step
+];
+
+// Collect all unique IDs for resolution
+$idsToResolve = [];
+
+// Add entityId itself
+if ($entityId) {
+    $idsToResolve[] = $entityId;
+}
+
+// IDs from zkbStats
+if (isset($zkbStats['info'])) {
+    if (isset($zkbStats['info']['race_id'])) $idsToResolve[] = $zkbStats['info']['race_id'];
+    if (isset($zkbStats['info']['corporation_id'])) $idsToResolve[] = $zkbStats['info']['corporation_id'];
+    if (isset($zkbStats['info']['alliance_id'])) $idsToResolve[] = $zkbStats['info']['alliance_id'];
+}
+
+if (isset($zkbStats['topAllTime'])) {
+    foreach ($zkbStats['topAllTime'] as $category) {
+        foreach ($category['data'] as $item) {
+            if (isset($item['corporationID'])) $idsToResolve[] = $item['corporationID'];
+            if (isset($item['allianceID'])) $idsToResolve[] = $item['allianceID'];
+            if (isset($item['shipTypeID'])) $idsToResolve[] = $item['shipTypeID'];
+            if (isset($item['solarSystemID'])) $idsToResolve[] = $item['solarSystemID'];
+        }
+    }
+}
+
+// IDs from latestKill
+if ($latestKill) {
+    if (isset($latestKill['victim']['character_id'])) $idsToResolve[] = $latestKill['victim']['character_id'];
+    if (isset($latestKill['victim']['corporation_id'])) $idsToResolve[] = $latestKill['victim']['corporation_id'];
+    if (isset($latestKill['victim']['alliance_id'])) $idsToResolve[] = $latestKill['victim']['alliance_id'];
+    if (isset($latestKill['victim']['ship_type_id'])) $idsToResolve[] = $latestKill['victim']['ship_type_id'];
+    if (isset($latestKill['solar_system_id'])) $idsToResolve[] = $latestKill['solar_system_id'];
+
+    if (isset($latestKill['attackers'])) {
+        foreach ($latestKill['attackers'] as $attacker) {
+            if (isset($attacker['character_id'])) $idsToResolve[] = $attacker['character_id'];
+            if (isset($attacker['corporation_id'])) $idsToResolve[] = $attacker['corporation_id'];
+            if (isset($attacker['alliance_id'])) $idsToResolve[] = $attacker['alliance_id'];
+            if (isset($attacker['ship_type_id'])) $idsToResolve[] = $attacker['ship_type_id'];
+        }
+    }
+}
+
+$idsToResolve = array_unique(array_filter($idsToResolve)); // Remove duplicates and nulls
+
+$resolvedNames = [];
+if (!empty($idsToResolve)) {
+    $namesEsiUrl = "https://esi.evetech.net/latest/universe/names/?datasource=tranquility";
+    $namesPostData = json_encode(array_values($idsToResolve)); // Ensure array is 0-indexed
+
+    $ch = curl_init($namesEsiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $namesPostData);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'accept: application/json',
+        'Content-Type: application/json',
+        'Cache-Control: no-cache'
+    ]);
+
+    $namesResponse = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($namesResponse !== FALSE && $httpCode === 200) {
+        $namesData = json_decode($namesResponse, true);
+        foreach ($namesData as $item) {
+            $resolvedNames[$item['id']] = $item['name'];
+        }
+    }
+}
+
+$responseData['resolvedNames'] = $resolvedNames;
+echo json_encode($responseData);
 
 ?>
