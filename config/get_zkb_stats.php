@@ -71,11 +71,14 @@ $latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}ID/{$entityId
 $latestKillData = @file_get_contents($latestKillApiUrl);
 
 $latestKill = null;
+$latestKillHash = null; // Initialize $latestKillHash here
 if ($latestKillData !== FALSE) {
     $latestKillSummaries = json_decode($latestKillData, true);
     if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
         $latestKillId = $latestKillSummaries[0]['killmail_id'] ?? null;
-        if ($latestKillId) {
+        $latestKillHash = $latestKillSummaries[0]['zkb']['hash'] ?? null;
+
+        if ($latestKillId && $latestKillHash) {
             $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$latestKillId}/{$latestKillHash}/?datasource=tranquility";
 
             $ch = curl_init($fullKillmailApiUrl);
@@ -95,8 +98,6 @@ if ($latestKillData !== FALSE) {
                 }
             }
         }
-    }
-}
 
 // Prepare the response data
 $responseData = [
