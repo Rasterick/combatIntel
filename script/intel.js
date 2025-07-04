@@ -65,21 +65,40 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
         // Construct and add the Last Kill HTML
-        if (latestKill) {
-            const lastKillTime = latestKill.killmail_time ? new Date(latestKill.killmail_time).toLocaleString() : 'Unknown Date';
-            const location = (latestKill.solar_system_id && resolvedNames[latestKill.solar_system_id]) ? resolvedNames[latestKill.solar_system_id] : 'Unknown System';
-            const zkbLink = latestKill.killmail_id ? `<a href="https://zkillboard.com/kill/${latestKill.killmail_id}/" target="_blank">(ZKB)</a>` : '';
+        let lastKillTime = 'Unknown Date';
+        let location = 'Unknown System';
+        let victimName = 'Unknown Victim';
+        let victimCorp = 'Unknown Corp';
+        let victim = `${victimName} (${victimCorp})`;
+        let victimShip = 'Unknown Ship';
+        let attackerCharacter = null;
+        let attackerShip = 'Unknown Ship';
+        let otherPilots = 0;
+        let pilotText = 'pilots';
+        let zkbLink = '';
 
-            charHtml += `
-                <p>
-                    <span class="info-label">Last Kill:</span> 
-                    <span>(${lastKillTime} in ${location}) - ${name} killed ${victim} in a ${victimShip} with ${otherPilots} other ${pilotText}.</span>
-                    ${zkbLink}
-                </p>
-            `;
-        } else {
-            charHtml += `<p><span class="info-label">Last Kill:</span> No recent kills found for this entity.</p>`;
+        if (latestKill) {
+            lastKillTime = latestKill.killmail_time ? new Date(latestKill.killmail_time).toLocaleString() : 'Unknown Date';
+            location = (latestKill.solar_system_id && resolvedNames[latestKill.solar_system_id]) ? resolvedNames[latestKill.solar_system_id] : 'Unknown System';
+            victimName = resolvedNames[latestKill.victim?.character_id] || latestKill.victim?.character_id || 'Unknown Victim';
+            victimCorp = resolvedNames[latestKill.victim?.corporation_id] || latestKill.victim?.corporation_id || 'Unknown Corp';
+            victim = `${victimName} (${victimCorp})`;
+            victimShip = resolvedNames[latestKill.victim?.ship_type_id] || latestKill.victim?.ship_type_id || 'Unknown Ship';
+
+            attackerCharacter = latestKill.attackers?.find(a => (resolvedNames[a.character_id] || a.character_id).toLowerCase() === name.toLowerCase());
+            attackerShip = attackerCharacter ? (resolvedNames[attackerCharacter.ship_type_id] || attackerCharacter.ship_type_id) : 'Unknown Ship';
+            otherPilots = (latestKill.attackers?.length || 1) - 1;
+            pilotText = otherPilots === 1 ? 'pilot' : 'pilots';
+            zkbLink = latestKill.killmail_id ? `<a href="https://zkillboard.com/kill/${latestKill.killmail_id}/" target="_blank">(ZKB)</a>` : '';
         }
+
+        charHtml += `
+            <p>
+                <span class="info-label">Last Kill:</span> 
+                <span>(${lastKillTime} in ${location}) - ${name} killed ${victim} in a ${victimShip} with ${otherPilots} other ${pilotText}.</span>
+                ${zkbLink}
+            </p>
+        `;
 
         charBox.innerHTML = charHtml;
 
