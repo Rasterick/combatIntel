@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (latestKill) {
             const lastKillTime = new Date(latestKill.killmail_time).toLocaleString();
             const location = resolvedNames[latestKill.solar_system_id] || latestKill.solar_system_id;
-            const victimName = resolvedNames[latestKill.victim.character_id] || latestKill.victim.character_id;
-            const victimCorp = resolvedNames[latestKill.victim.corporation_id] || latestKill.victim.corporation_id;
+            const victimName = resolvedNames[latestKill.victim?.character_id] || latestKill.victim?.character_id || 'Unknown Victim';
+            const victimCorp = resolvedNames[latestKill.victim?.corporation_id] || latestKill.victim?.corporation_id || 'Unknown Corp';
             const victim = `${victimName} (${victimCorp})`;
-            const victimShip = resolvedNames[latestKill.victim.ship_type_id] || latestKill.victim.ship_type_id;
+            const victimShip = resolvedNames[latestKill.victim?.ship_type_id] || latestKill.victim?.ship_type_id || 'Unknown Ship';
 
-            const attackerCharacter = latestKill.attackers.find(a => (resolvedNames[a.character_id] || a.character_id).toLowerCase() === name.toLowerCase());
+            const attackerCharacter = latestKill.attackers?.find(a => (resolvedNames[a.character_id] || a.character_id).toLowerCase() === name.toLowerCase());
             const attackerShip = attackerCharacter ? (resolvedNames[attackerCharacter.ship_type_id] || attackerCharacter.ship_type_id) : 'Unknown Ship';
             const otherPilots = latestKill.attackers.length - 1;
             const pilotText = otherPilots === 1 ? 'pilot' : 'pilots';
