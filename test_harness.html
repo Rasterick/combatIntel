@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Script Test Harness</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            white-space: pre-wrap; /* Preserve whitespace and wrap text */
+            word-wrap: break-word; /* Break long words */
+        }
+    </style>
+</head>
+<body>
+    <h1>Test get_zkb_stats.php</h1>
+    <input type="text" id="entityNameInput" placeholder="Enter Character Name (e.g., Abon Riff)">
+    <button id="fetchButton">Fetch Data</button>
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', async () => {
+            const entityName = document.getElementById('entityNameInput').value.trim();
+            const responseDiv = document.getElementById('response');
+            responseDiv.textContent = 'Fetching...';
+
+            if (!entityName) {
+                responseDiv.textContent = 'Please enter a name.';
+                return;
+            }
+
+            try {
+                const url = `/combatIntel/config/get_zkb_stats.php?name=${encodeURIComponent(entityName)}`;
+                const response = await fetch(url);
+                const text = await response.text(); // Get raw text to see any HTML errors
+
+                responseDiv.textContent = `Status: ${response.status} ${response.statusText}\n\n`;
+                responseDiv.textContent += `Headers:\n${Array.from(response.headers.entries()).map(([key, value]) => `  ${key}: ${value}`).join('\n')}\n\n`;
+                responseDiv.textContent += `Response Body:\n${text}`;
+
+            } catch (error) {
+                responseDiv.textContent = `Error: ${error.message}`;
+                console.error('Fetch error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
