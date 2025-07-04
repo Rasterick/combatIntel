@@ -116,3 +116,5 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
 }
 
 // Prepare the response data
+
+// Prepare the response data
