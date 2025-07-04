@@ -69,13 +69,22 @@ $zkbStats = json_decode($zkbData, true);
 // Step 3: Fetch latest killmail for the entity
 $latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}ID/{$entityId}/";
 $latestKillData = @file_get_contents($latestKillApiUrl);
-error_log("Raw latest kill data from zKillboard: " . ($latestKillData !== FALSE ? $latestKillData : "Failed to fetch"));
 
 $latestKill = null;
 if ($latestKillData !== FALSE) {
-    $latestKillArray = json_decode($latestKillData, true);
-    if (is_array($latestKillArray) && !empty($latestKillArray)) {
-        $latestKill = $latestKillArray[0] ?? null;
+    $latestKillSummaries = json_decode($latestKillData, true);
+    if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
+        $latestKillId = $latestKillSummaries[0]['killmail_id'] ?? null;
+        if ($latestKillId) {
+            $fullKillmailApiUrl = "https://zkillboard.com/api/killmail/{$latestKillId}/";
+            $fullKillmailData = @file_get_contents($fullKillmailApiUrl);
+            if ($fullKillmailData !== FALSE) {
+                $fullKillmailArray = json_decode($fullKillmailData, true);
+                if (is_array($fullKillmailArray) && !empty($fullKillmailArray)) {
+                    $latestKill = $fullKillmailArray;
+                }
+            }
+        }
     }
 }
 
