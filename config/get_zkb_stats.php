@@ -67,10 +67,8 @@ if ($zkbData === FALSE) {
 $zkbStats = json_decode($zkbData, true);
 
 // Step 3: Fetch latest killmail for the entity
-$latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}ID/{$entityId}/limit/1/";
-error_log("Fetching latest kill from URL: " . $latestKillApiUrl);
+$latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}ID/{$entityId}/";
 $latestKillData = @file_get_contents($latestKillApiUrl);
-error_log("Raw latest kill data: " . ($latestKillData !== FALSE ? $latestKillData : "Failed to fetch"));
 
 $latestKill = null;
 if ($latestKillData !== FALSE) {
