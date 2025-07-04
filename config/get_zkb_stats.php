@@ -115,10 +115,11 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
 }
 
 // Prepare the response data
+$resolvedNames = []; // Initialize $resolvedNames here
 $responseData = [
     'zkbStats' => $zkbStats,
     'latestKill' => $latestKill,
-    'resolvedNames' => [], // Initialize resolvedNames here
+    'resolvedNames' => $resolvedNames,
     'portraitUrl' => $portraitUrl
 ];
 
