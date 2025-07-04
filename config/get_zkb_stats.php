@@ -118,7 +118,8 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
 $responseData = [
     'zkbStats' => $zkbStats,
     'latestKill' => $latestKill,
-    'resolvedNames' => $resolvedNames
+    'resolvedNames' => [], // Initialize resolvedNames here
+    'portraitUrl' => $portraitUrl
 ];
 
 // Collect all unique IDs for resolution
