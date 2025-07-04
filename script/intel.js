@@ -37,8 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const zkbResponse = await fetch(`../data/zkillboard-stats.json`);
             const zkbData = await zkbResponse.json();
 
-            // Step 3: Populate the info boxes
-            populateInfoBoxes(zkbData, entityName, entityType);
+            // Step 3: Fetch latest kill data
+            const latestKillResponse = await fetch('../data/latest-kill.json');
+            const latestKillData = await latestKillResponse.json();
+
+            // Step 4: Populate the info boxes
+            populateInfoBoxes(zkbData, entityName, entityType, latestKillData);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
