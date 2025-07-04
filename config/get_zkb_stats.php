@@ -68,13 +68,27 @@ $zkbStats = json_decode($zkbData, true);
 
 // Step 3: Fetch latest killmail for the entity
 $latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}ID/{$entityId}/";
-$latestKillData = @file_get_contents($latestKillApiUrl);
+
+$ch = curl_init($latestKillApiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'accept: application/json',
+    'Cache-Control: no-cache'
+]);
+$latestKillData = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+if ($latestKillData === FALSE || $httpCode !== 200) {
+    // Log error if fetch fails
+    error_log("Failed to fetch latest kill summaries from zKillboard. HTTP Code: " . $httpCode . ", Response: " . $latestKillData);
+    $latestKillData = '[]'; // Return empty array to prevent JSON parsing errors
+}
 
 $latestKill = null;
 $latestKillHash = null; // Initialize $latestKillHash here
-if ($latestKillData !== FALSE) {
-    $latestKillSummaries = json_decode($latestKillData, true);
-    if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
+$latestKillSummaries = json_decode($latestKillData, true);
+if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
         $latestKillId = $latestKillSummaries[0]['killmail_id'] ?? null;
         $latestKillHash = $latestKillSummaries[0]['zkb']['hash'] ?? null;
 
