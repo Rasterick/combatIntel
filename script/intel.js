@@ -22,13 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const zkbStats = responseData.zkbStats;
             const latestKill = responseData.latestKill;
             const resolvedNames = responseData.resolvedNames;
+            const portraitUrl = responseData.portraitUrl; // Get portrait URL
 
             // The PHP script now resolves entityType and entityId
             const entityId = zkbStats.info.id;
             const entityType = zkbStats.info.type; // Assuming PHP returns 'character', 'corporation', or 'alliance'
 
             // Step 3: Populate the info boxes
-            populateInfoBoxes(zkbStats, entityName, entityType, latestKill, resolvedNames);
+            populateInfoBoxes(zkbStats, entityName, entityType, latestKill, resolvedNames, portraitUrl);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
@@ -36,15 +37,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function populateInfoBoxes(data, name, type, latestKill, resolvedNames) {
+    function populateInfoBoxes(data, name, type, latestKill, resolvedNames, portraitUrl) {
         // Update headers
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`;
 
         // --- Populate Character Box ---
         const charBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-content');
 
+        let portraitHtml = '';
+        if (portraitUrl) {
+            portraitHtml = `<img src="${portraitUrl}" alt="${name} Portrait" style="width: 128px; height: 128px; float: right; margin-left: 10px; border-radius: 5px;">`;
+        }
+
         // Basic character info
         let charHtml = `
+            ${portraitHtml}
             <p><span class="info-label">Birthday:</span> ${new Date(data.info.birthday).toLocaleDateString()}</p>
             <p><span class="info-label">Gender:</span> ${data.info.gender}</p>
             <p><span class="info-label">Race:</span> ${resolvedNames[data.info.race_id] || data.info.race_id}</p>

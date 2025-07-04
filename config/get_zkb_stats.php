@@ -54,6 +54,11 @@ if (empty($entityId)) {
     exit();
 }
 
+$portraitUrl = null;
+if ($entityType === 'character') {
+    $portraitUrl = "https://images.evetech.net/characters/{$entityId}/portrait";
+}
+
 // Step 2: Fetch zKillboard stats using the resolved entityID and entityType
 $zkbApiUrl = "https://zkillboard.com/api/stats/{$entityType}ID/{$entityId}/";
 
@@ -119,7 +124,8 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
 $responseData = [
     'zkbStats' => $zkbStats,
     'latestKill' => $latestKill,
-    'resolvedNames' => [] // This will be populated in the next step
+    'resolvedNames' => $resolvedNames,
+    'portraitUrl' => $portraitUrl
 ];
 
 // Collect all unique IDs for resolution
