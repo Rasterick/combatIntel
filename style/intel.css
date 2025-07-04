@@ -128,6 +128,7 @@ body {
     padding: 10px;
     flex-grow: 1;
     overflow-y: auto; /* Add vertical scroll for overflow */
+    font-size:14px;
 }
 
 .info-box-content p {
@@ -137,6 +138,15 @@ body {
 .info-label {
     color: #00aaff; /* Blue color for labels */
     font-weight: bold;
+}
+
+.info-box-content a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.info-box-content a:hover {
+    text-decoration: underline;
 }
 
 .full-height {

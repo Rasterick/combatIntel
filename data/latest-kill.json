@@ -1,0 +1,37 @@
+{
+  "killmail_id": 126549638,
+  "killmail_time": "2024-07-03T18:35:00Z",
+  "solar_system_name": "Perimeter",
+  "zkb": {
+    "totalValue": 72995644.03
+  },
+  "victim": {
+    "character_name": "John Doe",
+    "corporation_name": "The Evil Corp",
+    "alliance_name": "The Evil Alliance",
+    "ship_name": "Tengu"
+  },
+  "attackers": [
+    {
+      "character_name": "Abon Riff",
+      "corporation_name": "The Minmatar Project",
+      "alliance_name": "Valklears.",
+      "ship_name": "Praxis",
+      "weapon_name": "Heavy Assault Missile Launcher II"
+    },
+    {
+      "character_name": "Jane Attacker",
+      "corporation_name": "Aggressor Corp",
+      "alliance_name": "The Evil Alliance",
+      "ship_name": "Loki",
+      "weapon_name": "720mm Howitzer Artillery II"
+    },
+    {
+        "character_name": "Another Attacker",
+        "corporation_name": "Aggressor Corp",
+        "alliance_name": "The Evil Alliance",
+        "ship_name": "Loki",
+        "weapon_name": "720mm Howitzer Artillery II"
+    }
+  ]
+}

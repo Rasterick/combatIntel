@@ -37,8 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const zkbResponse = await fetch(`../data/zkillboard-stats.json`);
             const zkbData = await zkbResponse.json();
 
-            // Step 3: Populate the info boxes
-            populateInfoBoxes(zkbData, entityName, entityType);
+            // Step 3: Fetch latest kill data
+            const latestKillResponse = await fetch('../data/latest-kill.json');
+            const latestKillData = await latestKillResponse.json();
+
+            // Step 4: Populate the info boxes
+            populateInfoBoxes(zkbData, entityName, entityType, latestKillData);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
@@ -46,13 +50,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function populateInfoBoxes(data, name, type) {
+    function populateInfoBoxes(data, name, type, latestKill) {
         // Update headers
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`;
 
         // --- Populate Character Box ---
         const charBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-content');
-        charBox.innerHTML = `
+
+        // Basic character info
+        let charHtml = `
             <p><span class="info-label">Birthday:</span> ${new Date(data.info.birthday).toLocaleDateString()}</p>
             <p><span class="info-label">Gender:</span> ${data.info.gender}</p>
             <p><span class="info-label">Race:</span> ${data.info.race_id} (ID - requires API call)</p>
@@ -70,8 +76,30 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><span class="info-label">Gang Ratio:</span> ${data.gangRatio}%</p>
             <p><span class="info-label">Solo Ratio:</span> ${data.soloRatio}%</p>
             <p><span class="info-label">Average Gang Size:</span> ${data.avgGangSize}</p>
-            <p><span class="info-label">Last Kill:</span> (Requires combat data)</p>
         `;
+
+        // Construct and add the Last Kill HTML
+        const attacker = latestKill.attackers.find(a => a.character_name.toLowerCase() === name.toLowerCase());
+        if (attacker) {
+            const lastKillTime = new Date(latestKill.killmail_time).toLocaleString();
+            const location = latestKill.solar_system_name;
+            const victim = `${latestKill.victim.character_name} (${latestKill.victim.corporation_name})`;
+            const ship = attacker.ship_name || 'Unknown Ship';
+            const otherPilots = latestKill.attackers.length - 1;
+            const pilotText = otherPilots === 1 ? 'pilot' : 'pilots';
+
+            charHtml += `
+                <p>
+                    <span class="info-label">Last Kill:</span> 
+                    <span>(${lastKillTime} in ${location}) - ${name} killed ${victim} in a ${ship} with ${otherPilots} other ${pilotText}.</span>
+                    <a href="https://zkillboard.com/kill/${latestKill.killmail_id}/" target="_blank">(ZKB)</a>
+                </p>
+            `;
+        } else {
+            charHtml += `<p><span class="info-label">Last Kill:</span> No recent kills as attacker found for this character.</p>`;
+        }
+
+        charBox.innerHTML = charHtml;
 
         // --- Populate Associations Box ---
         const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
@@ -115,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // --- Populate zKillboard Box ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
-        zkbBox.innerHTML = `<iframe src="https://zkillboard.com/${type}/${data.info.id}/" style="width: 100%; height: 100%; border: none;"></iframe>`;
+        zkbBox.innerHTML = ''; // Blank out the zKillboard box as requested.
     }
 
     // Dropdown menu logic
