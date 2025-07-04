@@ -66,23 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Construct and add the Last Kill HTML
         if (latestKill) {
-            const lastKillTime = new Date(latestKill.killmail_time).toLocaleString();
-            const location = resolvedNames[latestKill.solar_system_id] || latestKill.solar_system_id;
-            const victimName = resolvedNames[latestKill.victim?.character_id] || latestKill.victim?.character_id || 'Unknown Victim';
-            const victimCorp = resolvedNames[latestKill.victim?.corporation_id] || latestKill.victim?.corporation_id || 'Unknown Corp';
-            const victim = `${victimName} (${victimCorp})`;
-            const victimShip = resolvedNames[latestKill.victim?.ship_type_id] || latestKill.victim?.ship_type_id || 'Unknown Ship';
-
-            const attackerCharacter = latestKill.attackers?.find(a => (resolvedNames[a.character_id] || a.character_id).toLowerCase() === name.toLowerCase());
-            const attackerShip = attackerCharacter ? (resolvedNames[attackerCharacter.ship_type_id] || attackerCharacter.ship_type_id) : 'Unknown Ship';
-            const otherPilots = (latestKill.attackers?.length || 1) - 1;
-            const pilotText = otherPilots === 1 ? 'pilot' : 'pilots';
+            const lastKillTime = latestKill.killmail_time ? new Date(latestKill.killmail_time).toLocaleString() : 'Unknown Date';
+            const location = (latestKill.solar_system_id && resolvedNames[latestKill.solar_system_id]) ? resolvedNames[latestKill.solar_system_id] : 'Unknown System';
+            const zkbLink = latestKill.killmail_id ? `<a href="https://zkillboard.com/kill/${latestKill.killmail_id}/" target="_blank">(ZKB)</a>` : '';
 
             charHtml += `
                 <p>
                     <span class="info-label">Last Kill:</span> 
                     <span>(${lastKillTime} in ${location}) - ${name} killed ${victim} in a ${victimShip} with ${otherPilots} other ${pilotText}.</span>
-                    <a href="https://zkillboard.com/kill/${latestKill.killmail_id}/" target="_blank">(ZKB)</a>
+                    ${zkbLink}
                 </p>
             `;
         } else {
