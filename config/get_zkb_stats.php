@@ -174,7 +174,7 @@ if ($latestKill) {
 
 $idsToResolve = array_unique(array_filter($idsToResolve)); // Remove duplicates and nulls
 
-$resolvedNames = [];
+$resolvedNames = []; // Initialize $resolvedNames here
 if (!empty($idsToResolve)) {
     $namesEsiUrl = "https://esi.evetech.net/latest/universe/names/?datasource=tranquility";
     $namesPostData = json_encode(array_values($idsToResolve)); // Ensure array is 0-indexed
