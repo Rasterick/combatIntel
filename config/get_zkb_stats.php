@@ -74,7 +74,7 @@ $latestKill = null;
 if ($latestKillData !== FALSE) {
     $latestKillArray = json_decode($latestKillData, true);
     if (is_array($latestKillArray) && !empty($latestKillArray)) {
-        $latestKill = $latestKillArray[0];
+        $latestKill = $latestKillArray[0] ?? null;
     }
 }
 
