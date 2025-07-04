@@ -76,7 +76,7 @@ $latestKillData = @file_get_contents($latestKillApiUrl);
 $latestKill = null;
 if ($latestKillData !== FALSE) {
     $latestKillArray = json_decode($latestKillData, true);
-    if (!empty($latestKillArray)) {
+    if (is_array($latestKillArray) && !empty($latestKillArray)) {
         $latestKill = $latestKillArray[0];
     }
 }
