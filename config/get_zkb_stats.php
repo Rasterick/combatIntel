@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 $entityName = $_GET['name'] ?? '';
@@ -11,55 +8,51 @@ if (empty($entityName)) {
     exit();
 }
 
-// Temporarily hardcode entity for testing without ESI name resolution
-$entityId = 92029163; // Abon Riff's character ID
-$entityType = 'character';
-
 // Step 1: Use EVE ESI API to resolve entityName to entityID and entityType
-// $esiUrl = "https://esi.evetech.net/latest/universe/ids/?datasource=tranquility&language=en";
-// $postData = json_encode([$entityName]);
+$esiUrl = "https://esi.evetech.net/latest/universe/ids/?datasource=tranquility&language=en";
+$postData = json_encode([$entityName]);
 
-// $ch = curl_init($esiUrl);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// curl_setopt($ch, CURLOPT_POST, true);
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-// curl_setopt($ch, CURLOPT_HTTPHEADER, [
-//     'accept: application/json',
-//     'Accept-Language: en',
-//     'Content-Type: application/json',
-//     'Cache-Control: no-cache'
-// ]);
+$ch = curl_init($esiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'accept: application/json',
+    'Accept-Language: en',
+    'Content-Type: application/json',
+    'Cache-Control: no-cache'
+]);
 
-// $esiResponse = curl_exec($ch);
-// $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-// curl_close($ch);
+$esiResponse = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
 
-// if ($esiResponse === FALSE || $httpCode !== 200) {
-//     echo json_encode(['error' => 'Could not resolve entity name via ESI.', 'http_code' => $httpCode]);
-//     exit();
-// }
+if ($esiResponse === FALSE || $httpCode !== 200) {
+    echo json_encode(['error' => 'Could not resolve entity name via ESI.', 'http_code' => $httpCode]);
+    exit();
+}
 
-// $esiData = json_decode($esiResponse, true);
+$esiData = json_decode($esiResponse, true);
 
-// $entityId = null;
-// $entityType = null;
+$entityId = null;
+$entityType = null;
 
-// // Prioritize character, then corporation, then alliance
-// if (!empty($esiData['characters'])) {
-//     $entityId = $esiData['characters'][0]['id'];
-//     $entityType = 'character';
-// } else if (!empty($esiData['corporations'])) {
-//     $entityId = $esiData['corporations'][0]['id'];
-//     $entityType = 'corporation';
-// } else if (!empty($esiData['alliances'])) {
-//     $entityId = $esiData['alliances'][0]['id'];
-//     $entityType = 'alliance';
-// }
+// Prioritize character, then corporation, then alliance
+if (!empty($esiData['characters'])) {
+    $entityId = $esiData['characters'][0]['id'];
+    $entityType = 'character';
+} else if (!empty($esiData['corporations'])) {
+    $entityId = $esiData['corporations'][0]['id'];
+    $entityType = 'corporation';
+} else if (!empty($esiData['alliances'])) {
+    $entityId = $esiData['alliances'][0]['id'];
+    $entityType = 'alliance';
+}
 
-// if (empty($entityId)) {
-//     echo json_encode(['error' => 'Entity ID not found for the given name.']);
-//     exit();
-// }
+if (empty($entityId)) {
+    echo json_encode(['error' => 'Entity ID not found for the given name.']);
+    exit();
+}
 
 // Step 2: Fetch zKillboard stats using the resolved entityID and entityType
 $zkbApiUrl = "https://zkillboard.com/api/stats/{$entityType}ID/{$entityId}/";
@@ -100,29 +93,24 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
         $latestKillHash = $latestKillSummaries[0]['zkb']['hash'] ?? null;
 
         if ($latestKillId && $latestKillHash) {
-            // Temporarily disable ESI full killmail fetch
-            // $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$latestKillId}/{$latestKillHash}/?datasource=tranquility";
+            $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$latestKillId}/{$latestKillHash}/?datasource=tranquility";
 
-            // error_log("Fetching full killmail from ESI: " . $fullKillmailApiUrl);
-            // $ch = curl_init($fullKillmailApiUrl);
-            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            // curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            //     'accept: application/json',
-            //     'Cache-Control: no-cache'
-            // ]);
-            // $fullKillmailData = curl_exec($ch);
-            // $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            // curl_close($ch);
+            $ch = curl_init($fullKillmailApiUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'accept: application/json',
+                'Cache-Control: no-cache'
+            ]);
+            $fullKillmailData = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
 
-            // error_log("Full killmail ESI response HTTP Code: " . $httpCode);
-            // error_log("Full killmail ESI raw data: " . ($fullKillmailData !== FALSE ? $fullKillmailData : "Failed to fetch"));
-
-            // if ($fullKillmailData !== FALSE && $httpCode === 200) {
-            //     $fullKillmailArray = json_decode($fullKillmailData, true);
-            //     if (is_array($fullKillmailArray) && !empty($fullKillmailArray)) {
-            //         $latestKill = $fullKillmailArray;
-            //     }
-            // }
+            if ($fullKillmailData !== FALSE && $httpCode === 200) {
+                $fullKillmailArray = json_decode($fullKillmailData, true);
+                if (is_array($fullKillmailArray) && !empty($fullKillmailArray)) {
+                    $latestKill = $fullKillmailArray;
+                }
+            }
         }
     }
 }
@@ -186,32 +174,31 @@ if ($latestKill) {
 $idsToResolve = array_unique(array_filter($idsToResolve)); // Remove duplicates and nulls
 
 $resolvedNames = [];
-// Temporarily disable ESI name resolution
-// if (!empty($idsToResolve)) {
-//     $namesEsiUrl = "https://esi.evetech.net/latest/universe/names/?datasource=tranquility";
-//     $namesPostData = json_encode(array_values($idsToResolve)); // Ensure array is 0-indexed
+if (!empty($idsToResolve)) {
+    $namesEsiUrl = "https://esi.evetech.net/latest/universe/names/?datasource=tranquility";
+    $namesPostData = json_encode(array_values($idsToResolve)); // Ensure array is 0-indexed
 
-//     $ch = curl_init($namesEsiUrl);
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//     curl_setopt($ch, CURLOPT_POST, true);
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $namesPostData);
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, [
-//         'accept: application/json',
-//         'Content-Type: application/json',
-//         'Cache-Control: no-cache'
-//     ]);
+    $ch = curl_init($namesEsiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $namesPostData);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'accept: application/json',
+        'Content-Type: application/json',
+        'Cache-Control: no-cache'
+    ]);
 
-//     $namesResponse = curl_exec($ch);
-//     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-//     curl_close($ch);
+    $namesResponse = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 
-//     if ($namesResponse !== FALSE && $httpCode === 200) {
-//         $namesData = json_decode($namesResponse, true);
-//         foreach ($namesData as $item) {
-//             $resolvedNames[$item['id']] = $item['name'];
-//         }
-//     }
-// }
+    if ($namesResponse !== FALSE && $httpCode === 200) {
+        $namesData = json_decode($namesResponse, true);
+        foreach ($namesData as $item) {
+            $resolvedNames[$item['id']] = $item['name'];
+        }
+    }
+}
 
 $responseData['resolvedNames'] = $resolvedNames;
 echo json_encode($responseData);
