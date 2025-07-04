@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const attackerCharacter = latestKill.attackers?.find(a => (resolvedNames[a.character_id] || a.character_id).toLowerCase() === name.toLowerCase());
             const attackerShip = attackerCharacter ? (resolvedNames[attackerCharacter.ship_type_id] || attackerCharacter.ship_type_id) : 'Unknown Ship';
-            const otherPilots = latestKill.attackers.length - 1;
+            const otherPilots = (latestKill.attackers?.length || 1) - 1;
             const pilotText = otherPilots === 1 ? 'pilot' : 'pilots';
 
             charHtml += `
