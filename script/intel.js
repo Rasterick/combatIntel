@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             // Step 1: Fetch stats from the PHP backend
-            const zkbResponse = await fetch(`../config/get_zkb_stats.php?name=${encodeURIComponent(entityName)}`);
+            const zkbResponse = await fetch(`/combatIntel/config/get_zkb_stats.php?name=${encodeURIComponent(entityName)}`);
             const zkbData = await zkbResponse.json();
 
             if (zkbData.error) {
