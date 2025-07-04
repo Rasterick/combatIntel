@@ -118,7 +118,10 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
             }
         }
     }
-// Correct closing brace for if (is_array($latestKillSummaries) && !empty($latestKillSummaries))
+            }
+        }
+    }
+} // Correct closing brace for if (is_array($latestKillSummaries) && !empty($latestKillSummaries))
 
 // Prepare the response data
 $responseData = [
