@@ -113,4 +113,6 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
             }
         }
     }
-}
+} // Closing brace for if ($latestKillData !== FALSE)
+
+// Prepare the response data
