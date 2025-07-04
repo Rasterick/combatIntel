@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 $entityName = $_GET['name'] ?? '';
@@ -95,6 +98,7 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
         if ($latestKillId && $latestKillHash) {
             $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$latestKillId}/{$latestKillHash}/?datasource=tranquility";
 
+            error_log("Fetching full killmail from ESI: " . $fullKillmailApiUrl);
             $ch = curl_init($fullKillmailApiUrl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -104,6 +108,9 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
             $fullKillmailData = curl_exec($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             curl_close($ch);
+
+            error_log("Full killmail ESI response HTTP Code: " . $httpCode);
+            error_log("Full killmail ESI raw data: " . ($fullKillmailData !== FALSE ? $fullKillmailData : "Failed to fetch"));
 
             if ($fullKillmailData !== FALSE && $httpCode === 200) {
                 $fullKillmailArray = json_decode($fullKillmailData, true);
