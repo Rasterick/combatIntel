@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const totalAttackers = killmail.attackers?.length || 1;
             const otherPilotsText = totalAttackers > 1 ? ` with ${totalAttackers - 1} other pilot${totalAttackers - 1 > 1 ? 's' : ''}` : '';
 
-            description = `${characterName} was killed by ${finalBlowAttackerName} in a ${finalBlowAttackerShip}${otherPilotsText}.`;
+            description = `${characterName} was killed in a ${victimShip} by ${finalBlowAttackerName} in a ${finalBlowAttackerShip}${otherPilotsText}.`;
         } else {
             // This is a kill
             const targetVictimName = resolvedNames[killmail.victim?.character_id] || killmail.victim?.character_id || 'Unknown Victim';
