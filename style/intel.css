@@ -131,18 +131,20 @@ body {
     overflow-y: auto; /* Add vertical scroll for overflow */
     display: flex;
     flex-direction: column;
+    gap: 10px; /* Add gap for spacing between elements */
 }
 
 .info-box-content canvas {
-    height: 100% !important;
-    width: 100% !important;
     flex-grow: 1;
+    flex-basis: 0; /* Allow canvases to shrink and grow proportionally */
+    width: 100%; /* Ensure canvas takes full width */
 }
 
 .info-box-content h4 {
-    margin-bottom: 5px;
-    margin-top: 10px;
+    margin: 0; /* Remove default margins */
+    padding-top: 5px; /* Add some padding above the title */
     color: #00aaff;
+    flex-shrink: 0; /* Prevent h4 from shrinking */
 }
 
 .info-label {
