@@ -129,10 +129,20 @@ body {
     padding: 10px;
     flex-grow: 1;
     overflow-y: auto; /* Add vertical scroll for overflow */
+    display: flex;
+    flex-direction: column;
 }
 
-.info-box-content p {
-    margin: 5px 0; /* Reduced line spacing */
+.info-box-content canvas {
+    height: 100% !important;
+    width: 100% !important;
+    flex-grow: 1;
+}
+
+.info-box-content h4 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: #00aaff;
 }
 
 .info-label {
