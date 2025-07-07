@@ -229,7 +229,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 };
             }
 
-    // New asynchronous function to load and populate Top Stats Charts
+        } catch (error) {
+            console.error('Error loading last 10 kills/losses:', error);
+        }
+    }
     function loadTopStatsCharts(data, resolvedNames) {
         // --- Populate Top Stats Box (Charts) ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
