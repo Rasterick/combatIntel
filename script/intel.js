@@ -234,29 +234,26 @@ document.addEventListener('DOMContentLoaded', function () {
             const associationsCanvas = document.getElementById('associationsChartCanvas');
             const associatedCharacters = {};
 
-            // Aggregate characters from kills
-            last10Data.kills.forEach(killmail => {
-                // Add victim if not the main character
-                if (killmail.victim?.character_id && killmail.victim.character_id != characterId) {
-                    associatedCharacters[killmail.victim.character_id] = (associatedCharacters[killmail.victim.character_id] || 0) + 1;
-                }
-                // Add all attackers
-                (killmail.attackers || []).forEach(attacker => {
-                    if (attacker.character_id && attacker.character_id != characterId) {
-                        associatedCharacters[attacker.character_id] = (associatedCharacters[attacker.character_id] || 0) + 1;
-                    }
-                });
-            });
+            if (assocBox) {
+                assocBox.innerHTML = ''; // Clear previous content
+            }
 
-            // Aggregate characters from losses
-            last10Data.losses.forEach(killmail => {
-                // Add victim (which is the main character, so skip)
-                // Add all attackers
-                (killmail.attackers || []).forEach(attacker => {
-                    if (attacker.character_id && attacker.character_id != characterId) {
-                        associatedCharacters[attacker.character_id] = (associatedCharacters[attacker.character_id] || 0) + 1;
+            // Aggregate characters from kills where the main character is an attacker
+            last10Data.kills.forEach(killmail => {
+                const mainCharacterIsAttacker = (killmail.attackers || []).some(attacker => attacker.character_id == characterId);
+
+                if (mainCharacterIsAttacker) {
+                    // Add victim of this kill
+                    if (killmail.victim?.character_id && killmail.victim.character_id != characterId) {
+                        associatedCharacters[killmail.victim.character_id] = (associatedCharacters[killmail.victim.character_id] || 0) + 1;
                     }
-                });
+                    // Add all other attackers involved in this kill
+                    (killmail.attackers || []).forEach(attacker => {
+                        if (attacker.character_id && attacker.character_id != characterId) {
+                            associatedCharacters[attacker.character_id] = (associatedCharacters[attacker.character_id] || 0) + 1;
+                        }
+                    });
+                }
             });
 
             // Convert to array and sort by incidence
