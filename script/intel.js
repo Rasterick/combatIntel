@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const toggleButton = document.querySelector('.toggle-kills-losses');
 
         // Asynchronously load and populate other sections
-        loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType, last10KillsLossesContent, toggleButton);
-        loadTopStatsCharts(zkbStats, resolvedNames);
+            loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType, last10KillsLossesContent, toggleButton, document.getElementById('associationsChartCanvas'));
+            loadTopStatsCharts(zkbStats, resolvedNames);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // New asynchronous function to load and populate Last 10 Kills/Losses
-    async function loadLast10KillsLosses(characterId, resolvedNames, characterName, characterType, last10KillsLossesContent, toggleButton) {
+    async function loadLast10KillsLosses(characterId, resolvedNames, characterName, characterType, last10KillsLossesContent, toggleButton, associationsCanvas) {
         try {
             if (last10KillsLossesContent) {
                 last10KillsLossesContent.innerHTML = '<p>Please wait - retrieving kill and loss data...</p>';
@@ -231,7 +231,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // --- Populate Associations Box (Chart) ---
             const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
-            const associationsCanvas = document.getElementById('associationsChartCanvas');
             const associatedCharacters = {};
 
             // Aggregate characters from kills where the main character is an attacker
