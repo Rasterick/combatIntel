@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function populateInfoBoxes(data, name, type, latestKill, resolvedNames) {
         // Update headers
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`;
+        document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-header').textContent = `${name}: Combat (Last 10)`;
+        document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-header').textContent = `${name}: Associations`;
+        document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2) .info-box-header').textContent = `${name}: Ships and Locations`;
 
         // --- Populate Character Box ---
         const charBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-content');
