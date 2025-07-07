@@ -99,6 +99,7 @@ body {
     padding: 20px;
     gap: 20px;
     align-items: flex-start; /* Align columns to the top */
+    font-size: 12px;
 }
 
 .info-column {

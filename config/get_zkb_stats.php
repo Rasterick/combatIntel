@@ -166,31 +166,39 @@ if ($latestKill) {
     }
 }
 
-$idsToResolve = array_unique(array_filter($idsToResolve)); // Remove duplicates and nulls
+$idsToResolve = array_unique(array_filter($idsToResolve));
 
 $resolvedNames = [];
 if (!empty($idsToResolve)) {
-    $namesEsiUrl = "https://esi.evetech.net/latest/universe/names/?datasource=tranquility";
-    $namesPostData = json_encode(array_values($idsToResolve)); // Ensure array is 0-indexed
+    // ESI has a limit of 1000 IDs per request, let's use 999 to be safe.
+    $idChunks = array_chunk($idsToResolve, 999);
 
-    $ch = curl_init($namesEsiUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $namesPostData);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'accept: application/json',
-        'Content-Type: application/json',
-        'Cache-Control: no-cache'
-    ]);
+    foreach ($idChunks as $chunk) {
+        $namesEsiUrl = "https://esi.evetech.net/latest/universe/names/?datasource=tranquility";
+        $namesPostData = json_encode(array_values($chunk)); // Ensure array is 0-indexed
 
-    $namesResponse = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+        $ch = curl_init($namesEsiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $namesPostData);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'accept: application/json',
+            'Content-Type: application/json',
+            'Cache-Control: no-cache'
+        ]);
 
-    if ($namesResponse !== FALSE && $httpCode === 200) {
-        $namesData = json_decode($namesResponse, true);
-        foreach ($namesData as $item) {
-            $resolvedNames[$item['id']] = $item['name'];
+        $namesResponse = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($namesResponse !== FALSE && $httpCode === 200) {
+            $namesData = json_decode($namesResponse, true);
+            foreach ($namesData as $item) {
+                $resolvedNames[$item['id']] = $item['name'];
+            }
+        } else {
+            // Log error if a chunk fails
+            error_log("Failed to resolve names for a chunk. HTTP Code: " . $httpCode);
         }
     }
 }
