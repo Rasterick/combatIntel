@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last 10 Kills/Losses Test Harness</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: #fff;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        pre {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Preserve whitespace and wrap text */
+            word-wrap: break-word; /* Break long words */
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Last 10 Kills/Losses Test Harness</h1>
+        <p>Enter a Character ID to fetch their last 10 kills and losses.</p>
+        <input type="text" id="characterIdInput" placeholder="Enter Character ID (e.g., 2112625298)">
+        <button id="fetchDataButton">Fetch Data</button>
+        <div id="responseContainer">
+            <h2>Response:</h2>
+            <pre id="jsonResponse"></pre>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('fetchDataButton').addEventListener('click', async () => {
+            const characterId = document.getElementById('characterIdInput').value.trim();
+            const jsonResponseDiv = document.getElementById('jsonResponse');
+            jsonResponseDiv.textContent = 'Loading...';
+            jsonResponseDiv.classList.remove('error');
+
+            if (!characterId) {
+                jsonResponseDiv.textContent = 'Please enter a Character ID.';
+                jsonResponseDiv.classList.add('error');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/combatIntel/config/get_last_10_kills_losses.php?characterId=${encodeURIComponent(characterId)}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    jsonResponseDiv.textContent = JSON.stringify(data, null, 2);
+                } else {
+                    jsonResponseDiv.textContent = `Error: ${data.error || response.statusText}`;
+                    jsonResponseDiv.classList.add('error');
+                }
+            } catch (error) {
+                jsonResponseDiv.textContent = `Fetch Error: ${error.message}`;
+                jsonResponseDiv.classList.add('error');
+                console.error('Fetch Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
