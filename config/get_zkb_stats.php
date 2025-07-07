@@ -132,7 +132,7 @@ if ($entityId) {
 
 // IDs from zkbStats
 if (isset($zkbStats['info'])) {
-    if (isset($zkbStats['info']['race_id'])) $idsToResolve[] = $zkbStats['info']['race_id'];
+    // race_id is not resolvable via the /universe/names endpoint, so we skip it.
     if (isset($zkbStats['info']['corporation_id'])) $idsToResolve[] = $zkbStats['info']['corporation_id'];
     if (isset($zkbStats['info']['alliance_id'])) $idsToResolve[] = $zkbStats['info']['alliance_id'];
 }
