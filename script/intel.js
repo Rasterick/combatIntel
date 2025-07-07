@@ -234,10 +234,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const associationsCanvas = document.getElementById('associationsChartCanvas');
             const associatedCharacters = {};
 
-            if (assocBox) {
-                assocBox.innerHTML = ''; // Clear previous content
-            }
-
             // Aggregate characters from kills where the main character is an attacker
             last10Data.kills.forEach(killmail => {
                 const mainCharacterIsAttacker = (killmail.attackers || []).some(attacker => attacker.character_id == characterId);
@@ -256,13 +252,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
+            console.log('Associated Characters (raw):', associatedCharacters);
+
             // Convert to array and sort by incidence
             const sortedAssociations = Object.entries(associatedCharacters)
                 .sort(([, countA], [, countB]) => countB - countA)
                 .slice(0, 10); // Get top 10
 
+            console.log('Sorted Associations:', sortedAssociations);
+
             const assocLabels = sortedAssociations.map(([id,]) => resolvedNames[id] || id);
             const assocData = sortedAssociations.map(([, count]) => count);
+
+            console.log('Associations Labels:', assocLabels);
+            console.log('Associations Data:', assocData);
+            console.log('Associations Canvas Element:', associationsCanvas);
 
             if (associationsCanvas) {
                 renderHorizontalBarChart(
