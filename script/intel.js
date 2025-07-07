@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const latestKill = responseData.latestKill;
             const resolvedNames = responseData.resolvedNames;
 
+            // The PHP script now resolves entityType and entityId
+            const entityId = zkbStats.info.id;
+            const entityType = zkbStats.info.type; // Assuming PHP returns 'character', 'corporation', or 'alliance'
+
             // Fetch last 10 kills and losses
             const last10Response = await fetch(`/combatIntel/config/get_last_10_kills_losses.php?characterId=${entityId}`);
             const last10Data = await last10Response.json();
@@ -34,10 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Merge resolved names from last 10 kills/losses into main resolvedNames
             Object.assign(resolvedNames, last10Data.resolvedNames);
-
-            // The PHP script now resolves entityType and entityId
-            const entityId = zkbStats.info.id;
-            const entityType = zkbStats.info.type; // Assuming PHP returns 'character', 'corporation', or 'alliance'
 
             // Step 3: Populate the info boxes
             populateInfoBoxes(zkbStats, entityName, entityType, latestKill, resolvedNames, last10Data.kills, last10Data.losses);
