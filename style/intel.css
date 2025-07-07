@@ -129,38 +129,31 @@ body {
     padding: 10px;
     flex-grow: 1;
     overflow-y: auto; /* Add vertical scroll for overflow */
+}
+
+.info-box-content p {
+    margin: 5px 0; /* Reduced line spacing */
+}
+
+.chart-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around; /* Distribute space evenly */
     gap: 5px; /* Reduced gap for tighter packing */
 }
 
-.info-box-content canvas {
+.chart-container canvas {
     flex-grow: 1;
     flex-basis: 0; /* Allow canvases to shrink and grow proportionally */
     width: 100%; /* Ensure canvas takes full width */
     max-height: 20%; /* Limit individual chart height to prevent overflow */
 }
 
-.info-box-content h4 {
+.chart-container h4 {
     margin: 0; /* Remove default margins */
     padding-top: 5px; /* Add some padding above the title */
     color: #00aaff;
     flex-shrink: 0; /* Prevent h4 from shrinking */
-}
-
-.info-label {
-    color: #00aaff; /* Blue color for labels */
-    font-weight: bold;
-}
-
-.info-box-content a {
-    color: #00aaff;
-    text-decoration: none;
-}
-
-.info-box-content a:hover {
-    text-decoration: underline;
 }
 
 .full-height {
