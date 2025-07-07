@@ -105,22 +105,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
         charBox.innerHTML = charHtml;
 
-        // --- Populate Associations Box ---
+        // --- Populate Associations Box (Charts) ---
         const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
         const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 5);
         const topAlliances = data.topAllTime.find(t => t.type === 'alliance').data.slice(0, 5);
-        assocBox.innerHTML = `
-            <h4>Top Corporations</h4>
-            <ul>
-                ${topCorps.map(c => `<li>${resolvedNames[c.corporationID] || c.corporationID} - Kills: ${c.kills}</li>`).join('')}
-            </ul>
-            <h4>Top Alliances</h4>
-            <ul>
-                ${topAlliances.map(a => `<li>${resolvedNames[a.allianceID] || a.allianceID} - Kills: ${a.kills}</li>`).join('')}
-            </ul>
-        `;
 
-        // --- Populate Combat Box ---
+        // Render Top Corporations Chart
+        renderHorizontalBarChart(
+            'topCorpsChart',
+            topCorps.map(c => resolvedNames[c.corporationID] || c.corporationID),
+            topCorps.map(c => c.kills),
+            'Kills',
+            'rgba(54, 162, 235, 0.6)'
+        );
+
+        // Render Top Alliances Chart
+        renderHorizontalBarChart(
+            'topAlliancesChart',
+            topAlliances.map(a => resolvedNames[a.allianceID] || a.allianceID),
+            topAlliances.map(a => a.kills),
+            'Kills',
+            'rgba(153, 102, 255, 0.6)'
+        );
+
+        // --- Populate Combat Box (Chart) ---
         const combatBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-content');
         const recentMonths = Object.values(data.months).slice(-10);
 
@@ -168,24 +176,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // The chart will now render in the canvas element
 
-        // --- Populate Ships and Locations Box ---
+        // --- Populate Ships and Locations Box (Charts) ---
         const shipsBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2) .info-box-content');
         const topShips = data.topAllTime.find(t => t.type === 'ship').data.slice(0, 5);
         const topSystems = data.topAllTime.find(t => t.type === 'system').data.slice(0, 5);
-        shipsBox.innerHTML = `
-            <h4>Top Ships</h4>
-            <ul>
-                ${topShips.map(s => `<li>${resolvedNames[s.shipTypeID] || s.shipTypeID} - Kills: ${s.kills}</li>`).join('')}
-            </ul>
-            <h4>Top Systems</h4>
-            <ul>
-                ${topSystems.map(s => `<li>${resolvedNames[s.solarSystemID] || s.solarSystemID} - Kills: ${s.kills}</li>`).join('')}
-            </ul>
-        `;
+
+        // Render Top Ships Chart
+        renderHorizontalBarChart(
+            'topShipsChart',
+            topShips.map(s => resolvedNames[s.shipTypeID] || s.shipTypeID),
+            topShips.map(s => s.kills),
+            'Kills',
+            'rgba(255, 206, 86, 0.6)'
+        );
+
+        // Render Top Systems Chart
+        renderHorizontalBarChart(
+            'topSystemsChart',
+            topSystems.map(s => resolvedNames[s.solarSystemID] || s.solarSystemID),
+            topSystems.map(s => s.kills),
+            'Kills',
+            'rgba(75, 192, 192, 0.6)'
+        );
 
         // --- Populate zKillboard Box ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
         zkbBox.innerHTML = ''; // Blank out the zKillboard box as requested.
+    }
+
+    // Helper function to render a horizontal bar chart
+    function renderHorizontalBarChart(canvasId, labels, data, labelText, backgroundColor) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        if (window[canvasId] instanceof Chart) {
+            window[canvasId].destroy();
+        }
+        window[canvasId] = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: labelText,
+                    data: data,
+                    backgroundColor: backgroundColor,
+                    borderColor: backgroundColor.replace('0.6', '1'),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
     }
 
     // Dropdown menu logic
