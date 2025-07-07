@@ -105,28 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         charBox.innerHTML = charHtml;
 
-        // --- Populate Associations Box (Charts) ---
+        // --- Populate Associations Box (Empty) ---
         const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
-        const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 5);
-        const topAlliances = data.topAllTime.find(t => t.type === 'alliance').data.slice(0, 5);
-
-        // Render Top Corporations Chart
-        renderHorizontalBarChart(
-            'topCorpsChart',
-            topCorps.map(c => resolvedNames[c.corporationID] || c.corporationID),
-            topCorps.map(c => c.kills),
-            'Kills',
-            'rgba(54, 162, 235, 0.6)'
-        );
-
-        // Render Top Alliances Chart
-        renderHorizontalBarChart(
-            'topAlliancesChart',
-            topAlliances.map(a => resolvedNames[a.allianceID] || a.allianceID),
-            topAlliances.map(a => a.kills),
-            'Kills',
-            'rgba(153, 102, 255, 0.6)'
-        );
+        assocBox.innerHTML = '';
 
         // --- Populate Combat Box (Chart) ---
         const combatBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-content');
@@ -176,10 +157,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // The chart will now render in the canvas element
 
-        // --- Populate Ships and Locations Box (Charts) ---
+        // --- Populate Ships and Locations Box (Empty) ---
         const shipsBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2) .info-box-content');
+        shipsBox.innerHTML = '';
+
+        // --- Populate Top Stats Box (Charts) ---
+        const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
+        const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 5);
+        const topAlliances = data.topAllTime.find(t => t.type === 'alliance').data.slice(0, 5);
         const topShips = data.topAllTime.find(t => t.type === 'ship').data.slice(0, 5);
         const topSystems = data.topAllTime.find(t => t.type === 'system').data.slice(0, 5);
+
+        // Render Top Corporations Chart
+        renderHorizontalBarChart(
+            'topCorpsChart',
+            topCorps.map(c => resolvedNames[c.corporationID] || c.corporationID),
+            topCorps.map(c => c.kills),
+            'Kills',
+            'rgba(54, 162, 235, 0.6)'
+        );
+
+        // Render Top Alliances Chart
+        renderHorizontalBarChart(
+            'topAlliancesChart',
+            topAlliances.map(a => resolvedNames[a.allianceID] || a.allianceID),
+            topAlliances.map(a => a.kills),
+            'Kills',
+            'rgba(153, 102, 255, 0.6)'
+        );
 
         // Render Top Ships Chart
         renderHorizontalBarChart(
@@ -198,10 +203,6 @@ document.addEventListener('DOMContentLoaded', function () {
             'Kills',
             'rgba(75, 192, 192, 0.6)'
         );
-
-        // --- Populate zKillboard Box ---
-        const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
-        zkbBox.innerHTML = ''; // Blank out the zKillboard box as requested.
     }
 
     // Helper function to render a horizontal bar chart
@@ -235,7 +236,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     legend: {
                         display: false
                     }
-                }
+                },
+                barPercentage: 0.3,
+                categoryPercentage: 0.3
             }
         });
     }
