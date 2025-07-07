@@ -123,12 +123,51 @@ document.addEventListener('DOMContentLoaded', function () {
         // --- Populate Combat Box ---
         const combatBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-content');
         const recentMonths = Object.values(data.months).slice(-10);
-        combatBox.innerHTML = `
-            <h4>Last 10 Months Activity</h4>
-            <ul>
-                ${recentMonths.map(m => `<li>${m.year}-${m.month}: ${m.shipsDestroyed} destroyed, ${m.shipsLost} lost</li>`).join('')}
-            </ul>
-        `;
+
+        // Prepare data for Chart.js
+        const labels = recentMonths.map(m => `${m.year}-${m.month}`);
+        const shipsDestroyed = recentMonths.map(m => m.shipsDestroyed);
+        const shipsLost = recentMonths.map(m => m.shipsLost);
+
+        const ctx = document.getElementById('combatActivityChart').getContext('2d');
+        if (window.combatActivityChart instanceof Chart) {
+            window.combatActivityChart.destroy();
+        }
+        window.combatActivityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Ships Destroyed',
+                        data: shipsDestroyed,
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Ships Lost',
+                        data: shipsLost,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y', // Horizontal bar chart
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        combatBox.innerHTML = ''; // Clear previous list if any
+        // The chart will now render in the canvas element
 
         // --- Populate Ships and Locations Box ---
         const shipsBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2) .info-box-content');
