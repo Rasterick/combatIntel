@@ -229,6 +229,54 @@ document.addEventListener('DOMContentLoaded', function () {
                 };
             }
 
+            // --- Populate Associations Box (Chart) ---
+            const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
+            const associationsCanvas = document.getElementById('associationsChartCanvas');
+            const associatedCharacters = {};
+
+            // Aggregate characters from kills
+            last10Data.kills.forEach(killmail => {
+                // Add victim if not the main character
+                if (killmail.victim?.character_id && killmail.victim.character_id != characterId) {
+                    associatedCharacters[killmail.victim.character_id] = (associatedCharacters[killmail.victim.character_id] || 0) + 1;
+                }
+                // Add all attackers
+                (killmail.attackers || []).forEach(attacker => {
+                    if (attacker.character_id && attacker.character_id != characterId) {
+                        associatedCharacters[attacker.character_id] = (associatedCharacters[attacker.character_id] || 0) + 1;
+                    }
+                });
+            });
+
+            // Aggregate characters from losses
+            last10Data.losses.forEach(killmail => {
+                // Add victim (which is the main character, so skip)
+                // Add all attackers
+                (killmail.attackers || []).forEach(attacker => {
+                    if (attacker.character_id && attacker.character_id != characterId) {
+                        associatedCharacters[attacker.character_id] = (associatedCharacters[attacker.character_id] || 0) + 1;
+                    }
+                });
+            });
+
+            // Convert to array and sort by incidence
+            const sortedAssociations = Object.entries(associatedCharacters)
+                .sort(([, countA], [, countB]) => countB - countA)
+                .slice(0, 10); // Get top 10
+
+            const assocLabels = sortedAssociations.map(([id,]) => resolvedNames[id] || id);
+            const assocData = sortedAssociations.map(([, count]) => count);
+
+            if (associationsCanvas) {
+                renderHorizontalBarChart(
+                    associationsCanvas,
+                    assocLabels,
+                    assocData,
+                    'Combat Incidence',
+                    'rgba(255, 159, 64, 0.6)'
+                );
+            }
+
         } catch (error) {
             console.error('Error loading last 10 kills/losses:', error);
         }
