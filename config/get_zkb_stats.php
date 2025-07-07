@@ -189,6 +189,7 @@ if (!empty($idsToResolve)) {
 
         $namesResponse = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
         curl_close($ch);
 
         if ($namesResponse !== FALSE && $httpCode === 200) {
@@ -197,8 +198,9 @@ if (!empty($idsToResolve)) {
                 $resolvedNames[$item['id']] = $item['name'];
             }
         } else {
-            // Log error if a chunk fails
-            error_log("Failed to resolve names for a chunk. HTTP Code: " . $httpCode);
+            // Log detailed error information
+            error_log("Failed to resolve names for a chunk. HTTP Code: {$httpCode}. cURL Error: {$curlError}. ESI Response: {$namesResponse}");
+            $responseData['error'] = "Failed to resolve some names. Check server logs for details.";
         }
     }
 }
