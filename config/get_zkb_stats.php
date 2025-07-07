@@ -166,6 +166,19 @@ if ($latestKill) {
     }
 }
 
+// Manual mapping for race IDs to names
+$raceMap = [
+    1 => 'Caldari',
+    2 => 'Minmatar',
+    4 => 'Amarr',
+    8 => 'Gallente',
+];
+
+// Add the race name to the resolved names if it exists
+if (isset($zkbStats['info']['race_id']) && isset($raceMap[$zkbStats['info']['race_id']])) {
+    $resolvedNames[$zkbStats['info']['race_id']] = $raceMap[$zkbStats['info']['race_id']];
+}
+
 // Filter out any invalid IDs (null, 0, non-numeric) before sending to ESI
 $idsToResolve = array_filter($idsToResolve, function($id) {
     return !empty($id) && is_numeric($id) && $id > 0;
