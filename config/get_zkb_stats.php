@@ -184,8 +184,6 @@ $idsToResolve = array_filter($idsToResolve, function($id) {
     return !empty($id) && is_numeric($id) && $id > 0;
 });
 $idsToResolve = array_unique($idsToResolve);
-
-$resolvedNames = [];
 if (!empty($idsToResolve)) {
     // ESI has a limit of 1000 IDs per request, let's use 999 to be safe.
     $idChunks = array_chunk($idsToResolve, 999);
