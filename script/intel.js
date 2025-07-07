@@ -166,7 +166,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        combatBox.innerHTML = ''; // Clear previous list if any
         // The chart will now render in the canvas element
 
         // --- Populate Ships and Locations Box ---
