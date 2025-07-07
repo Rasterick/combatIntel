@@ -166,7 +166,11 @@ if ($latestKill) {
     }
 }
 
-$idsToResolve = array_unique(array_filter($idsToResolve));
+// Filter out any invalid IDs (null, 0, non-numeric) before sending to ESI
+$idsToResolve = array_filter($idsToResolve, function($id) {
+    return !empty($id) && is_numeric($id) && $id > 0;
+});
+$idsToResolve = array_unique($idsToResolve);
 
 $resolvedNames = [];
 if (!empty($idsToResolve)) {
