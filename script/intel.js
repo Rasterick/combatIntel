@@ -30,9 +30,15 @@ document.addEventListener('DOMContentLoaded', function () {
             // Step 3: Populate the main info boxes immediately
             populateMainInfoBoxes(zkbStats, entityName, entityType, latestKill, resolvedNames);
 
-            // Asynchronously load and populate other sections
-            loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType);
-            loadTopStatsCharts(zkbStats, resolvedNames);
+            document.getElementById('last10KillsLossesHeader').textContent = `${name}: Last 10 Kills/Losses`;
+
+        // Get references for Last 10 Kills/Losses section
+        const last10KillsLossesContent = document.getElementById('last10KillsLossesContent');
+        const toggleButton = document.querySelector('.toggle-kills-losses');
+
+        // Asynchronously load and populate other sections
+        loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType, last10KillsLossesContent, toggleButton);
+        loadTopStatsCharts(zkbStats, resolvedNames);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
@@ -164,23 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // New asynchronous function to load and populate Last 10 Kills/Losses
-    async function loadLast10KillsLosses(characterId, resolvedNames, characterName, characterType) {
+    async function loadLast10KillsLosses(characterId, resolvedNames, characterName, characterType, last10KillsLossesContent, toggleButton) {
         try {
-            const last10Response = await fetch(`/combatIntel/config/get_last_10_kills_losses.php?characterId=${characterId}`);
-            const last10Data = await last10Response.json();
-
-            if (last10Data.error) {
-                console.error('Error fetching last 10 kills/losses:', last10Data.error);
-                return;
-            }
-
-            // Merge resolved names from last 10 kills/losses into main resolvedNames
-            Object.assign(resolvedNames, last10Data.resolvedNames);
-
-            const last10KillsLossesContent = document.getElementById('last10KillsLossesContent');
-            const toggleButton = document.querySelector('.toggle-kills-losses');
-            const last10KillsLossesHeader = document.getElementById('last10KillsLossesHeader');
-
             if (last10KillsLossesContent) {
                 last10KillsLossesContent.innerHTML = '<p>Please wait - retrieving kill and loss data...</p>';
             }
@@ -212,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const listToRender = showingKills ? last10Data.kills : last10Data.losses;
                 const listTitle = showingKills ? 'Last 10 Kills' : 'Last 10 Losses';
 
+                const last10KillsLossesHeader = document.getElementById('last10KillsLossesHeader');
                 if (last10KillsLossesHeader) {
                     last10KillsLossesHeader.textContent = `${characterName}: ${listTitle}`;
                 }
@@ -236,11 +228,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     renderList();
                 };
             }
-
-        } catch (error) {
-            console.error('Error loading last 10 kills/losses:', error);
-        }
-    }
 
     // New asynchronous function to load and populate Top Stats Charts
     function loadTopStatsCharts(data, resolvedNames) {
