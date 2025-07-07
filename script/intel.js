@@ -237,8 +237,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         display: false
                     }
                 },
-                barPercentage: 0.3,
-                categoryPercentage: 0.3
+                barPercentage: 0.6,
+                categoryPercentage: 0.6
             }
         });
     }
