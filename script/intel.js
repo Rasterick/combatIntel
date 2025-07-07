@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let showingKills = true; // Initial state
 
         function renderList() {
+            if (!last10KillsLossesContent) return; // Defensive check
             last10KillsLossesContent.innerHTML = ''; // Clear previous content
             const listToRender = showingKills ? last10Kills : last10Losses;
             const listTitle = showingKills ? 'Last 10 Kills' : 'Last 10 Losses';
@@ -193,10 +194,12 @@ document.addEventListener('DOMContentLoaded', function () {
         renderList();
 
         // Toggle button event listener
-        toggleButton.onclick = () => {
-            showingKills = !showingKills;
-            renderList();
-        };
+        if (toggleButton) {
+            toggleButton.onclick = () => {
+                showingKills = !showingKills;
+                renderList();
+            };
+        }
 
         // --- Populate Top Stats Box (Charts) ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
@@ -205,41 +208,55 @@ document.addEventListener('DOMContentLoaded', function () {
         const topShips = data.topAllTime.find(t => t.type === 'ship').data.slice(0, 5);
         const topSystems = data.topAllTime.find(t => t.type === 'system').data.slice(0, 5);
 
+        // Get canvas elements
+        const topCorpsCanvas = document.getElementById('topCorpsChart');
+        const topAlliancesCanvas = document.getElementById('topAlliancesChart');
+        const topShipsCanvas = document.getElementById('topShipsChart');
+        const topSystemsCanvas = document.getElementById('topSystemsChart');
+
         // Render Top Corporations Chart
-        renderHorizontalBarChart(
-            'topCorpsChart',
-            topCorps.map(c => resolvedNames[c.corporationID] || c.corporationID),
-            topCorps.map(c => c.kills),
-            'Kills',
-            'rgba(54, 162, 235, 0.6)'
-        );
+        if (topCorpsCanvas) {
+            renderHorizontalBarChart(
+                topCorpsCanvas,
+                topCorps.map(c => resolvedNames[c.corporationID] || c.corporationID),
+                topCorps.map(c => c.kills),
+                'Kills',
+                'rgba(54, 162, 235, 0.6)'
+            );
+        }
 
         // Render Top Alliances Chart
-        renderHorizontalBarChart(
-            'topAlliancesChart',
-            topAlliances.map(a => resolvedNames[a.allianceID] || a.allianceID),
-            topAlliances.map(a => a.kills),
-            'Kills',
-            'rgba(153, 102, 255, 0.6)'
-        );
+        if (topAlliancesCanvas) {
+            renderHorizontalBarChart(
+                topAlliancesCanvas,
+                topAlliances.map(a => resolvedNames[a.allianceID] || a.allianceID),
+                topAlliances.map(a => a.kills),
+                'Kills',
+                'rgba(153, 102, 255, 0.6)'
+            );
+        }
 
         // Render Top Ships Chart
-        renderHorizontalBarChart(
-            'topShipsChart',
-            topShips.map(s => resolvedNames[s.shipTypeID] || s.shipTypeID),
-            topShips.map(s => s.kills),
-            'Kills',
-            'rgba(255, 206, 86, 0.6)'
-        );
+        if (topShipsCanvas) {
+            renderHorizontalBarChart(
+                topShipsCanvas,
+                topShips.map(s => resolvedNames[s.shipTypeID] || s.shipTypeID),
+                topShips.map(s => s.kills),
+                'Kills',
+                'rgba(255, 206, 86, 0.6)'
+            );
+        }
 
         // Render Top Systems Chart
-        renderHorizontalBarChart(
-            'topSystemsChart',
-            topSystems.map(s => resolvedNames[s.solarSystemID] || s.solarSystemID),
-            topSystems.map(s => s.kills),
-            'Kills',
-            'rgba(75, 192, 192, 0.6)'
-        );
+        if (topSystemsCanvas) {
+            renderHorizontalBarChart(
+                topSystemsCanvas,
+                topSystems.map(s => resolvedNames[s.solarSystemID] || s.solarSystemID),
+                topSystems.map(s => s.kills),
+                'Kills',
+                'rgba(75, 192, 192, 0.6)'
+            );
+        }
     }
 
     // Helper function to render a single killmail's details
@@ -286,12 +303,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Helper function to render a horizontal bar chart
-    function renderHorizontalBarChart(canvasId, labels, data, labelText, backgroundColor) {
-        const ctx = document.getElementById(canvasId).getContext('2d');
-        if (window[canvasId] instanceof Chart) {
-            window[canvasId].destroy();
+    function renderHorizontalBarChart(canvasElement, labels, data, labelText, backgroundColor) {
+        if (!canvasElement) return; // Defensive check
+        const ctx = canvasElement.getContext('2d');
+        if (window[canvasElement.id] instanceof Chart) {
+            window[canvasElement.id].destroy();
         }
-        window[canvasId] = new Chart(ctx, {
+        window[canvasElement.id] = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: labels,
