@@ -71,73 +71,80 @@ function resolveIds($idsToResolve, &$resolvedNames) {
     }
 }
 
-// Step 1: Fetch recent killmail summaries from zKillboard
-$zkbSummariesApiUrl = "https://zkillboard.com/api/characterID/{$characterId}/kills/losses/"; // Fetch both kills and losses
+// Step 1: Fetch recent killmail summaries for KILLS from zKillboard
+$zkbKillsApiUrl = "https://zkillboard.com/api/characterID/{$characterId}/kills/";
 
-$ch = curl_init($zkbSummariesApiUrl);
+$ch = curl_init($zkbKillsApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'accept: application/json',
     'Cache-Control: no-cache'
 ]);
-$zkbSummariesData = curl_exec($ch);
+$zkbKillsData = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-if ($zkbSummariesData === FALSE || $httpCode !== 200) {
-    error_log("Failed to fetch kill summaries from zKillboard for character {$characterId}. HTTP Code: " . $httpCode . ", Response: " . $zkbSummariesData);
-    echo json_encode(['error' => 'Could not fetch kill summaries from zKillboard.']);
-    exit();
+if ($zkbKillsData === FALSE || $httpCode !== 200) {
+    error_log("Failed to fetch kill summaries from zKillboard for character {$characterId} (kills). HTTP Code: " . $httpCode . ", Response: " . $zkbKillsData);
+    $zkbKillsData = '[]'; // Return empty array to prevent JSON parsing errors
 }
 
-$summaries = json_decode($zkbSummariesData, true);
+$killsSummaries = json_decode($zkbKillsData, true);
+
+// Step 2: Fetch recent killmail summaries for LOSSES from zKillboard
+$zkbLossesApiUrl = "https://zkillboard.com/api/characterID/{$characterId}/losses/";
+
+$ch = curl_init($zkbLossesApiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'accept: application/json',
+    'Cache-Control: no-cache'
+]);
+$zkbLossesData = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+if ($zkbLossesData === FALSE || $httpCode !== 200) {
+    error_log("Failed to fetch kill summaries from zKillboard for character {$characterId} (losses). HTTP Code: " . $httpCode . ", Response: " . $zkbLossesData);
+    $zkbLossesData = '[]'; // Return empty array to prevent JSON parsing errors
+}
+
+$lossesSummaries = json_decode($zkbLossesData, true);
 
 $kills = [];
 $losses = [];
-$allKillmailIds = [];
 
-if (is_array($summaries)) {
-    foreach ($summaries as $summary) {
+// Process Kills Summaries
+if (is_array($killsSummaries)) {
+    foreach ($killsSummaries as $summary) {
         $killmailId = $summary['killmail_id'] ?? null;
         $killmailHash = $summary['zkb']['hash'] ?? null;
 
         if ($killmailId && $killmailHash) {
-            $allKillmailIds[] = ['id' => $killmailId, 'hash' => $killmailHash];
-        }
-    }
-}
-
-// Fetch full killmails for all summaries to determine if it's a kill or loss
-$fullKillmails = [];
-foreach ($allKillmailIds as $km) {
-    $fullKillmail = fetchFullKillmail($km['id'], $km['hash']);
-    if ($fullKillmail) {
-        $fullKillmails[] = $fullKillmail;
-    }
-}
-
-// Separate into kills and losses for the specific character
-foreach ($fullKillmails as $killmail) {
-    $isVictim = ($killmail['victim']['character_id'] ?? null) == $characterId;
-
-    if ($isVictim) {
-        $losses[] = $killmail;
-    } else {
-        // Check if the character is among the attackers
-        $isAttacker = false;
-        foreach (($killmail['attackers'] ?? []) as $attacker) {
-            if (($attacker['character_id'] ?? null) == $characterId) {
-                $isAttacker = true;
-                break;
+            $fullKillmail = fetchFullKillmail($killmailId, $killmailHash);
+            if ($fullKillmail) {
+                $kills[] = $fullKillmail;
             }
         }
-        if ($isAttacker) {
-            $kills[] = $killmail;
+    }
+}
+
+// Process Losses Summaries
+if (is_array($lossesSummaries)) {
+    foreach ($lossesSummaries as $summary) {
+        $killmailId = $summary['killmail_id'] ?? null;
+        $killmailHash = $summary['zkb']['hash'] ?? null;
+
+        if ($killmailId && $killmailHash) {
+            $fullKillmail = fetchFullKillmail($killmailId, $killmailHash);
+            if ($fullKillmail) {
+                $losses[] = $fullKillmail;
+            }
         }
     }
 }
 
-// Sort by time and get the latest 10
+// Sort by time and get the latest 10 of each
 usort($kills, function($a, $b) { return strtotime($b['killmail_time']) - strtotime($a['killmail_time']); });
 usort($losses, function($a, $b) { return strtotime($b['killmail_time']) - strtotime($a['killmail_time']); });
 

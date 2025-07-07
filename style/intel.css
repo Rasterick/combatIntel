@@ -166,3 +166,8 @@ body {
 .full-height {
     height: calc(80vh + 20px); /* 2x box height + gap */
 }
+
+.zkb-link {
+    color: #888; /* Lighter color for ZKB links */
+    font-size: 0.9em; /* Slightly smaller font size for ZKB links */
+}

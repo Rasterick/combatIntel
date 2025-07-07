@@ -27,20 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const entityId = zkbStats.info.id;
             const entityType = zkbStats.info.type; // Assuming PHP returns 'character', 'corporation', or 'alliance'
 
-            // Fetch last 10 kills and losses
-            const last10Response = await fetch(`/combatIntel/config/get_last_10_kills_losses.php?characterId=${entityId}`);
-            const last10Data = await last10Response.json();
+            // Step 3: Populate the main info boxes immediately
+            populateMainInfoBoxes(zkbStats, entityName, entityType, latestKill, resolvedNames);
 
-            if (last10Data.error) {
-                console.error('Error fetching last 10 kills/losses:', last10Data.error);
-                // Optionally display an error message in the UI
-            }
-
-            // Merge resolved names from last 10 kills/losses into main resolvedNames
-            Object.assign(resolvedNames, last10Data.resolvedNames);
-
-            // Step 3: Populate the info boxes
-            populateInfoBoxes(zkbStats, entityName, entityType, latestKill, resolvedNames, last10Data.kills, last10Data.losses);
+            // Asynchronously load and populate other sections
+            loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType);
+            loadTopStatsCharts(zkbStats, resolvedNames);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
@@ -48,12 +40,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function populateInfoBoxes(data, name, type, latestKill, resolvedNames, last10Kills, last10Losses) {
+    // New function to populate main info boxes (character and combat activity)
+    function populateMainInfoBoxes(data, name, type, latestKill, resolvedNames) {
         // Update headers
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`;
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-header').textContent = `${name}: Combat (Last 10)`;
         document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-header').textContent = `${name}: Associations`;
-        document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2) .info-box-header').textContent = `${name}: Last 10 Kills/Losses`;
+        document.getElementById('last10KillsLossesHeader').textContent = `${name}: Last 10 Kills/Losses`;
 
         // --- Populate Character Box ---
         const charBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-content');
@@ -168,39 +161,89 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // The chart will now render in the canvas element
+    }
 
-        // --- Populate Last 10 Kills/Losses Box ---
-        const last10KillsLossesContent = document.getElementById('last10KillsLossesContent');
-        const toggleButton = document.querySelector('.toggle-kills-losses');
-        let showingKills = true; // Initial state
+    // New asynchronous function to load and populate Last 10 Kills/Losses
+    async function loadLast10KillsLosses(characterId, resolvedNames, characterName, characterType) {
+        try {
+            const last10Response = await fetch(`/combatIntel/config/get_last_10_kills_losses.php?characterId=${characterId}`);
+            const last10Data = await last10Response.json();
 
-        function renderList() {
-            if (!last10KillsLossesContent) return; // Defensive check
-            last10KillsLossesContent.innerHTML = ''; // Clear previous content
-            const listToRender = showingKills ? last10Kills : last10Losses;
-            const listTitle = showingKills ? 'Last 10 Kills' : 'Last 10 Losses';
-
-            if (listToRender.length === 0) {
-                last10KillsLossesContent.innerHTML = `<p>No ${listTitle.toLowerCase()} found.</p>`;
+            if (last10Data.error) {
+                console.error('Error fetching last 10 kills/losses:', last10Data.error);
                 return;
             }
 
-            listToRender.forEach(killmail => {
-                last10KillsLossesContent.innerHTML += renderKillmailDetails(killmail, resolvedNames, name, type);
-            });
+            // Merge resolved names from last 10 kills/losses into main resolvedNames
+            Object.assign(resolvedNames, last10Data.resolvedNames);
+
+            const last10KillsLossesContent = document.getElementById('last10KillsLossesContent');
+            const toggleButton = document.querySelector('.toggle-kills-losses');
+            const last10KillsLossesHeader = document.getElementById('last10KillsLossesHeader');
+
+            if (last10KillsLossesContent) {
+                last10KillsLossesContent.innerHTML = '<p>Please wait - retrieving kill and loss data...</p>';
+            }
+
+            const last10Response = await fetch(`/combatIntel/config/get_last_10_kills_losses.php?characterId=${characterId}`);
+            const last10Data = await last10Response.json();
+
+            if (last10Data.error) {
+                console.error('Error fetching last 10 kills/losses:', last10Data.error);
+                if (last10KillsLossesContent) {
+                    last10KillsLossesContent.innerHTML = '<p>Error retrieving data.</p>';
+                }
+                return;
+            }
+
+            // Merge resolved names from last 10 kills/losses into main resolvedNames
+            Object.assign(resolvedNames, last10Data.resolvedNames);
+
+            let showingKills = true; // Initial state
+
+            // If no kills but losses exist, show losses by default
+            if (last10Data.kills.length === 0 && last10Data.losses.length > 0) {
+                showingKills = false;
+            }
+
+            function renderList() {
+                if (!last10KillsLossesContent) return; // Defensive check
+                last10KillsLossesContent.innerHTML = ''; // Clear previous content
+                const listToRender = showingKills ? last10Data.kills : last10Data.losses;
+                const listTitle = showingKills ? 'Last 10 Kills' : 'Last 10 Losses';
+
+                if (last10KillsLossesHeader) {
+                    last10KillsLossesHeader.textContent = `${characterName}: ${listTitle}`;
+                }
+
+                if (listToRender.length === 0) {
+                    last10KillsLossesContent.innerHTML = `<p>No ${listTitle.toLowerCase()} found.</p>`;
+                    return;
+                }
+
+                listToRender.forEach(killmail => {
+                    last10KillsLossesContent.innerHTML += renderKillmailDetails(killmail, resolvedNames, characterId, characterType, characterName);
+                });
+            }
+
+            // Initial render
+            renderList();
+
+            // Toggle button event listener
+            if (toggleButton) {
+                toggleButton.onclick = () => {
+                    showingKills = !showingKills;
+                    renderList();
+                };
+            }
+
+        } catch (error) {
+            console.error('Error loading last 10 kills/losses:', error);
         }
+    }
 
-        // Initial render
-        renderList();
-
-        // Toggle button event listener
-        if (toggleButton) {
-            toggleButton.onclick = () => {
-                showingKills = !showingKills;
-                renderList();
-            };
-        }
-
+    // New asynchronous function to load and populate Top Stats Charts
+    function loadTopStatsCharts(data, resolvedNames) {
         // --- Populate Top Stats Box (Charts) ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
         const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 5);
@@ -260,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Helper function to render a single killmail's details
-    function renderKillmailDetails(killmail, resolvedNames, characterName, characterType) {
+    function renderKillmailDetails(killmail, resolvedNames, characterId, characterType, characterName) {
         if (!killmail) return '';
 
         const killmailTime = killmail.killmail_time ? new Date(killmail.killmail_time).toLocaleString() : 'Unknown Date';
@@ -268,10 +311,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const victimName = resolvedNames[killmail.victim?.character_id] || killmail.victim?.character_id || 'Unknown Victim';
         const victimCorp = resolvedNames[killmail.victim?.corporation_id] || killmail.victim?.corporation_id || 'Unknown Corp';
         const victimShip = resolvedNames[killmail.victim?.ship_type_id] || killmail.victim?.ship_type_id || 'Unknown Ship';
-        const zkbLink = killmail.killmail_id ? `<a href="https://zkillboard.com/kill/${killmail.killmail_id}/" target="_blank">(ZKB)</a>` : '';
+        const zkbLink = killmail.killmail_id ? `<a href="https://zkillboard.com/kill/${killmail.killmail_id}/" target="_blank" class="zkb-link">(ZKB)</a>` : '';
 
         let description = '';
-        const isVictim = (killmail.victim?.character_id ?? null) == characterName; // Assuming characterName is the ID here
+        const isVictim = (killmail.victim?.character_id ?? null) == characterId; // Use characterId for comparison
 
         if (isVictim) {
             // This is a loss
@@ -279,23 +322,23 @@ document.addEventListener('DOMContentLoaded', function () {
             const finalBlowAttackerName = resolvedNames[finalBlowAttacker?.character_id] || finalBlowAttacker?.character_id || 'Unknown Attacker';
             const finalBlowAttackerShip = resolvedNames[finalBlowAttacker?.ship_type_id] || finalBlowAttacker?.ship_type_id || 'Unknown Ship';
             const totalAttackers = killmail.attackers?.length || 1;
-            const attackerText = totalAttackers === 1 ? 'attacker' : 'attackers';
+            const otherPilotsText = totalAttackers > 1 ? ` with ${totalAttackers - 1} other pilot${totalAttackers - 1 > 1 ? 's' : ''}` : '';
 
-            description = `You were killed by ${finalBlowAttackerName} in a ${finalBlowAttackerShip} with ${totalAttackers - 1} other ${attackerText}.`;
+            description = `${characterName} was killed by ${finalBlowAttackerName} in a ${finalBlowAttackerShip}${otherPilotsText}.`;
         } else {
             // This is a kill
             const targetVictimName = resolvedNames[killmail.victim?.character_id] || killmail.victim?.character_id || 'Unknown Victim';
             const targetVictimCorp = resolvedNames[killmail.victim?.corporation_id] || killmail.victim?.corporation_id || 'Unknown Corp';
             const targetVictimShip = resolvedNames[killmail.victim?.ship_type_id] || killmail.victim?.ship_type_id || 'Unknown Ship';
             const totalAttackers = killmail.attackers?.length || 1;
-            const pilotText = totalAttackers === 1 ? 'pilot' : 'pilots';
+            const otherPilotsText = totalAttackers > 1 ? ` with ${totalAttackers - 1} other pilot${totalAttackers - 1 > 1 ? 's' : ''}` : '';
 
-            description = `You killed ${targetVictimName} (${targetVictimCorp}) in a ${targetVictimShip} with ${totalAttackers - 1} other ${pilotText}.`;
+            description = `${characterName} killed ${targetVictimName} (${targetVictimCorp}) in a ${targetVictimShip}${otherPilotsText}.`;
         }
 
         return `
             <p>
-                <span class="info-label">${killmailTime} in ${location}:</span> 
+                <span class="info-label">${new Date(killmail.killmail_time).toLocaleString()} in ${location}:</span> 
                 <span>${description}</span>
                 ${zkbLink}
             </p>
@@ -354,3 +397,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+        
