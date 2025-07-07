@@ -146,7 +146,14 @@ body {
     flex-grow: 1;
     flex-basis: 0; /* Allow canvases to shrink and grow proportionally */
     width: 100%; /* Ensure canvas takes full width */
-    max-height: 20%; /* Limit individual chart height to prevent overflow */
+}
+
+.info-column:nth-child(3) .chart-container canvas {
+    max-height: 20%; /* Limit individual chart height in the Top Stats box */
+}
+
+.info-column:nth-child(3) .chart-container canvas {
+    max-height: 20%; /* Limit individual chart height in the Top Stats box */
 }
 
 .chart-container h4 {
