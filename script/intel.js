@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const assocLabels = sortedAssociations.map(([id,]) => resolvedNames[id] || id);
             const assocData = sortedAssociations.map(([, count]) => count);
+            const assocIds = sortedAssociations.map(([id,]) => id);
 
             console.log('Associations Labels:', assocLabels);
             console.log('Associations Data:', assocData);
@@ -297,7 +298,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     assocLabels,
                     assocData,
                     'Combat Incidence',
-                    'rgba(255, 159, 64, 0.6)'
+                    'rgba(255, 159, 64, 0.6)',
+                    assocIds
                 );
             }
 
@@ -408,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Helper function to render a horizontal bar chart
-    function renderHorizontalBarChart(canvasElement, labels, data, labelText, backgroundColor) {
+    function renderHorizontalBarChart(canvasElement, labels, data, labelText, backgroundColor, ids = null) {
         if (!canvasElement) return; // Defensive check
         const ctx = canvasElement.getContext('2d');
         if (window[canvasElement.id] instanceof Chart) {
@@ -439,6 +441,16 @@ document.addEventListener('DOMContentLoaded', function () {
                             autoSkip: false
                         }
                     }
+                },
+                onClick: (e) => {
+                    const canvasPosition = Chart.helpers.getRelativePosition(e, window[canvasElement.id]);
+
+                    // Substitute the appropriate scale IDs
+                    const dataX = window[canvasElement.id].scales.y.getValueForPixel(canvasPosition.y);
+                    const dataY = window[canvasElement.id].scales.x.getValueForPixel(canvasPosition.x);
+
+                    const id = ids[dataX];
+                    window.open(`https://zkillboard.com/character/${id}/`, '_blank');
                 },
                 plugins: {
                     legend: {
