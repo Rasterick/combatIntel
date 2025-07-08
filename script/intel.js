@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const getIntelButton = document.querySelector('.intel-button');
     const intelInput = document.querySelector('.intel-input');
 
-    """    getIntelButton.addEventListener('click', async () => {
+    getIntelButton.addEventListener('click', async () => {
         const entityName = intelInput.value.trim();
         if (!entityName) {
             alert('Please enter a name.');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.associationsChartCanvas.destroy();
         }
 
-        try {""
+        try {
             // Step 1: Fetch stats from the PHP backend
             const zkbResponse = await fetch(`/combatIntel/config/get_zkb_stats.php?name=${encodeURIComponent(entityName)}`);
             const responseData = await zkbResponse.json();
@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><span class="info-label">ISK Lost:</span> ${data.iskLost.toLocaleString()}</p>
             <p><span class="info-label">Solo Kills:</span> ${data.soloKills}</p>
             <hr>
-            // Danger Ratio Logic
             const dangerRatio = data.dangerRatio;
             let dangerText = '';
             let dangerColorClass = '';
