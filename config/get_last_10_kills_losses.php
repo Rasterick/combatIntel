@@ -78,7 +78,7 @@ function resolveIds($idsToResolve, &$resolvedNames) {
 }
 
 // Step 1: Fetch recent killmail summaries for KILLS from zKillboard
-$zkbKillsApiUrl = "https://zkillboard.com/api/{$entityType}ID/{$entityId}/kills/";
+$zkbKillsApiUrl = "https://zkillboard.com/api/{$entityType}/{$entityId}/kills/";
 error_log("Fetching kills from zKillboard: " . $zkbKillsApiUrl);
 $ch = curl_init($zkbKillsApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -100,7 +100,7 @@ $killsSummaries = json_decode($zkbKillsData, true);
 error_log("Decoded kills summaries: " . print_r($killsSummaries, true));
 
 // Step 2: Fetch recent killmail summaries for LOSSES from zKillboard
-$zkbLossesApiUrl = "https://zkillboard.com/api/{$entityType}ID/{$entityId}/losses/";
+$zkbLossesApiUrl = "https://zkillboard.com/api/{$entityType}/{$entityId}/losses/";
 error_log("Fetching losses from zKillboard: " . $zkbLossesApiUrl);
 $ch = curl_init($zkbLossesApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
