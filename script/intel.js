@@ -41,21 +41,23 @@ document.addEventListener('DOMContentLoaded', function () {
         // Get references for Last 10 Kills/Losses section
         const last10KillsLossesBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2)');
         const associationsBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1)');
-
-        if (entityType !== 'character') {
-            last10KillsLossesBox.style.display = 'none';
-            associationsBox.style.display = 'none';
-        } else {
-            last10KillsLossesBox.style.display = 'flex'; // Assuming default display is flex
-            associationsBox.style.display = 'flex'; // Assuming default display is flex
-        }
-
         const last10KillsLossesContent = document.getElementById('last10KillsLossesContent');
         const toggleButton = document.querySelector('.toggle-kills-losses');
+        const associationsCanvas = document.getElementById('associationsChartCanvas');
 
-        // Asynchronously load and populate other sections
-            loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType, last10KillsLossesContent, toggleButton, document.getElementById('associationsChartCanvas'));
-            loadTopStatsCharts(zkbStats, resolvedNames, entityType);
+        // Always show Last 10 Kills/Losses box
+        last10KillsLossesBox.style.display = 'flex';
+
+        // Conditionally show Associations box
+        if (entityType === 'character') {
+            associationsBox.style.display = 'flex';
+        } else {
+            associationsBox.style.display = 'none';
+        }
+
+        // Always load Last 10 Kills/Losses data
+        loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType, last10KillsLossesContent, toggleButton, associationsCanvas);
+        loadTopStatsCharts(zkbStats, resolvedNames, entityType);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
@@ -321,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Associations Data:', assocData);
             console.log('Associations Canvas Element:', associationsCanvas);
 
-            if (associationsCanvas) {
+            if (associationsCanvas && entityType === 'character') {
                 renderHorizontalBarChart(
                     associationsCanvas,
                     assocLabels,
@@ -330,6 +332,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     'rgba(255, 159, 64, 0.6)',
                     assocIds
                 );
+            } else if (associationsCanvas) {
+                // Clear the canvas if it's not a character
+                const ctx = associationsCanvas.getContext('2d');
+                ctx.clearRect(0, 0, associationsCanvas.width, associationsCanvas.height);
+                // Display a message
+                const assocBoxContent = associationsCanvas.closest('.info-box-content');
+                if (assocBoxContent) {
+                    assocBoxContent.innerHTML = '<p>Associations are only available for characters.</p>';
+                }
             }
 
         } catch (error) {
