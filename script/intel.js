@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // --- Populate Character Box ---
         const charBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-content');
 
-        """        // Basic info, varies by type
+        // Basic info, varies by type
         let charHtml = '';
         if (type === 'character') {
             charHtml += `
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><span class="info-label">ISK Lost:</span> ${data.iskLost.toLocaleString()}</p>
             <p><span class="info-label">Solo Kills:</span> ${data.soloKills}</p>
             <hr>
-        `;""
+        `;
 
         // Danger Ratio Logic
         const dangerRatio = data.dangerRatio;
