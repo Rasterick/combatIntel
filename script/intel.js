@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p><span class="info-label">Corporation:</span> ${resolvedNames[data.info.corporation_id] || data.info.corporation_id}</p>
                 <p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || data.info.alliance_id}</p>
                 <p><span class="info-label">Security Status:</span> ${data.info.security_status.toFixed(2)}</p>
-                <hr>
             `;
         } else if (type === 'corporation') {
             charHtml += `
@@ -88,17 +87,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p><span class="info-label">Member Count:</span> ${data.info.member_count}</p>
                 <p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>
                 <p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || 'None'}</p>
-                <hr>
             `;
         } else if (type === 'alliance') {
             charHtml += `
                 <p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>
                 <p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>
-                <hr>
             `;
         }
 
         charHtml += `
+            <hr>
             <p><span class="info-label">Total Kills:</span> ${data.allTimeSum}</p>
             <p><span class="info-label">Total Losses:</span> ${data.shipsLost}</p>
             <p><span class="info-label">ISK Destroyed:</span> ${data.iskDestroyed.toLocaleString()}</p>
@@ -507,6 +505,84 @@ document.addEventListener('DOMContentLoaded', function () {
             </p>
         `;
     }
+
+    // Helper function to render a horizontal bar chart
+    function renderHorizontalBarChart(canvasElement, labels, data, labelText, backgroundColor, ids = null, mainEntityType = 'character') {
+        if (!canvasElement) return; // Defensive check
+        const ctx = canvasElement.getContext('2d');
+        if (window[canvasElement.id] instanceof Chart) {
+            window[canvasElement.id].destroy();
+        }
+        window[canvasElement.id] = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: labelText,
+                    data: data,
+                    backgroundColor: backgroundColor,
+                    borderColor: backgroundColor.replace('0.6', '1'),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }
+                },
+                onClick: (e) => {
+                    const canvasPosition = Chart.helpers.getRelativePosition(e, window[canvasElement.id]);
+
+                    // Substitute the appropriate scale IDs
+                    const dataX = window[canvasElement.id].scales.y.getValueForPixel(canvasPosition.y);
+                    const dataY = window[canvasElement.id].scales.x.getValueForPixel(canvasPosition.x);
+
+                    const id = ids[dataX];
+                    // Determine the correct zKillboard URL based on entityType
+                    let zkbUrl = `https://zkillboard.com/`;
+                    if (mainEntityType === 'character') {
+                        zkbUrl += `character/${id}/`;
+                    } else if (mainEntityType === 'corporation') {
+                        zkbUrl += `corporation/${id}/`;
+                    } else if (mainEntityType === 'alliance') {
+                        zkbUrl += `alliance/${id}/`;
+                    }
+                    window.open(zkbUrl, '_blank');
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                barPercentage: 0.8,
+                categoryPercentage: 0.8
+            }
+        });
+    }
+
+    // Dropdown menu logic
+    const menuItems = document.querySelectorAll('.top-nav .menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const dropdown = item.querySelector('.dropdown');
+            if (dropdown) dropdown.style.display = 'block';
+        });
+        item.addEventListener('mouseleave', () => {
+            const dropdown = item.querySelector('.dropdown');
+            if (dropdown) dropdown.style.display = 'none';
+        });
+    });
+}
+);
 
     // Helper function to render a horizontal bar chart
     function renderHorizontalBarChart(canvasElement, labels, data, labelText, backgroundColor, ids = null) {

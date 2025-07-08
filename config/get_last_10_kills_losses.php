@@ -14,6 +14,7 @@ $resolvedNames = [];
 // Helper function to fetch full killmail details from ESI
 function fetchFullKillmail($killmailId, $killmailHash) {
     $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$killmailId}/{$killmailHash}/?datasource=tranquility";
+    error_log("Fetching full killmail from ESI: " . $fullKillmailApiUrl);
     $ch = curl_init($fullKillmailApiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -26,8 +27,10 @@ function fetchFullKillmail($killmailId, $killmailHash) {
     curl_close($ch);
 
     if ($fullKillmailData !== FALSE && $httpCode === 200) {
+        error_log("Full killmail ESI response: " . $fullKillmailData);
         return json_decode($fullKillmailData, true);
     }
+    error_log("Failed to fetch full killmail from ESI. HTTP Code: " . $httpCode . ", Response: " . $fullKillmailData);
     return null;
 }
 
@@ -76,7 +79,7 @@ function resolveIds($idsToResolve, &$resolvedNames) {
 
 // Step 1: Fetch recent killmail summaries for KILLS from zKillboard
 $zkbKillsApiUrl = "https://zkillboard.com/api/{$entityType}ID/{$entityId}/kills/";
-
+error_log("Fetching kills from zKillboard: " . $zkbKillsApiUrl);
 $ch = curl_init($zkbKillsApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -92,12 +95,13 @@ if ($zkbKillsData === FALSE || $httpCode !== 200) {
     error_log("Failed to fetch kill summaries from zKillboard for {$entityType} {$entityId} (kills). HTTP Code: " . $httpCode . ", Response: " . $zkbKillsData);
     $zkbKillsData = '[]'; // Return empty array to prevent JSON parsing errors
 }
-
+error_log("Raw kills summary response: " . $zkbKillsData);
 $killsSummaries = json_decode($zkbKillsData, true);
+error_log("Decoded kills summaries: " . print_r($killsSummaries, true));
 
 // Step 2: Fetch recent killmail summaries for LOSSES from zKillboard
 $zkbLossesApiUrl = "https://zkillboard.com/api/{$entityType}ID/{$entityId}/losses/";
-
+error_log("Fetching losses from zKillboard: " . $zkbLossesApiUrl);
 $ch = curl_init($zkbLossesApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -113,8 +117,9 @@ if ($zkbLossesData === FALSE || $httpCode !== 200) {
     error_log("Failed to fetch kill summaries from zKillboard for {$entityType} {$entityId} (losses). HTTP Code: " . $httpCode . ", Response: " . $zkbLossesData);
     $zkbLossesData = '[]'; // Return empty array to prevent JSON parsing errors
 }
-
+error_log("Raw losses summary response: " . $zkbLossesData);
 $lossesSummaries = json_decode($zkbLossesData, true);
+error_log("Decoded losses summaries: " . print_r($lossesSummaries, true));
 
 $kills = [];
 $losses = [];
