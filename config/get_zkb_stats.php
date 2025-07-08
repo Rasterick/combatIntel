@@ -56,7 +56,7 @@ if (empty($entityId)) {
 }
 
 // Step 2: Fetch zKillboard stats using the resolved entityID and entityType
-$zkbApiUrl = "https://zkillboard.com/api/stats/{$entityType}ID/{$entityId}/";
+$zkbApiUrl = "https://zkillboard.com/api/stats/{$entityType}/{$entityId}/";
 
 $zkbData = @file_get_contents($zkbApiUrl);
 
@@ -68,7 +68,7 @@ if ($zkbData === FALSE) {
 $zkbStats = json_decode($zkbData, true);
 
 // Step 3: Fetch latest killmail for the entity
-$latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}ID/{$entityId}/";
+$latestKillApiUrl = "https://zkillboard.com/api/kills/{$entityType}/{$entityId}/";
 
 $ch = curl_init($latestKillApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
