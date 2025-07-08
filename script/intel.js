@@ -63,14 +63,32 @@ document.addEventListener('DOMContentLoaded', function () {
         // --- Populate Character Box ---
         const charBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-content');
 
-        // Basic character info
-        let charHtml = `
-            <p><span class="info-label">Birthday:</span> ${new Date(data.info.birthday).toLocaleDateString()}</p>
-            <p><span class="info-label">Gender:</span> ${data.info.gender}</p>
-            <p><span class="info-label">Race:</span> ${resolvedNames[data.info.race_id] || data.info.race_id}</p>
-            <p><span class="info-label">Corporation:</span> ${resolvedNames[data.info.corporation_id] || data.info.corporation_id}</p>
-            <p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || data.info.alliance_id}</p>
-            <p><span class="info-label">Security Status:</span> ${data.info.security_status.toFixed(2)}</p>
+        """        // Basic info, varies by type
+        let charHtml = '';
+        if (type === 'character') {
+            charHtml += `
+                <p><span class="info-label">Birthday:</span> ${new Date(data.info.birthday).toLocaleDateString()}</p>
+                <p><span class="info-label">Gender:</span> ${data.info.gender}</p>
+                <p><span class="info-label">Race:</span> ${resolvedNames[data.info.race_id] || data.info.race_id}</p>
+                <p><span class="info-label">Corporation:</span> ${resolvedNames[data.info.corporation_id] || data.info.corporation_id}</p>
+                <p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || data.info.alliance_id}</p>
+                <p><span class="info-label">Security Status:</span> ${data.info.security_status.toFixed(2)}</p>
+            `;
+        } else if (type === 'corporation') {
+            charHtml += `
+                <p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>
+                <p><span class="info-label">Member Count:</span> ${data.info.member_count}</p>
+                <p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>
+                <p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || 'None'}</p>
+            `;
+        } else if (type === 'alliance') {
+            charHtml += `
+                <p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>
+                <p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>
+            `;
+        }
+
+        charHtml += `
             <hr>
             <p><span class="info-label">Total Kills:</span> ${data.allTimeSum}</p>
             <p><span class="info-label">Total Losses:</span> ${data.shipsLost}</p>
@@ -78,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><span class="info-label">ISK Lost:</span> ${data.iskLost.toLocaleString()}</p>
             <p><span class="info-label">Solo Kills:</span> ${data.soloKills}</p>
             <hr>
-        `;
+        `;""
 
         // Danger Ratio Logic
         const dangerRatio = data.dangerRatio;
