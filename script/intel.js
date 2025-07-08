@@ -78,23 +78,26 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><span class="info-label">ISK Lost:</span> ${data.iskLost.toLocaleString()}</p>
             <p><span class="info-label">Solo Kills:</span> ${data.soloKills}</p>
             <hr>
-            const dangerRatio = data.dangerRatio;
-            let dangerText = '';
-            let dangerColorClass = '';
-            if (dangerRatio < 50) {
-                dangerText = 'Snuggly';
-                dangerColorClass = 'text-green';
-            } else if (dangerRatio >= 50 && dangerRatio < 75) {
-                dangerText = 'Moderate';
-                dangerColorClass = 'text-orange';
-            } else {
-                dangerText = 'Dangerous';
-                dangerColorClass = 'text-red';
-            }
+        `;
 
-            charHtml += `<p><span class="info-label">Danger Ratio:</span> <span class="${dangerColorClass}">${dangerRatio}% (${dangerText})</span></p>`
+        // Danger Ratio Logic
+        const dangerRatio = data.dangerRatio;
+        let dangerText = '';
+        let dangerColorClass = '';
+        if (dangerRatio < 50) {
+            dangerText = 'Snuggly';
+            dangerColorClass = 'text-green';
+        } else if (dangerRatio >= 50 && dangerRatio < 75) {
+            dangerText = 'Moderate';
+            dangerColorClass = 'text-orange';
+        } else {
+            dangerText = 'Dangerous';
+            dangerColorClass = 'text-red';
+        }
 
-            charHtml += `
+        charHtml += `<p><span class="info-label">Danger Ratio:</span> <span class="${dangerColorClass}">${dangerRatio}% (${dangerText})</span></p>`
+
+        charHtml += `
             <p><span class="info-label">Gang Ratio:</span> ${data.gangRatio}%</p>
             <p><span class="info-label">Solo Ratio:</span> ${data.soloRatio}%</p>
             <p><span class="info-label">Average Gang Size:</span> ${data.avgGangSize}</p>
