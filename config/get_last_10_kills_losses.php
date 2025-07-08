@@ -1,10 +1,11 @@
 <?php
 header('Content-Type: application/json');
 
-$characterId = $_GET['characterId'] ?? '';
+$entityId = $_GET['entityId'] ?? '';
+$entityType = $_GET['entityType'] ?? '';
 
-if (empty($characterId) || !is_numeric($characterId)) {
-    echo json_encode(['error' => 'Invalid character ID provided.']);
+if (empty($entityId) || !is_numeric($entityId) || empty($entityType)) {
+    echo json_encode(['error' => 'Invalid entity ID or type provided.']);
     exit();
 }
 
@@ -74,7 +75,7 @@ function resolveIds($idsToResolve, &$resolvedNames) {
 }
 
 // Step 1: Fetch recent killmail summaries for KILLS from zKillboard
-$zkbKillsApiUrl = "https://zkillboard.com/api/characterID/{$characterId}/kills/";
+$zkbKillsApiUrl = "https://zkillboard.com/api/{$entityType}ID/{$entityId}/kills/";
 
 $ch = curl_init($zkbKillsApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -88,14 +89,14 @@ $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($zkbKillsData === FALSE || $httpCode !== 200) {
-    error_log("Failed to fetch kill summaries from zKillboard for character {$characterId} (kills). HTTP Code: " . $httpCode . ", Response: " . $zkbKillsData);
+    error_log("Failed to fetch kill summaries from zKillboard for {$entityType} {$entityId} (kills). HTTP Code: " . $httpCode . ", Response: " . $zkbKillsData);
     $zkbKillsData = '[]'; // Return empty array to prevent JSON parsing errors
 }
 
 $killsSummaries = json_decode($zkbKillsData, true);
 
 // Step 2: Fetch recent killmail summaries for LOSSES from zKillboard
-$zkbLossesApiUrl = "https://zkillboard.com/api/characterID/{$characterId}/losses/";
+$zkbLossesApiUrl = "https://zkillboard.com/api/{$entityType}ID/{$entityId}/losses/";
 
 $ch = curl_init($zkbLossesApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -109,7 +110,7 @@ $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($zkbLossesData === FALSE || $httpCode !== 200) {
-    error_log("Failed to fetch kill summaries from zKillboard for character {$characterId} (losses). HTTP Code: " . $httpCode . ", Response: " . $zkbLossesData);
+    error_log("Failed to fetch kill summaries from zKillboard for {$entityType} {$entityId} (losses). HTTP Code: " . $httpCode . ", Response: " . $zkbLossesData);
     $zkbLossesData = '[]'; // Return empty array to prevent JSON parsing errors
 }
 
