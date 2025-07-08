@@ -75,7 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Basic info, varies by type
         let charHtml = '';
-        if (type === 'character') {
+console.log('type', type);
+
+        if (type === 'characterID') {
             charHtml += `
                 ${data.info.birthday ? `<p><span class="info-label">Birthday:</span> ${new Date(data.info.birthday).toLocaleDateString()}</p>` : ''}
                 ${data.info.gender ? `<p><span class="info-label">Gender:</span> ${data.info.gender}</p>` : ''}
@@ -84,14 +86,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${data.info.alliance_id ? `<p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || 'None'}</p>` : ''}
                 ${data.info.security_status !== undefined ? `<p><span class="info-label">Security Status:</span> ${data.info.security_status.toFixed(2)}</p>` : ''}
             `;
-        } else if (type === 'corporation') {
+        } else if (type === 'corporationID') {
             charHtml += `
                 ${data.info.ticker ? `<p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>` : ''}
                 ${data.info.member_count !== undefined ? `<p><span class="info-label">Member Count:</span> ${data.info.member_count}</p>` : ''}
                 ${data.info.date_founded ? `<p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>` : ''}
                 ${data.info.alliance_id ? `<p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || 'None'}</p>` : ''}
             `;
-        } else if (type === 'alliance') {
+        } else if (type === 'allianceID') {
             charHtml += `
                 ${data.info.ticker ? `<p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>` : ''}
                 ${data.info.date_founded ? `<p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>` : ''}
@@ -153,6 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const victimName = resolvedNames[latestKill.victim?.character_id] || resolvedNames[latestKill.victim?.corporation_id] || resolvedNames[latestKill.victim?.alliance_id] || 'Unknown Victim';
             const victimCorp = resolvedNames[latestKill.victim?.corporation_id] || 'Unknown Corp';
             const victimShip = resolvedNames[latestKill.victim?.ship_type_id] || 'Unknown Ship';
+
+            console.log('PJM - populateMainInfoBoxes - mainEntityRole:', mainEntityRole);
 
             if (mainEntityRole === 'victim') {
                 const finalBlowAttacker = latestKill.attackers?.find(a => a.final_blow) || latestKill.attackers?.[0];
@@ -310,7 +314,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
             console.log('loadLast10KillsLosses - associationsCanvas:', associationsCanvas);
 
-            if (entityType === 'character') {
+            console.log('loadLast10KillsLosses - entityType:', entityType);
+
+            if (entityType === 'characterID') {
                 const associatedCharacters = {};
 
                 // Aggregate characters from kills where the main character is an attacker
@@ -393,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const topAlliancesBox = topAlliancesCanvas ? topAlliancesCanvas.closest('.info-box-content').previousElementSibling : null;
 
         // Hide/show charts based on entityType
-        if (entityType === 'corporation') {
+        if (entityType === 'corporationID') {
             if (topCorpsBox) topCorpsBox.style.display = 'none';
             if (topCorpsCanvas) topCorpsCanvas.style.display = 'none';
         } else {
@@ -401,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (topCorpsCanvas) topCorpsCanvas.style.display = 'block';
         }
 
-        if (entityType === 'alliance') {
+        if (entityType === 'allianceID') {
             if (topCorpsBox) topCorpsBox.style.display = 'none';
             if (topCorpsCanvas) topCorpsCanvas.style.display = 'none';
             if (topAlliancesBox) topAlliancesBox.style.display = 'none';
@@ -412,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Render Top Corporations Chart
-        if (topCorpsCanvas && entityType !== 'corporation' && entityType !== 'alliance') {
+        if (topCorpsCanvas && entityType !== 'corporationID' && entityType !== 'allianceID') {
             renderHorizontalBarChart(
                 topCorpsCanvas,
                 topCorps.map(c => resolvedNames[c.corporationID] || c.corporationID),
@@ -423,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Render Top Alliances Chart
-        if (topAlliancesCanvas && entityType !== 'alliance') {
+        if (topAlliancesCanvas && entityType !== 'allianceID') {
             renderHorizontalBarChart(
                 topAlliancesCanvas,
                 topAlliances.map(a => resolvedNames[a.allianceID] || a.allianceID),
@@ -473,11 +479,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Determine if the main entity is the victim
         let isVictim = false;
-        if (mainEntityType === 'character' && killmail.victim?.character_id == mainEntityId) {
+        if (mainEntityType === 'characterID' && killmail.victim?.character_id == mainEntityId) {
             isVictim = true;
-        } else if (mainEntityType === 'corporation' && killmail.victim?.corporation_id == mainEntityId) {
+        } else if (mainEntityType === 'corporationID' && killmail.victim?.corporation_id == mainEntityId) {
             isVictim = true;
-        } else if (mainEntityType === 'alliance' && killmail.victim?.alliance_id == mainEntityId) {
+        } else if (mainEntityType === 'allianceID' && killmail.victim?.alliance_id == mainEntityId) {
             isVictim = true;
         }
 
@@ -485,9 +491,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let isAttacker = false;
         if (killmail.attackers) {
             isAttacker = killmail.attackers.some(attacker => {
-                if (mainEntityType === 'character' && attacker.character_id == mainEntityId) return true;
-                if (mainEntityType === 'corporation' && attacker.corporation_id == mainEntityId) return true;
-                if (mainEntityType === 'alliance' && attacker.alliance_id == mainEntityId) return true;
+                if (mainEntityType === 'characterID' && attacker.character_id == mainEntityId) return true;
+                if (mainEntityType === 'corporationID' && attacker.corporation_id == mainEntityId) return true;
+                if (mainEntityType === 'allianceID' && attacker.alliance_id == mainEntityId) return true;
                 return false;
             });
         }
@@ -495,6 +501,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const victimName = resolvedNames[killmail.victim?.character_id] || resolvedNames[killmail.victim?.corporation_id] || resolvedNames[killmail.victim?.alliance_id] || 'Unknown Victim';
         const victimCorp = resolvedNames[killmail.victim?.corporation_id] || 'Unknown Corp';
         const victimShip = resolvedNames[killmail.victim?.ship_type_id] || 'Unknown Ship';
+
+        console.log('renderKillmailDetails - isVictim:', isVictim);
+        console.log('renderKillmailDetails - isAttacker:', isAttacker);
 
         if (isVictim) {
             // This is a loss
@@ -522,8 +531,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return `
             <p>
-                <span class="info-label">${new Date(killmail.killmail_time).toLocaleString()} in ${location}:</span> 
-                <span>${description}</span>
+                <span class="info-label">(${new Date(killmail.killmail_time).toLocaleDateString()}             │
+ │        ${new Date(killmail.killmail_time).toLocaleTimeString()} in ${location}) -                             │
+ │        ${description}</span> 
                 ${zkbLink}
             </p>
         `;

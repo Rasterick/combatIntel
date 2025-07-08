@@ -41,13 +41,13 @@ $entityType = null;
 // Prioritize character, then corporation, then alliance
 if (!empty($esiData['characters'])) {
     $entityId = $esiData['characters'][0]['id'];
-    $entityType = 'character';
+    $entityType = 'characterID';
 } else if (!empty($esiData['corporations'])) {
     $entityId = $esiData['corporations'][0]['id'];
-    $entityType = 'corporation';
+    $entityType = 'corporationID';
 } else if (!empty($esiData['alliances'])) {
     $entityId = $esiData['alliances'][0]['id'];
-    $entityType = 'alliance';
+    $entityType = 'allianceID';
 }
 
 if (empty($entityId)) {
