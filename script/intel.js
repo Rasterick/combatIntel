@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Clear the associations chart before fetching new data
         const associationsCanvas = document.getElementById('associationsChartCanvas');
-        if (window.associationsChartCanvas instanceof Chart) {
-            window.associationsChartCanvas.destroy();
+        if (window.associationsCanvas instanceof Chart) {
+            window.associationsCanvas.destroy();
         }
 
         try {
@@ -36,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Step 3: Populate the main info boxes immediately
             populateMainInfoBoxes(zkbStats, entityName, entityType, latestKill, resolvedNames);
 
-            document.getElementById('last10KillsLossesHeader').textContent = `${name}: Last 10 Kills/Losses`;
+            document.getElementById('last10KillsLossesHeader').textContent = `${entityName}: Last 10 Kills/Losses`;
 
         // Get references for Last 10 Kills/Losses section
         const last10KillsLossesBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2)');
         const associationsBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1)');
         const last10KillsLossesContent = document.getElementById('last10KillsLossesContent');
         const toggleButton = document.querySelector('.toggle-kills-losses');
-        const associationsCanvas = document.getElementById('associationsChartCanvas');
+        // associationsCanvas is already defined above
 
         // Always show Last 10 Kills/Losses box and Associations box
         last10KillsLossesBox.style.display = 'flex';
@@ -61,6 +61,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // New function to populate main info boxes (character and combat activity)
     function populateMainInfoBoxes(data, name, type, latestKill, resolvedNames) {
+        console.log('populateMainInfoBoxes - data.info:', data.info);
+        console.log('populateMainInfoBoxes - resolvedNames:', resolvedNames);
+
         // Update headers
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`;
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-header').textContent = `${name}: Combat (Last 10)`;
@@ -74,24 +77,24 @@ document.addEventListener('DOMContentLoaded', function () {
         let charHtml = '';
         if (type === 'character') {
             charHtml += `
-                <p><span class="info-label">Birthday:</span> ${new Date(data.info.birthday).toLocaleDateString()}</p>
-                <p><span class="info-label">Gender:</span> ${data.info.gender}</p>
-                <p><span class="info-label">Race:</span> ${resolvedNames[data.info.race_id] || data.info.race_id}</p>
-                <p><span class="info-label">Corporation:</span> ${resolvedNames[data.info.corporation_id] || data.info.corporation_id}</p>
-                <p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || data.info.alliance_id}</p>
-                <p><span class="info-label">Security Status:</span> ${data.info.security_status.toFixed(2)}</p>
+                ${data.info.birthday ? `<p><span class="info-label">Birthday:</span> ${new Date(data.info.birthday).toLocaleDateString()}</p>` : ''}
+                ${data.info.gender ? `<p><span class="info-label">Gender:</span> ${data.info.gender}</p>` : ''}
+                ${data.info.race_id ? `<p><span class="info-label">Race:</span> ${resolvedNames[data.info.race_id] || data.info.race_id}</p>` : ''}
+                ${data.info.corporation_id ? `<p><span class="info-label">Corporation:</span> ${resolvedNames[data.info.corporation_id] || data.info.corporation_id}</p>` : ''}
+                ${data.info.alliance_id ? `<p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || 'None'}</p>` : ''}
+                ${data.info.security_status !== undefined ? `<p><span class="info-label">Security Status:</span> ${data.info.security_status.toFixed(2)}</p>` : ''}
             `;
         } else if (type === 'corporation') {
             charHtml += `
-                <p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>
-                <p><span class="info-label">Member Count:</span> ${data.info.member_count}</p>
-                <p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>
-                <p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || 'None'}</p>
+                ${data.info.ticker ? `<p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>` : ''}
+                ${data.info.member_count !== undefined ? `<p><span class="info-label">Member Count:</span> ${data.info.member_count}</p>` : ''}
+                ${data.info.date_founded ? `<p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>` : ''}
+                ${data.info.alliance_id ? `<p><span class="info-label">Alliance:</span> ${resolvedNames[data.info.alliance_id] || 'None'}</p>` : ''}
             `;
         } else if (type === 'alliance') {
             charHtml += `
-                <p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>
-                <p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>
+                ${data.info.ticker ? `<p><span class="info-label">Ticker:</span> ${data.info.ticker}</p>` : ''}
+                ${data.info.date_founded ? `<p><span class="info-label">Date Founded:</span> ${new Date(data.info.date_founded).toLocaleDateString()}</p>` : ''}
             `;
         }
 
@@ -157,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const finalBlowAttackerShip = resolvedNames[finalBlowAttacker?.ship_type_id] || 'Unknown Ship';
                 const totalAttackers = latestKill.attackers?.length || 1;
                 const otherPilotsText = totalAttackers > 1 ? ` with ${totalAttackers - 1} other pilot${totalAttackers - 1 > 1 ? 's' : ''}` : '';
+
                 description = `${name} was killed in a ${victimShip} by ${finalBlowAttackerName} in a ${finalBlowAttackerShip}${otherPilotsText}.`;
             } else if (mainEntityRole === 'attacker') {
                 const targetVictimName = resolvedNames[latestKill.victim?.character_id] || resolvedNames[latestKill.victim?.corporation_id] || resolvedNames[latestKill.victim?.alliance_id] || 'Unknown Victim';
@@ -164,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const targetVictimShip = resolvedNames[latestKill.victim?.ship_type_id] || 'Unknown Ship';
                 const totalAttackers = latestKill.attackers?.length || 1;
                 const otherPilotsText = totalAttackers > 1 ? ` with ${totalAttackers - 1} other pilot${totalAttackers - 1 > 1 ? 's' : ''}` : '';
+
                 description = `${name} killed ${targetVictimName} (${targetVictimCorp}) in a ${targetVictimShip}${otherPilotsText}.`;
             } else {
                 // Fallback for cases where the entity is neither victim nor direct attacker (e.g., involved in a larger fleet kill)
@@ -235,6 +240,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // New asynchronous function to load and populate Last 10 Kills/Losses
     async function loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType, last10KillsLossesContent, toggleButton, associationsCanvas) {
+        console.log('loadLast10KillsLosses - entityType:', entityType);
+        console.log('loadLast10KillsLosses - entityId:', entityId);
+
         try {
             if (last10KillsLossesContent) {
                 last10KillsLossesContent.innerHTML = '<p>Please wait - retrieving kill and loss data...</p>';
@@ -242,6 +250,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const last10Response = await fetch(`/combatIntel/config/get_last_10_kills_losses.php?entityId=${entityId}&entityType=${entityType}`);
             const last10Data = await last10Response.json();
+
+            console.log('loadLast10KillsLosses - last10Data:', last10Data);
 
             if (last10Data.error) {
                 console.error('Error fetching last 10 kills/losses:', last10Data.error);
@@ -266,6 +276,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 last10KillsLossesContent.innerHTML = ''; // Clear previous content
                 const listToRender = showingKills ? last10Data.kills : last10Data.losses;
                 const listTitle = showingKills ? 'Last 10 Kills' : 'Last 10 Losses';
+
+                console.log('renderList - listToRender:', listToRender);
+                console.log('renderList - listToRender.length:', listToRender.length);
 
                 const last10KillsLossesHeader = document.getElementById('last10KillsLossesHeader');
                 if (last10KillsLossesHeader) {
@@ -295,6 +308,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // --- Populate Associations Box (Chart) ---
             const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
+            console.log('loadLast10KillsLosses - associationsCanvas:', associationsCanvas);
+
             if (entityType === 'character') {
                 const associatedCharacters = {};
 
@@ -331,7 +346,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 console.log('Associations Labels:', assocLabels);
                 console.log('Associations Data:', assocData);
-                console.log('Associations Canvas Element:', associationsCanvas);
+                console.log('Associations Ids:', assocIds);
+
 
                 if (associationsCanvas) {
                     renderHorizontalBarChart(
@@ -340,7 +356,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         assocData,
                         'Combat Incidence',
                         'rgba(255, 159, 64, 0.6)',
-                        assocIds
+                        assocIds,
+                        entityType // Pass entityType to renderHorizontalBarChart
                     );
                 }
             } else if (associationsCanvas) {
@@ -441,6 +458,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Helper function to render a single killmail's details
     function renderKillmailDetails(killmail, resolvedNames, mainEntityId, mainEntityType, mainEntityName) {
+        console.log('renderKillmailDetails - killmail:', killmail);
+        console.log('renderKillmailDetails - mainEntityType:', mainEntityType);
+        console.log('renderKillmailDetails - mainEntityId:', mainEntityId);
+        console.log('renderKillmailDetails - mainEntityName:', mainEntityName);
+
         if (!killmail) return '';
 
         const killmailTime = killmail.killmail_time ? new Date(killmail.killmail_time).toLocaleString() : 'Unknown Date';
@@ -476,7 +498,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isVictim) {
             // This is a loss
-            const finalBlowAttacker = killmail.attackers?.find(a => a.final_blow) || killmail.attackers?.[0];
+            const finalBlowAttacker = latestKill.attackers?.find(a => a.final_blow) || latestKill.attackers?.[0];
             const finalBlowAttackerName = resolvedNames[finalBlowAttacker?.character_id] || resolvedNames[finalBlowAttacker?.corporation_id] || resolvedNames[finalBlowAttacker?.alliance_id] || 'Unknown Attacker';
             const finalBlowAttackerShip = resolvedNames[finalBlowAttacker?.ship_type_id] || 'Unknown Ship';
             const totalAttackers = killmail.attackers?.length || 1;
@@ -496,6 +518,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Fallback for cases where the entity is neither victim nor direct attacker (e.g., involved in a larger fleet kill)
             description = `${mainEntityName} was involved in a killmail.`;
         }
+        console.log('renderKillmailDetails - description:', description);
 
         return `
             <p>
@@ -581,9 +604,4 @@ document.addEventListener('DOMContentLoaded', function () {
             if (dropdown) dropdown.style.display = 'none';
         });
     });
-}
-);
-
-    
-
-        
+});
