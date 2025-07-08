@@ -39,12 +39,23 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('last10KillsLossesHeader').textContent = `${name}: Last 10 Kills/Losses`;
 
         // Get references for Last 10 Kills/Losses section
+        const last10KillsLossesBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(2)');
+        const associationsBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1)');
+
+        if (entityType !== 'character') {
+            last10KillsLossesBox.style.display = 'none';
+            associationsBox.style.display = 'none';
+        } else {
+            last10KillsLossesBox.style.display = 'flex'; // Assuming default display is flex
+            associationsBox.style.display = 'flex'; // Assuming default display is flex
+        }
+
         const last10KillsLossesContent = document.getElementById('last10KillsLossesContent');
         const toggleButton = document.querySelector('.toggle-kills-losses');
 
         // Asynchronously load and populate other sections
             loadLast10KillsLosses(entityId, resolvedNames, entityName, entityType, last10KillsLossesContent, toggleButton, document.getElementById('associationsChartCanvas'));
-            loadTopStatsCharts(zkbStats, resolvedNames);
+            loadTopStatsCharts(zkbStats, resolvedNames, entityType);
 
         } catch (error) {
             console.error('Error fetching intel:', error);
@@ -325,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error loading last 10 kills/losses:', error);
         }
     }
-    function loadTopStatsCharts(data, resolvedNames) {
+    function loadTopStatsCharts(data, resolvedNames, entityType) {
         // --- Populate Top Stats Box (Charts) ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
         const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 5);
@@ -339,8 +350,31 @@ document.addEventListener('DOMContentLoaded', function () {
         const topShipsCanvas = document.getElementById('topShipsChart');
         const topSystemsCanvas = document.getElementById('topSystemsChart');
 
+        // Get parent info-box elements to control visibility
+        const topCorpsBox = topCorpsCanvas ? topCorpsCanvas.closest('.info-box-content').previousElementSibling : null;
+        const topAlliancesBox = topAlliancesCanvas ? topAlliancesCanvas.closest('.info-box-content').previousElementSibling : null;
+
+        // Hide/show charts based on entityType
+        if (entityType === 'corporation') {
+            if (topCorpsBox) topCorpsBox.style.display = 'none';
+            if (topCorpsCanvas) topCorpsCanvas.style.display = 'none';
+        } else {
+            if (topCorpsBox) topCorpsBox.style.display = 'block';
+            if (topCorpsCanvas) topCorpsCanvas.style.display = 'block';
+        }
+
+        if (entityType === 'alliance') {
+            if (topCorpsBox) topCorpsBox.style.display = 'none';
+            if (topCorpsCanvas) topCorpsCanvas.style.display = 'none';
+            if (topAlliancesBox) topAlliancesBox.style.display = 'none';
+            if (topAlliancesCanvas) topAlliancesCanvas.style.display = 'none';
+        } else {
+            if (topAlliancesBox) topAlliancesBox.style.display = 'block';
+            if (topAlliancesCanvas) topAlliancesCanvas.style.display = 'block';
+        }
+
         // Render Top Corporations Chart
-        if (topCorpsCanvas) {
+        if (topCorpsCanvas && entityType !== 'corporation' && entityType !== 'alliance') {
             renderHorizontalBarChart(
                 topCorpsCanvas,
                 topCorps.map(c => resolvedNames[c.corporationID] || c.corporationID),
@@ -351,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Render Top Alliances Chart
-        if (topAlliancesCanvas) {
+        if (topAlliancesCanvas && entityType !== 'alliance') {
             renderHorizontalBarChart(
                 topAlliancesCanvas,
                 topAlliances.map(a => resolvedNames[a.allianceID] || a.allianceID),

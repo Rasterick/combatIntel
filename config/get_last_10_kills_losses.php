@@ -17,7 +17,8 @@ function fetchFullKillmail($killmailId, $killmailHash) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'accept: application/json',
-        'Cache-Control: no-cache'
+        'Cache-Control: no-cache',
+        'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
     ]);
     $fullKillmailData = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -52,7 +53,8 @@ function resolveIds($idsToResolve, &$resolvedNames) {
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'accept: application/json',
             'Content-Type: application/json',
-            'Cache-Control: no-cache'
+            'Cache-Control: no-cache',
+            'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
         ]);
 
         $namesResponse = curl_exec($ch);
@@ -78,7 +80,8 @@ $ch = curl_init($zkbKillsApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'accept: application/json',
-    'Cache-Control: no-cache'
+    'Cache-Control: no-cache',
+    'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
 ]);
 $zkbKillsData = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -98,7 +101,8 @@ $ch = curl_init($zkbLossesApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'accept: application/json',
-    'Cache-Control: no-cache'
+    'Cache-Control: no-cache',
+    'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
 ]);
 $zkbLossesData = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);

@@ -20,7 +20,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'accept: application/json',
     'Accept-Language: en',
     'Content-Type: application/json',
-    'Cache-Control: no-cache'
+    'Cache-Control: no-cache',
+    'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
 ]);
 
 $esiResponse = curl_exec($ch);
@@ -73,7 +74,8 @@ $ch = curl_init($latestKillApiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'accept: application/json',
-    'Cache-Control: no-cache'
+    'Cache-Control: no-cache',
+    'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
 ]);
 $latestKillData = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -99,7 +101,8 @@ if (is_array($latestKillSummaries) && !empty($latestKillSummaries)) {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
                 'accept: application/json',
-                'Cache-Control: no-cache'
+                'Cache-Control: no-cache',
+                'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
             ]);
             $fullKillmailData = curl_exec($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -199,7 +202,8 @@ if (!empty($idsToResolve)) {
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'accept: application/json',
             'Content-Type: application/json',
-            'Cache-Control: no-cache'
+            'Cache-Control: no-cache',
+            'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
         ]);
 
         $namesResponse = curl_exec($ch);
