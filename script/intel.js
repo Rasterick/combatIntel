@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Convert to array and sort by incidence
             const sortedAssociations = Object.entries(associatedCharacters)
                 .sort(([, countA], [, countB]) => countB - countA)
-                .slice(0, 10); // Get top 10
+                .slice(0, 20); // Get top 20
 
             console.log('Sorted Associations:', sortedAssociations);
 
@@ -440,8 +440,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         display: false
                     }
                 },
-                barPercentage: 0.6,
-                categoryPercentage: 0.6
+                barPercentage: 0.8,
+                categoryPercentage: 0.8
             }
         });
     }
