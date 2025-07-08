@@ -2,14 +2,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const getIntelButton = document.querySelector('.intel-button');
     const intelInput = document.querySelector('.intel-input');
 
-    getIntelButton.addEventListener('click', async () => {
+    """    getIntelButton.addEventListener('click', async () => {
         const entityName = intelInput.value.trim();
         if (!entityName) {
             alert('Please enter a name.');
             return;
         }
 
-        try {
+        // Clear the associations chart before fetching new data
+        const associationsCanvas = document.getElementById('associationsChartCanvas');
+        if (window.associationsChartCanvas instanceof Chart) {
+            window.associationsChartCanvas.destroy();
+        }
+
+        try {""
             // Step 1: Fetch stats from the PHP backend
             const zkbResponse = await fetch(`/combatIntel/config/get_zkb_stats.php?name=${encodeURIComponent(entityName)}`);
             const responseData = await zkbResponse.json();
@@ -72,7 +78,24 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><span class="info-label">ISK Lost:</span> ${data.iskLost.toLocaleString()}</p>
             <p><span class="info-label">Solo Kills:</span> ${data.soloKills}</p>
             <hr>
-            <p><span class="info-label">Danger Ratio:</span> ${data.dangerRatio}%</p>
+            // Danger Ratio Logic
+            const dangerRatio = data.dangerRatio;
+            let dangerText = '';
+            let dangerColorClass = '';
+            if (dangerRatio < 50) {
+                dangerText = 'Snuggly';
+                dangerColorClass = 'text-green';
+            } else if (dangerRatio >= 50 && dangerRatio < 75) {
+                dangerText = 'Moderate';
+                dangerColorClass = 'text-orange';
+            } else {
+                dangerText = 'Dangerous';
+                dangerColorClass = 'text-red';
+            }
+
+            charHtml += `<p><span class="info-label">Danger Ratio:</span> <span class="${dangerColorClass}">${dangerRatio}% (${dangerText})</span></p>`
+
+            charHtml += `
             <p><span class="info-label">Gang Ratio:</span> ${data.gangRatio}%</p>
             <p><span class="info-label">Solo Ratio:</span> ${data.soloRatio}%</p>
             <p><span class="info-label">Average Gang Size:</span> ${data.avgGangSize}</p>

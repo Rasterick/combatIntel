@@ -171,3 +171,15 @@ body {
     color: #888; /* Lighter color for ZKB links */
     font-size: 0.9em; /* Slightly smaller font size for ZKB links */
 }
+
+.text-green {
+    color: #28a745; /* Green */
+}
+
+.text-orange {
+    color: #fd7e14; /* Orange */
+}
+
+.text-red {
+    color: #dc3545; /* Red */
+}
