@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // --- Populate Associations Box (Empty) ---
         const assocBox = document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-content');
-        assocBox.innerHTML = '';
 
         // --- Populate Combat Box (Chart) ---
         const combatBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-content');
