@@ -11,28 +11,53 @@ if (empty($entityId) || !is_numeric($entityId) || empty($entityType)) {
 
 $resolvedNames = [];
 
-// Helper function to fetch full killmail details from ESI
-function fetchFullKillmail($killmailId, $killmailHash) {
-    $fullKillmailApiUrl = "https://esi.evetech.net/latest/killmails/{$killmailId}/{$killmailHash}/?datasource=tranquility";
-    error_log("Fetching full killmail from ESI: " . $fullKillmailApiUrl);
-    $ch = curl_init($fullKillmailApiUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'accept: application/json',
-        'Cache-Control: no-cache',
-        'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
-    ]);
-    $fullKillmailData = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-
-    if ($fullKillmailData !== FALSE && $httpCode === 200) {
-        error_log("Full killmail ESI response: " . $fullKillmailData);
-        return json_decode($fullKillmailData, true);
+// --- Start of cURL Multi-Execution for ESI Killmails ---
+function executeCurlMulti($summaries) {
+    if (empty($summaries)) {
+        return [];
     }
-    error_log("Failed to fetch full killmail from ESI. HTTP Code: " . $httpCode . ", Response: " . $fullKillmailData);
-    return null;
+
+    $mh = curl_multi_init();
+    $handles = [];
+    $results = [];
+
+    foreach ($summaries as $index => $summary) {
+        $killmailId = $summary['killmail_id'] ?? null;
+        $killmailHash = $summary['zkb']['hash'] ?? null;
+
+        if ($killmailId && $killmailHash) {
+            $url = "https://esi.evetech.net/latest/killmails/{$killmailId}/{$killmailHash}/?datasource=tranquility";
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'accept: application/json',
+                'Cache-Control: no-cache',
+                'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
+            ]);
+            curl_multi_add_handle($mh, $ch);
+            $handles[$index] = $ch;
+        }
+    }
+
+    $running = null;
+    do {
+        curl_multi_exec($mh, $running);
+        curl_multi_select($mh);
+    } while ($running > 0);
+
+    foreach ($handles as $index => $ch) {
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $response = curl_multi_getcontent($ch);
+        if ($httpCode === 200 && $response) {
+            $results[] = json_decode($response, true);
+        }
+        curl_multi_remove_handle($mh, $ch);
+    }
+
+    curl_multi_close($mh);
+    return $results;
 }
+// --- End of cURL Multi-Execution ---
 
 // Helper function to resolve IDs to names
 function resolveIds($idsToResolve, &$resolvedNames) {
@@ -79,80 +104,48 @@ function resolveIds($idsToResolve, &$resolvedNames) {
 
 // Step 1: Fetch recent killmail summaries for KILLS from zKillboard
 $zkbKillsApiUrl = "https://zkillboard.com/api/{$entityType}/{$entityId}/kills/";
-error_log("Fetching kills from zKillboard: " . $zkbKillsApiUrl);
-$ch = curl_init($zkbKillsApiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
+$chKills = curl_init($zkbKillsApiUrl);
+curl_setopt($chKills, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chKills, CURLOPT_HTTPHEADER, [
     'accept: application/json',
     'Cache-Control: no-cache',
     'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
 ]);
-$zkbKillsData = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
-
-if ($zkbKillsData === FALSE || $httpCode !== 200) {
-    error_log("Failed to fetch kill summaries from zKillboard for {$entityType} {$entityId} (kills). HTTP Code: " . $httpCode . ", Response: " . $zkbKillsData);
-    $zkbKillsData = '[]'; // Return empty array to prevent JSON parsing errors
-}
-error_log("Raw kills summary response: " . $zkbKillsData);
-$killsSummaries = json_decode($zkbKillsData, true);
-error_log("Decoded kills summaries: " . print_r($killsSummaries, true));
 
 // Step 2: Fetch recent killmail summaries for LOSSES from zKillboard
 $zkbLossesApiUrl = "https://zkillboard.com/api/{$entityType}/{$entityId}/losses/";
-error_log("Fetching losses from zKillboard: " . $zkbLossesApiUrl);
-$ch = curl_init($zkbLossesApiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
+$chLosses = curl_init($zkbLossesApiUrl);
+curl_setopt($chLosses, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chLosses, CURLOPT_HTTPHEADER, [
     'accept: application/json',
     'Cache-Control: no-cache',
     'User-Agent: combatIntel (abonriff@gmail.com, https://gpi-services.co.uk/combatIntel/combatintel.html)'
 ]);
-$zkbLossesData = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
 
-if ($zkbLossesData === FALSE || $httpCode !== 200) {
-    error_log("Failed to fetch kill summaries from zKillboard for {$entityType} {$entityId} (losses). HTTP Code: " . $httpCode . ", Response: " . $zkbLossesData);
-    $zkbLossesData = '[]'; // Return empty array to prevent JSON parsing errors
-}
-error_log("Raw losses summary response: " . $zkbLossesData);
-$lossesSummaries = json_decode($zkbLossesData, true);
-error_log("Decoded losses summaries: " . print_r($lossesSummaries, true));
+// Create a multi-curl handle for zKillboard requests
+$mhZkb = curl_multi_init();
+curl_multi_add_handle($mhZkb, $chKills);
+curl_multi_add_handle($mhZkb, $chLosses);
 
-$kills = [];
-$losses = [];
+// Execute the handles
+$runningZkb = null;
+do {
+    curl_multi_exec($mhZkb, $runningZkb);
+} while ($runningZkb > 0);
 
-// Process Kills Summaries
-if (is_array($killsSummaries)) {
-    foreach ($killsSummaries as $summary) {
-        $killmailId = $summary['killmail_id'] ?? null;
-        $killmailHash = $summary['zkb']['hash'] ?? null;
+// Get content and close handles
+$zkbKillsData = curl_multi_getcontent($chKills);
+$zkbLossesData = curl_multi_getcontent($chLosses);
+curl_multi_remove_handle($mhZkb, $chKills);
+curl_multi_remove_handle($mhZkb, $chLosses);
+curl_multi_close($mhZkb);
 
-        if ($killmailId && $killmailHash) {
-            $fullKillmail = fetchFullKillmail($killmailId, $killmailHash);
-            if ($fullKillmail) {
-                $kills[] = $fullKillmail;
-            }
-        }
-    }
-}
+$killsSummaries = json_decode($zkbKillsData, true) ?: [];
+$lossesSummaries = json_decode($zkbLossesData, true) ?: [];
 
-// Process Losses Summaries
-if (is_array($lossesSummaries)) {
-    foreach ($lossesSummaries as $summary) {
-        $killmailId = $summary['killmail_id'] ?? null;
-        $killmailHash = $summary['zkb']['hash'] ?? null;
-
-        if ($killmailId && $killmailHash) {
-            $fullKillmail = fetchFullKillmail($killmailId, $killmailHash);
-            if ($fullKillmail) {
-                $losses[] = $fullKillmail;
-            }
-        }
-    }
-}
+// Step 3: Fetch full killmails in parallel
+$kills = executeCurlMulti($killsSummaries);
+$losses = executeCurlMulti($lossesSummaries);
 
 // Sort by time and get the latest 10 of each
 usort($kills, function($a, $b) { return strtotime($b['killmail_time']) - strtotime($a['killmail_time']); });
