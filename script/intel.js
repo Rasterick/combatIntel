@@ -383,10 +383,10 @@ console.log('type', type);
     function loadTopStatsCharts(data, resolvedNames, entityType) {
         // --- Populate Top Stats Box (Charts) ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
-        const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 5);
-        const topAlliances = data.topAllTime.find(t => t.type === 'alliance').data.slice(0, 5);
-        const topShips = data.topAllTime.find(t => t.type === 'ship').data.slice(0, 5);
-        const topSystems = data.topAllTime.find(t => t.type === 'system').data.slice(0, 5);
+        const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 10);
+        const topAlliances = data.topAllTime.find(t => t.type === 'alliance').data.slice(0, 10);
+        const topShips = data.topAllTime.find(t => t.type === 'ship').data.slice(0, 10);
+        const topSystems = data.topAllTime.find(t => t.type === 'system').data.slice(0, 10);
 
         // Get canvas elements
         const topCorpsCanvas = document.getElementById('topCorpsChart');
@@ -594,8 +594,8 @@ console.log('type', type);
                         display: false
                     }
                 },
-                barPercentage: 0.8,
-                categoryPercentage: 0.8
+                barPercentage: 0.5,
+                categoryPercentage: 0.5
             }
         });
     }
