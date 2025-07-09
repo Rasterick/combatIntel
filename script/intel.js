@@ -507,7 +507,7 @@ console.log('type', type);
 
         if (isVictim) {
             // This is a loss
-            const finalBlowAttacker = latestKill.attackers?.find(a => a.final_blow) || latestKill.attackers?.[0];
+            const finalBlowAttacker = killmail.attackers?.find(a => a.final_blow) || killmail.attackers?.[0];
             const finalBlowAttackerName = resolvedNames[finalBlowAttacker?.character_id] || resolvedNames[finalBlowAttacker?.corporation_id] || resolvedNames[finalBlowAttacker?.alliance_id] || 'Unknown Attacker';
             const finalBlowAttackerShip = resolvedNames[finalBlowAttacker?.ship_type_id] || 'Unknown Ship';
             const totalAttackers = killmail.attackers?.length || 1;
@@ -531,9 +531,7 @@ console.log('type', type);
 
         return `
             <p>
-                <span class="info-label">(${new Date(killmail.killmail_time).toLocaleDateString()}             │
- │        ${new Date(killmail.killmail_time).toLocaleTimeString()} in ${location}) -                             │
- │        ${description}</span> 
+                <span class="info-label">(${new Date(killmail.killmail_time).toLocaleString()} in ${location}) - ${description}</span>
                 ${zkbLink}
             </p>
         `;
