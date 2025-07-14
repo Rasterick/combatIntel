@@ -580,11 +580,11 @@ console.log('type', type);
                     const id = ids[dataX];
                     // Determine the correct zKillboard URL based on entityType
                     let zkbUrl = `https://zkillboard.com/`;
-                    if (mainEntityType === 'character') {
+                    if (mainEntityType === 'characterID') {
                         zkbUrl += `character/${id}/`;
-                    } else if (mainEntityType === 'corporation') {
+                    } else if (mainEntityType === 'corporationID') {
                         zkbUrl += `corporation/${id}/`;
-                    } else if (mainEntityType === 'alliance') {
+                    } else if (mainEntityType === 'allianceID') {
                         zkbUrl += `alliance/${id}/`;
                     }
                     window.open(zkbUrl, '_blank');
