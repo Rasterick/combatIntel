@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Clear the associations chart before fetching new data
         const associationsCanvas = document.getElementById('associationsChartCanvas');
-        if (window.associationsCanvas instanceof Chart) {
-            window.associationsCanvas.destroy();
+        if (window.associationsChartCanvas instanceof Chart) {
+            window.associationsChartCanvas.destroy();
         }
 
         try {
@@ -102,16 +102,16 @@ console.log('type', type);
 
         charHtml += `
             <hr>
-            <p><span class="info-label">Total Kills:</span> ${data.allTimeSum}</p>
-            <p><span class="info-label">Total Losses:</span> ${data.shipsLost}</p>
-            <p><span class="info-label">ISK Destroyed:</span> ${data.iskDestroyed.toLocaleString()}</p>
-            <p><span class="info-label">ISK Lost:</span> ${data.iskLost.toLocaleString()}</p>
-            <p><span class="info-label">Solo Kills:</span> ${data.soloKills}</p>
+            <p><span class="info-label">Total Kills:</span> ${data.allTimeSum ?? 0}</p>
+            <p><span class="info-label">Total Losses:</span> ${data.shipsLost ?? 0}</p>
+            <p><span class="info-label">ISK Destroyed:</span> ${(data.iskDestroyed ?? 0).toLocaleString()}</p>
+            <p><span class="info-label">ISK Lost:</span> ${(data.iskLost ?? 0).toLocaleString()}</p>
+            <p><span class="info-label">Solo Kills:</span> ${data.soloKills ?? 0}</p>
             <hr>
         `;
 
         // Danger Ratio Logic
-        const dangerRatio = data.dangerRatio;
+        const dangerRatio = data.dangerRatio ?? 0;
         let dangerText = '';
         let dangerColorClass = '';
         if (dangerRatio < 50) {
@@ -128,9 +128,9 @@ console.log('type', type);
         charHtml += `<p><span class="info-label">Danger Ratio:</span> <span class="${dangerColorClass}">${dangerRatio}% (${dangerText})</span></p>`
 
         charHtml += `
-            <p><span class="info-label">Gang Ratio:</span> ${data.gangRatio}%</p>
-            <p><span class="info-label">Solo Ratio:</span> ${data.soloRatio}%</p>
-            <p><span class="info-label">Average Gang Size:</span> ${data.avgGangSize}</p>
+            <p><span class="info-label">Gang Ratio:</span> ${data.gangRatio ?? 0}%</p>
+            <p><span class="info-label">Solo Ratio:</span> ${data.soloRatio ?? 0}%</p>
+            <p><span class="info-label">Average Gang Size:</span> ${data.avgGangSize ?? 0}</p>
         `;
 
         // Construct and add the Last Kill HTML
@@ -383,10 +383,10 @@ console.log('type', type);
     function loadTopStatsCharts(data, resolvedNames, entityType) {
         // --- Populate Top Stats Box (Charts) ---
         const zkbBox = document.querySelector('.info-column:nth-child(3) .info-box .info-box-content');
-        const topCorps = data.topAllTime.find(t => t.type === 'corporation').data.slice(0, 10);
-        const topAlliances = data.topAllTime.find(t => t.type === 'alliance').data.slice(0, 10);
-        const topShips = data.topAllTime.find(t => t.type === 'ship').data.slice(0, 10);
-        const topSystems = data.topAllTime.find(t => t.type === 'system').data.slice(0, 10);
+        const topCorps = (data.topAllTime?.find(t => t.type === 'corporation')?.data || []).slice(0, 10);
+        const topAlliances = (data.topAllTime?.find(t => t.type === 'alliance')?.data || []).slice(0, 10);
+        const topShips = (data.topAllTime?.find(t => t.type === 'ship')?.data || []).slice(0, 10);
+        const topSystems = (data.topAllTime?.find(t => t.type === 'system')?.data || []).slice(0, 10);
 
         // Get canvas elements
         const topCorpsCanvas = document.getElementById('topCorpsChart');
