@@ -16,11 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
         if (entityName) {
             const url = new URL(window.location.href);
             url.searchParams.set('name', entityName);
-            navigator.clipboard.writeText(url.href).then(() => {
-                alert('URL copied to clipboard!');
-            }, () => {
-                alert('Failed to copy URL.');
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url.href).then(() => {
+                    alert('URL copied to clipboard!');
+                }, () => {
+                    alert('Failed to copy URL.');
+                });
+            } else {
+                window.prompt("Copy this URL:", url.href);
+            }
         } else {
             alert('Please enter a name first.');
         }
