@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/starfield02.jpg');
+            background-size: cover;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-title {
+            font-size: 24px;
+            color: #00aaff;
+            margin-right: 20px;
+        }
+        
+        .top-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .top-nav .menu-item {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .top-nav .menu-item a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .top-nav .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .top-nav .menu-item:hover .dropdown {
+            display: block;
+        }
+
+        .top-nav .dropdown li a {
+            padding: 10px 20px;
+            color: #ccc;
+        }
+
+        .top-nav .dropdown li a:hover {
+            color: #00aaff;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 1px solid #333;
+            padding: 20px;
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 5px;
+        }
+
+        h1, h2 {
+            color: #00aaff;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: #00aaff;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">Horizon Intel Tool</div>
+        <nav class="top-nav">
+            <ul>
+                <li class="menu-item">
+                    <a href="combatintel.html">Home</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">Information</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li class="menu-item">
+                    <a href="help.html">Help</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <h1>About the Horizon Intel Tool</h1>
+            
+            <div class="section">
+                <h2>What is this tool?</h2>
+                <p>The Horizon Intel Tool is designed to give you a quick overview of a character, corporation, or alliance in the game EVE Online. It pulls publicly available data and presents it in an easy-to-understand format, helping you assess potential threats or allies.</p>
+            </div>
+
+            <div class="section">
+                <h2>How to Use It</h2>
+                <p>Simply enter the name of the character, corporation, or alliance you want to look up in the search bar and click "Get Intel". The tool will then fetch the data and display it in the various sections.</p>
+            </div>
+
+            <div class="section">
+                <h2>Data Sections Explained</h2>
+                
+                <h3>Character/Corporation/Alliance Info</h3>
+                <p>This box shows basic information like the entity's name, birthday/founding date, and other relevant details. It also provides a summary of their combat history, including total kills and losses, and calculates a "Danger Ratio" to give you a rough idea of how aggressive they are.</p>
+                <p><strong>Data Source:</strong> This information is pulled from <a href="https://zkillboard.com/" target="_blank">zKillboard</a>, a popular website that records player-versus-player (PvP) kills in EVE Online.</p>
+
+                <h3>Combat (Last 10)</h3>
+                <p>This chart shows the number of ships destroyed versus ships lost over the last 10 months, giving you a visual representation of their recent combat activity.</p>
+                <p><strong>Data Source:</strong> zKillboard.</p>
+
+                <h3>Associations</h3>
+                <p>For characters, this section shows other pilots they frequently fly with. This can be useful for identifying their friends or common fleet members.</p>
+                <p><strong>Data Source:</strong> This is calculated by analyzing the last 10 kill and loss mails from zKillboard.</p>
+
+                <h3>Last 10 Kills/Losses</h3>
+                <p>This section provides a list of the last 10 kills and losses for the entity. You can toggle between kills and losses using the button.</p>
+                <p><strong>Data Source:</strong> zKillboard.</p>
+
+                <h3>Top Stats</h3>
+                <p>These charts show the top ships flown, systems they operate in, and the corporations and alliances they are most active with. This can give you an idea of their preferred tactics and areas of operation.</p>
+                <p><strong>Data Source:</strong> zKillboard.</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

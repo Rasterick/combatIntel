@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/starfield01.jpg');
+            background-size: cover;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-title {
+            font-size: 24px;
+            color: #00aaff;
+            margin-right: 20px;
+        }
+        
+        .top-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .top-nav .menu-item {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .top-nav .menu-item a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .top-nav .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .top-nav .menu-item:hover .dropdown {
+            display: block;
+        }
+
+        .top-nav .dropdown li a {
+            padding: 10px 20px;
+            color: #ccc;
+        }
+
+        .top-nav .dropdown li a:hover {
+            color: #00aaff;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #00aaff;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #00aaff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #333;
+            background-color: #2a2a2a;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #00aaff;
+            background-color: #0077cc;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0055aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">Horizon Intel Tool</div>
+        <nav class="top-nav">
+            <ul>
+                <li class="menu-item">
+                    <a href="combatintel.html">Home</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">Information</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">Help</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>If you have any questions, please feel free to reach out to us at <a href="mailto:abonriff@gmail.com">abonriff@gmail.com</a>.</p>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
