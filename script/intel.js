@@ -1,6 +1,30 @@
 document.addEventListener('DOMContentLoaded', function () {
     const getIntelButton = document.querySelector('.intel-button');
     const intelInput = document.querySelector('.intel-input');
+    const copyUrlButton = document.getElementById('copy-url-button');
+
+    // Check for URL parameters on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const entityNameFromUrl = urlParams.get('name');
+    if (entityNameFromUrl) {
+        intelInput.value = entityNameFromUrl;
+        getIntelButton.click();
+    }
+
+    copyUrlButton.addEventListener('click', () => {
+        const entityName = intelInput.value.trim();
+        if (entityName) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('name', entityName);
+            navigator.clipboard.writeText(url.href).then(() => {
+                alert('URL copied to clipboard!');
+            }, () => {
+                alert('Failed to copy URL.');
+            });
+        } else {
+            alert('Please enter a name first.');
+        }
+    });
 
     getIntelButton.addEventListener('click', async () => {
         const entityName = intelInput.value.trim();
