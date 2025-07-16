@@ -65,7 +65,33 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('populateMainInfoBoxes - resolvedNames:', resolvedNames);
 
         // Update headers
-        document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`+ '*****';
+        const entityId = data.info.id;
+        let zkillboardURL = 'https://zkillboard.com/';
+        let evewhoURL = 'https://evewho.com/';
+        
+        let simpleType = '';
+        if (type === "characterID") {
+            simpleType = 'character';
+        } else if (type === "corporationID") {
+            simpleType = 'corporation';
+        } else if (type === "allianceID") {
+            simpleType = 'alliance';
+        }
+
+        if (simpleType) {
+            zkillboardURL += `${simpleType}/${entityId}/`;
+            evewhoURL += `${simpleType}/${entityId}`;
+        }
+
+        // Update headers
+        const headerElement = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header');
+        headerElement.innerHTML = `
+            <div class="header-text">${type.charAt(0).toUpperCase() + type.slice(1).replace('ID', '')}: ${name}</div>
+            <div class="entity-links">
+                <a href="${zkillboardURL}" target="_blank">(zKillboard)</a>
+                <a href="${evewhoURL}" target="_blank">(EVE Who)</a>
+            </div>
+        `;
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-header').textContent = `${name}: Combat (Last 10)`;
         document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-header').textContent = `${name}: Associations`;
         document.getElementById('last10KillsLossesHeader').textContent = `${name}: Last 10 Kills/Losses`;
