@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('populateMainInfoBoxes - resolvedNames:', resolvedNames);
 
         // Update headers
-        document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`;
+        document.querySelector('.info-column:nth-child(1) .info-box:nth-child(1) .info-box-header').textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${name}`+ '*****';
         document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-header').textContent = `${name}: Combat (Last 10)`;
         document.querySelector('.info-column:nth-child(2) .info-box:nth-child(1) .info-box-header').textContent = `${name}: Associations`;
         document.getElementById('last10KillsLossesHeader').textContent = `${name}: Last 10 Kills/Losses`;
