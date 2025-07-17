@@ -249,7 +249,7 @@ console.log('type', type);
 
         // --- Populate Combat Box (Chart) ---
         const combatBox = document.querySelector('.info-column:nth-child(1) .info-box:nth-child(2) .info-box-content');
-        const recentMonths = Object.values(data.months).slice(-10);
+        const recentMonths = data.months ? Object.values(data.months).slice(-10) : [];
 
         // Prepare data for Chart.js
         const labels = recentMonths.map(m => `${m.year}-${m.month}`);
