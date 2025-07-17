@@ -191,7 +191,7 @@ console.log('type', type);
         }
 
         const pilotName = name; // 'name' is already available in this scope
-        const message = `Pilot Name appears to be quite ${dangerText}, and has ${totalKills} kills and ${totalLosses} losses.${seederStatus}`;
+        const message = `${name} appears to be quite ${dangerText}, and has ${totalKills} kills and ${totalLosses} losses.${seederStatus}`;
         alert(message);
 
         charHtml += `
