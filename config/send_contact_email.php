@@ -4,6 +4,40 @@ use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+// Function to parse .env file
+function parseEnv($filePath) {
+    if (!file_exists($filePath)) {
+        throw new Exception(".env file not found");
+    }
+
+    $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
+
+        list($name, $value) = explode('=', $line, 2);
+        $name = trim($name);
+        $value = trim($value);
+
+        if (!array_key_exists($name, $_SERVER) && !array_key_exists($name, $_ENV)) {
+            putenv(sprintf('%s=%s', $name, $value));
+            $_ENV[$name] = $value;
+            $_SERVER[$name] = $value;
+        }
+    }
+}
+
+try {
+    parseEnv(__DIR__ . '/../.env');
+} catch (Exception $e) {
+    http_response_code(500);
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'error', 'message' => 'Could not load environment variables.']);
+    exit;
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and validate input
     $name = htmlspecialchars(trim($_POST["name"]));
@@ -21,16 +55,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         //Server settings
         $mail->isSMTP();
-        $mail->Host       = '127.0.0.1';  // Set the SMTP server to send through
-        $mail->SMTPAuth   = false;
-        $mail->Username   = 'your_email@example.com'; // SMTP username
-        $mail->Password   = 'your_password';        // SMTP password
-        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // MailHog does not use encryption
-        $mail->Port       = 1025;
+        $mail->Host       = getenv('MAIL_HOST');  // Set the SMTP server to send through
+        $mail->SMTPAuth   = true;
+        $mail->Username   = getenv('MAIL_USERNAME'); // SMTP username
+        $mail->Password   = getenv('MAIL_PASSWORD');        // SMTP password
+        $mail->SMTPSecure = getenv('MAIL_ENCRYPTION'); // MailHog does not use encryption
+        $mail->Port       = getenv('MAIL_PORT');
 
         //Recipients
-        $mail->setFrom('from@example.com', 'Mailer');
-        $mail->addAddress('your_email@example.com', 'Your Name');     // Add a recipient
+        $mail->setFrom('petem1959@gmail.com', 'Mailer');
+        $mail->addAddress('abonriff@gmail.com', 'Abon Riff');     // Add a recipient
 
         // Content
         $mail->isHTML(true);
