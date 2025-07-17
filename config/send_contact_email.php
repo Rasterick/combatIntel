@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = getenv('MAIL_PORT');
 
         //Recipients
-        $mail->setFrom('petem1959@gmail.com', 'Mailer');
+        $mail->setFrom('peteabonriff@gmail.com', 'Mailer');
         $mail->addAddress('abonriff@gmail.com', 'Abon Riff');     // Add a recipient
 
         // Content
