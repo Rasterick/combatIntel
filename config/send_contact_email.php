@@ -6,9 +6,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and validate input
-    $name = filter_var(trim($_POST["name"]), FILTER_SANITIZE_STRING);
+    $name = htmlspecialchars(trim($_POST["name"]));
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $message = filter_var(trim($_POST["message"]), FILTER_SANITIZE_STRING);
+    $message = htmlspecialchars(trim($_POST["message"]));
 
     if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
         http_response_code(400);
@@ -21,12 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         //Server settings
         $mail->isSMTP();
-        $mail->Host       = 'smtp.example.com';  // Set the SMTP server to send through
-        $mail->SMTPAuth   = true;
+        $mail->Host       = '127.0.0.1';  // Set the SMTP server to send through
+        $mail->SMTPAuth   = false;
         $mail->Username   = 'your_email@example.com'; // SMTP username
         $mail->Password   = 'your_password';        // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // MailHog does not use encryption
+        $mail->Port       = 1025;
 
         //Recipients
         $mail->setFrom('from@example.com', 'Mailer');
