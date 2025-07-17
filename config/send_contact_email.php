@@ -47,13 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          "Message:\n{$message}";
 
         $mail->send();
-        echo 'Message has been sent';
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'success', 'message' => 'Message has been sent successfully!']);
     } catch (Exception $e) {
         http_response_code(500);
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'error', 'message' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
     }
 } else {
     http_response_code(403);
-    echo "There was a problem with your submission, please try again.";
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'error', 'message' => 'There was a problem with your submission, please try again.']);
 }
 ?>
