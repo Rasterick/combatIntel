@@ -181,6 +181,19 @@ console.log('type', type);
 
         charHtml += `<p><span class="info-label">Danger Ratio:</span> <span class="${dangerColorClass}">${dangerRatio}% (${dangerText})</span></p>`
 
+        // Logic for "Potential Seeder"
+        const totalKills = data.allTimeSum ?? 0;
+        const totalLosses = data.shipsLost ?? 0;
+        let seederStatus = "";
+
+        if (totalKills < 5 && totalLosses < 10) {
+            seederStatus = " and is a potential seeder or very new character.";
+        }
+
+        const pilotName = name; // 'name' is already available in this scope
+        const message = `Pilot Name appears to be quite ${dangerText}, and has ${totalKills} kills and ${totalLosses} losses.${seederStatus}`;
+        alert(message);
+
         charHtml += `
             <p><span class="info-label">Gang Ratio:</span> ${data.gangRatio ?? 0}%</p>
             <p><span class="info-label">Solo Ratio:</span> ${data.soloRatio ?? 0}%</p>
